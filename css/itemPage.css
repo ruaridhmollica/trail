@@ -1,0 +1,107 @@
+.navbar {
+    background-color: grey;
+    width: 100%;
+    position : center;
+    font-size:5em;
+    color: white;
+    font-family: Verdana;
+    height: 1.65em;
+	  position: -webkit-sticky;
+	  position: sticky;
+	  top: 0;
+    opacity: 0.8;
+    border-style: solid;
+    border-color: black;
+}
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    background-color: grey
+    color: white;
+    width: 100%;
+    height: 12em;
+    z-index: 0;
+    padding: 0;
+    font-family: Verdana;
+    text-align: center;
+    overflow:auto;
+}
+
+
+
+.new{
+font-family: Verdana;
+color: white;
+font-size: 3em;
+}
+
+.logo{
+float: left;
+height: 2.1em;
+width: 4em;
+padding: 0px;
+}
+
+.basket{
+float: right;
+height: 1.5em;
+padding: 0.1em;
+padding-top: 0.3em;
+width: 1em;
+height: 1em;
+}
+
+
+body{
+background-color: white;
+text-align: center;
+font-family: Verdana;
+color: white;
+}
+
+
+.img{
+width: 80%;
+height: 80%;
+align-content: center;
+align-items: center;
+border-style: solid;
+border-color: black;
+}
+
+.imgT{
+align-content: center;
+align-items: center;
+padding: 5em;
+padding-left: 20em;
+width: 60%;
+}
+
+
+.logo:hover{
+opacity: 0.5;
+}
+
+.basket:hover{
+opacity: 0.5;
+}
+
+
+
+    opacity: 0.5;
+}
