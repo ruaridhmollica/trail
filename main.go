@@ -26,7 +26,6 @@ func main() {
 			"index.html",
 			gin.H{
 				"title": "Home Page",
-				//"time":  now.Format("15:04:05")})
 			})
 		router.Run(":" + port)
 	})
