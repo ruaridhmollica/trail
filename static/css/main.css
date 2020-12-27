@@ -12,6 +12,18 @@
     }
   
 html{
-  background-color: rgb(18, 194, 18);  
+  background-color: rgb(255, 255, 255);  
 }
   
+@font-face {
+  font-family: 'coolveticaregular';
+  src: url('/static/font/coolvetica_rg-webfont.woff2') format('woff2'),
+       url('/static/font/coolvetica_rg-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  font-family: 'coolveticaregular', Fallback, sans-serif;
+}
