@@ -27,3 +27,8 @@ html{
 body {
   font-family: 'coolveticaregular', Fallback, sans-serif;
 }
+
+.wipfooter{
+  position:fixed;
+  bottom:0;
+}
