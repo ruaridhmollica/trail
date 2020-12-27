@@ -1,1 +1,1 @@
-web: trailapp
+web: bin/thetrailapp
