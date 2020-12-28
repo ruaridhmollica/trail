@@ -12,7 +12,8 @@
     }
   
 html{
-  background-color: rgb(255, 255, 255);  
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 70, 0);
 }
   
 @font-face {
@@ -31,4 +32,8 @@ body {
 .wipfooter{
   position:fixed;
   bottom:0;
+}
+
+.desknav{
+  color: rgb(0, 70, 0);
 }
