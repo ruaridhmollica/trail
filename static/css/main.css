@@ -13,11 +13,11 @@
   
 html{
   background-color: rgb(255, 255, 255);
-  color: rgb(0, 70, 0);
+  color: rgb(0, 70, 0) !important;
 }
   
 @font-face {
-  font-family: 'coolveticaregular';
+  font-family: 'coolveticaregular' !important;
   src: url('/static/font/coolvetica_rg-webfont.woff2') format('woff2'),
        url('/static/font/coolvetica_rg-webfont.woff') format('woff');
   font-weight: normal;
@@ -35,5 +35,6 @@ body {
 }
 
 .desknav{
-  color: rgb(0, 70, 0);
+  color: rgb(0, 70, 0) !important;
+  font-size: 1em !important;
 }

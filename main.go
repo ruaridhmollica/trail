@@ -24,6 +24,9 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
+	router.GET("/tour", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "tour.html", nil)
+	})
 
 	router.Run(":" + port)
 	heroku.ForceSsl(router)
