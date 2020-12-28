@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	heroku "github.com/jonahgeorge/force-ssl-heroku"
 )
 
 func main() {
@@ -25,4 +26,5 @@ func main() {
 	})
 
 	router.Run(":" + port)
+	heroku.ForceSsl(router)
 }
