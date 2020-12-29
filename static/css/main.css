@@ -47,7 +47,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background: white;
   border: solid 2px;
-  border-color: rgb(2, 105, 2);
+  border-color: rgb(0, 184, 0);
   border-radius: 10px;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .wipfooter{
-  padding-top: 50%;
+  padding-top: 40%;
   bottom:0;
 }
 
