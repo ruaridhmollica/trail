@@ -1,3 +1,3 @@
 # Trail
 A PWA that allows a user to get information about the trees on the Heriot-Watt using QR and Spatial technologies.
-* WIP Deployed at: https://thetrailapp.com
+* WIP Deployed at: https://www.thetrailapp.com/
