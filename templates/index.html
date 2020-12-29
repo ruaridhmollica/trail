@@ -5,14 +5,14 @@
 
 <body>
 {{template "nav.html"}}
-{{template "mobnav.html"}}
+
 <div class= "pl-3 pt-4 textcol" style="background-color: white;">
     <h1 id="greeting"></h1>
 </div>
-<footer class= "justify-content-center wipfooter d-flex align-items-center textcol">
+<div class= "justify-content-center wipfooter d-flex align-items-center textcol">
     <h3>This is a work in progress</h3>
-</footer>
-
+</div>
+{{template "mobnav.html"}}
     <script>
         var myDate = new Date();
         var hrs = myDate.getHours();

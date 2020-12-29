@@ -60,7 +60,6 @@ body {
 }
 
 .wipfooter{
-  position:fixed;
   bottom:0;
 }
 
@@ -74,7 +73,7 @@ body {
   font-size: 1.5em !important;
 }
 
-#mobilenav {
+.mobilenav {
   position: fixed;
   bottom: 0;
   width: 100%;
