@@ -1,5 +1,11 @@
 
-    @media (max-width: 992px) {
+   
+   
+   
+   
+   
+   
+   @media (max-width: 992px) {
     .mobhide {
       display: none !important;
     }
@@ -25,6 +31,30 @@ html{
 
 }
 
+/*Scrollbar*/
+html {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border: solid 2px;
+  border-color: rgb(2, 105, 2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
 body {
   font-family: 'coolveticaregular', Fallback, sans-serif;
 }
@@ -37,6 +67,19 @@ body {
 .desknav{
   color: rgb(0, 105, 0) !important;
   font-size: 1.2em !important;
+}
+
+#mobilenav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
 
 .textcol{
