@@ -1,14 +1,13 @@
 package main
 
 import (
-	"database/sql"
+	//"database/sql"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
 	heroku "github.com/jonahgeorge/force-ssl-heroku"
-	_ "github.com/lib/pq"
 )
 
 func main() {
@@ -18,10 +17,10 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
-	if err != nil {
-		log.Fatalf("Error opening database: %q", err)
-	}
+	//db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
+	//if err != nil {
+	//	log.Fatalf("Error opening database: %q", err)
+	//}
 
 	router := gin.New()
 	router.Use(gin.Logger())
