@@ -64,7 +64,7 @@ body {
 }
 
 .desknav{
-  color: rgb(0, 105, 0) !important;
+  color: black !important;
   font-size: 1.3em !important;
 }
 
@@ -87,5 +87,5 @@ body {
 }
 
 .textcol{
-  color: rgb(0, 105, 0) !important;
+  color: black !important;
 }
