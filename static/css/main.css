@@ -64,9 +64,26 @@ body {
   bottom:0;
 }
 
+footer{
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  font-size: 1.3em;
+}
+
 .desknav{
   color: black !important;
-  font-size: 1.3em !important;
+  font-size: 1.4em !important;
+}
+
+.mobnav{
+  color: black !important;
+  font-size: 1em !important;
+}
+
+.caption{
+  color: black !important;
+  font-size: .4em !important;
 }
 
 .navtitle{
@@ -78,15 +95,15 @@ body {
   position: fixed !important;
   bottom: 0 !important;
   width: 100% !important;
-  -ms-flex-wrap: wrap !important;
-  flex-wrap: wrap !important;
-  -ms-flex-align: center !important;
-  align-items: center !important;
-  -ms-flex-pack: justify !important;
-  justify-content: space-between !important;
   padding: 0.5rem 1rem !important;
 }
 
 .textcol{
   color: black !important;
+  font-size: 3em !important;
+}
+
+.textcolmob{
+  color: black !important;
+  font-size: 2em !important;
 }
