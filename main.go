@@ -34,7 +34,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 	router.GET("/tour", func(c *gin.Context) {
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (treename description longitude latitude radius polygon)"); err != nil {
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (treename, description, longitude, latitude, radius, polygon)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
