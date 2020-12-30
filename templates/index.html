@@ -72,7 +72,7 @@
             return json;
             })();
       let randomIndex = Math.floor(Math.random() * 25)
-      document.getElementById('fact').innerHTML = json;
+      document.getElementById('fact').innerHTML = json[randomIndex];
       </script>
 </body>
 {{template "footer.html"}}
