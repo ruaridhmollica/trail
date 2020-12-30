@@ -34,11 +34,11 @@ func main() {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 	router.GET("/tour", func(c *gin.Context) {
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL, description varchar(450) NOT NULL,location GEOMETRY(POINT,4326))"); err != nil {
+		/*if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL, description varchar(450) NOT NULL,location GEOMETRY(POINT,4326))"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
-		}
+		}*/
 		c.HTML(http.StatusOK, "tour.html", nil)
 	})
 
