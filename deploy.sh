@@ -20,8 +20,6 @@ exec 10<&0
     echo "Adding changes to GitHub with message 'Fixes and Updates'...."
     eval "git add ."
     eval "git commit -m 'Fixes and Updates'"
-    echo "Pushing...."
-    eval "git push" 
     if [ $? -eq 0 ] 
      then echo "Done." 
     fi
