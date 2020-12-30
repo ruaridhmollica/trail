@@ -25,8 +25,7 @@
         <p writeit-animate id="greeting2" class="deskhide"></p>
     </div>
     <div class= "pl-3 pt-0 mt-0 pb-0 factmob d-flex align-items-center deskhide">
-        <p id="fact" class="deskhide">
-            Did you know that Heriot-Watt University has over 200 species of tree on campus?</p>
+        <p id="fact2" class="deskhide"></p>
     </div>
     <hr class="justify-content-center hr pt-0" style="width: 85%;">
     <!--/GREETING AND FACT MOBILE-->
@@ -58,6 +57,7 @@
       </script>
     {{template "scripts.html"}}
       <script>
+        function fact(){
         var json = (function() {
             var json = null;
             $.ajax({
@@ -73,6 +73,13 @@
             })();
       let randomIndex = Math.floor(Math.random() * 25)
       document.getElementById('fact').innerHTML = json[randomIndex];
+      document.getElementById('fact2').innerHTML = json[randomIndex];
+        }
+
+        fact();
+        setInterval(function(){
+        fact()
+    }, 30000)
       </script>
 </body>
 {{template "footer.html"}}
