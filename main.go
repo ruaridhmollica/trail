@@ -31,7 +31,7 @@ func main() {
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{"title": "Trail."})
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
 	})
 
 	router.GET("/tour", func(c *gin.Context) {
@@ -40,15 +40,15 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}*/
-		c.HTML(http.StatusOK, "tour.html", gin.H{"title": "Tour."})
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 	})
 
 	router.GET("/map", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "map.html", gin.H{"title": "Map."})
+		c.HTML(http.StatusOK, "map.html", gin.H{"navtitle": "Map."})
 	})
 
 	router.GET("/settings", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "settings.html", gin.H{"title": "Settings."})
+		c.HTML(http.StatusOK, "settings.html", gin.H{"navtitle": "Settings."})
 	})
 
 	router.GET("/tick", func(c *gin.Context) {
