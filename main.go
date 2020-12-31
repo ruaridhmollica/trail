@@ -31,15 +31,24 @@ func main() {
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
+		c.HTML(http.StatusOK, "index.html", gin.H{"title": "Trail."})
 	})
+
 	router.GET("/tour", func(c *gin.Context) {
 		/*if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL, description varchar(450) NOT NULL,location GEOMETRY(POINT,4326))"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}*/
-		c.HTML(http.StatusOK, "tour.html", nil)
+		c.HTML(http.StatusOK, "tour.html", gin.H{"title": "Tour."})
+	})
+
+	router.GET("/map", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "map.html", gin.H{"title": "Map."})
+	})
+
+	router.GET("/settings", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "settings.html", gin.H{"title": "Settings."})
 	})
 
 	router.GET("/tick", func(c *gin.Context) {
