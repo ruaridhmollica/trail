@@ -59,7 +59,22 @@
         document.getElementById('greeting2').innerHTML = greet;
       </script>
     {{template "scripts.html"}}
+      
+
       <script>
+          var navTitle = '{{.navtitle}}';
+          document.getElementById('navtitle').innerHTML = navTitle;
+          document.getElementById('navtitle2').innerHTML = navTitle;
+      </script>
+
+      <script>
+        function active(id){
+        var obj = document.getElementById(id)
+        obj.classList.add("p-5");
+        }
+    </script>
+
+    <script>
         function fact(){
         var json = (function() {
             var json = null;
@@ -78,16 +93,11 @@
       document.getElementById('fact').innerHTML = json[randomIndex];
       document.getElementById('fact2').innerHTML = json[randomIndex];
         }
-
+    
         fact();
         setInterval(function(){
         fact()
     }, 20000)
-      </script>
-      <script>
-          var navTitle = '{{.navtitle}}';
-          document.getElementById('navtitle').innerHTML = navTitle;
-          document.getElementById('navtitle2').innerHTML = navTitle;
       </script>
 </body>
 {{template "footer.html"}}

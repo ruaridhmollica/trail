@@ -18,9 +18,9 @@
       </button>
       <div class="collapse navbar-collapse desknav mobhide pl-4" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active navcol" aria-current="page" href="/">Home</a>
-          <a class="nav-link pl-3 navcol" href="/tour">Tour</a>
-          <a class="nav-link pl-3 navcol" href="/map">Map</a>
+          <a class="nav-link navcol" aria-current="page" id="home" href="/" onclick="this.class='nav-link navcol active'">Home</a>
+          <a class="nav-link pl-3 navcol" id="tour" href="/tour" onclick="active(this.id);">Tour</a>
+          <a class="nav-link pl-3 navcol" id="map" href="/map" onclick="active(this.id);">Map</a>
         </div>
       </div>
       <a href="/settings"><i class="fas fa-cog float-right mobhide navcol" style="font-size: 1.2em;"></i></a>
