@@ -84,5 +84,9 @@
         fact()
     }, 20000)
       </script>
+      <script>
+          var navTitle = '{{.pagetitle}}';
+          document.getElementById('navtitle').innerHTML = navTitle;
+      </script>
 </body>
 {{template "footer.html"}}
