@@ -1,5 +1,5 @@
 
-   
+/*Deals with hiding and showing elements based on the size of the screen for mob and desk usage */
    @media (max-width: 992px) {
     .mobhide {
       display: none !important;
@@ -12,11 +12,13 @@
       }
     }
   
+/*Defining standard colour schemes for the pages */
 html{
   background-color: rgb(255, 255, 255);
   color: rgb(2, 105, 2) !important;
 }
   
+/* imports an external font saved in static/font directory*/
 @font-face {
   font-family: 'coolveticaregular' !important;
   src: url('/static/font/coolvetica_rg-webfont.woff2') format('woff2'),
@@ -50,6 +52,7 @@ html {
   background: rgb(0, 184, 0);
 }
 
+/* sets font family for the body */
 body {
   font-family: 'coolveticaregular', Fallback, sans-serif;
 }
