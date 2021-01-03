@@ -7,11 +7,10 @@
 {{template "nav.html"}}
 
 <div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
-    <p class="mobhide">Will be the tour page</p>
+    <p class="mobhide">The tour can only be undertaken on mobile.</p>
 </div>
-<div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
-    <p class="deskhide">Will be the tour page</p>
-</div>
+<!--The div for the map to be-->
+<div class="justify-content-center deskhide" id="map"></div>
 {{template "mobnav.html"}}
 
 
@@ -22,7 +21,18 @@
     document.getElementById('navtitle').innerHTML = navTitle;
     document.getElementById('navtitle2').innerHTML = navTitle;
 </script>
-
+<script>
+    let map;
+    let map2;
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 55.909329, lng: -3.319491 },
+            zoom: 16,});
+    }
+    </script>
+    <!-- This link performs the API call using my key and the result of the initialisation function above-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
+    type="text/javascript"></script>
 
 </body>
 {{template "footer.html"}}
