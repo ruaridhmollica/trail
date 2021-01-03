@@ -6,6 +6,7 @@
 <body>
 {{template "nav.html"}}
 
+<!--The div for the map to be-->
 <div class="justify-content-center" id="map"></div>
 
 
@@ -15,6 +16,7 @@
 
 
 {{template "scripts.html"}}
+<!-- Updates the title of the page based on what page the user is on via variable passed in from main.go-->
 <script>
     var navTitle = '{{.navtitle}}';
     document.getElementById('navtitle').innerHTML = navTitle;
@@ -22,25 +24,25 @@
 </script>
 
 <!--Generate the map for the page using the Google My Maps JavaScript API-->
-
 <script>
 let map;
 let map2;
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 55.909329, lng: -3.319491 },
         zoom: 16,});
-} // now it IS a function and it is in global
+}
 </script>
+<!-- This link performs the API call using my key and the result of the initialisation function above-->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
 type="text/javascript"></script>
 
+<!-- Dynamic height adjustments to get 100% height for map-->
 <script>
-window.onresize = function() {
-    document.body.height = window.innerHeight;
-}
-window.onresize(); // called to initially set the height.
+var body = document.body, html = document.documentElement;
+var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+document.getElementById('map').style.height = height + 'px';
 </script>
+
 </body>
 {{template "footer.html"}}
