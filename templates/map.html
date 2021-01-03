@@ -6,8 +6,8 @@
 <body>
 {{template "nav.html"}}
 
-<div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
-    <iframe class="mobhide"src="https://www.google.com/maps/d/embed?mid=19nWUrSIbzzyBa13LxIAP9qG9gtUs8Kwv" width="1500" height="700"></iframe>
+<div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide" id="map">
+  
 </div>
 <div class="pl-0 pt-0 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
     <iframe class="deskhide"src="https://www.google.com/maps/d/embed?mid=19nWUrSIbzzyBa13LxIAP9qG9gtUs8Kwv" width="1000" height="500"></iframe>
@@ -22,6 +22,18 @@
     var navTitle = '{{.navtitle}}';
     document.getElementById('navtitle').innerHTML = navTitle;
     document.getElementById('navtitle2').innerHTML = navTitle;
+</script>
+
+<!--Generate the map for the page using the Google My Maps JavaScript API-->
+<script>
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 55.90959, lng: -3.31898 },
+    zoom: 8,
+  });
+}
 </script>
 </body>
 {{template "footer.html"}}
