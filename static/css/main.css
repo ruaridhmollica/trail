@@ -52,6 +52,7 @@ html {
 
 body {
   font-family: 'coolveticaregular', Fallback, sans-serif;
+  height: 100%;
 }
 
 .wipfooter{
@@ -150,10 +151,5 @@ footer{
 
 
 #map{
-  height: 100%; 
-}
-
-#map2{
-  height: 100%; 
-  width: auto;
+  height: 150%; 
 }
