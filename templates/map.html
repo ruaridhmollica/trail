@@ -36,5 +36,11 @@ function initMap() {
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
 type="text/javascript"></script>
 
+<script>
+window.onresize = function() {
+    document.body.height = window.innerHeight;
+}
+window.onresize(); // called to initially set the height.
+</script>
 </body>
 {{template "footer.html"}}

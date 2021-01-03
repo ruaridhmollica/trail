@@ -52,7 +52,6 @@ html {
 
 body {
   font-family: 'coolveticaregular', Fallback, sans-serif;
-  height: 100%;
 }
 
 .wipfooter{
@@ -151,5 +150,6 @@ footer{
 
 
 #map{
-  height: 90vh !important; 
+  /*height: 90vh !important; */
+  height: 100% !important;
 }
