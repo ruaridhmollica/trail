@@ -50,6 +50,9 @@ func main() {
 	router.GET("/settings", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "settings.html", gin.H{"navtitle": "Settings."})
 	})
+	router.GET("/scan", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
+	})
 
 	router.GET("/tick", func(c *gin.Context) {
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)"); err != nil {
