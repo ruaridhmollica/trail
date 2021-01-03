@@ -147,3 +147,7 @@ footer{
 .active{
  color: rgb(0, 184, 0) !important;
 }
+
+.map{
+  height: 100%;
+}
