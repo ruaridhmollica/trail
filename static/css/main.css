@@ -150,6 +150,6 @@ footer{
 }
 
 
-#map{
-  height: 550px !important; 
+#mapdiv{
+  height: 100% !important; 
 }
