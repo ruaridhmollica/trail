@@ -6,8 +6,7 @@
 <body>
 {{template "nav.html"}}
 
-<div class="textcolmob justify-content-center wipfooter d-flex align-items-center mobhide" id="map"></div>
-<div class="textcolmob justify-content-center wipfooter d-flex align-items-center deskhide" id="map2"></div>
+<div class="textcolmob justify-content-center wipfooter d-flex align-items-center" id="map"></div>
 
 {{template "mobnav.html"}}
 
@@ -30,10 +29,7 @@ let map2;
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 55.909329, lng: -3.319491 },
-        zoom: 10,});
-    var map2 = new google.maps.Map(document.getElementById('map2'), {
-        center: { lat: 55.909329, lng: -3.319491 },
-        zoom: 10,});
+        zoom: 50,});
 } // now it IS a function and it is in global
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
