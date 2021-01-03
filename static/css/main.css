@@ -148,6 +148,6 @@ footer{
  color: rgb(0, 184, 0) !important;
 }
 
-.map{
+#map{
   height: 100%;
 }
