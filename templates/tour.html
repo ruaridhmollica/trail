@@ -4,35 +4,46 @@
 {{template "head.html"}}
 
 <body>
-{{template "nav.html"}}
+    {{template "nav.html"}}
 
-<div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
-    <p class="mobhide">The tour can only be undertaken on mobile.</p>
-</div>
-<!--The div for the map to be-->
-<div class="justify-content-center deskhide" id="map"></div>
-{{template "mobnav.html"}}
+    <div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
+        <p class="mobhide">The tour can only be undertaken on mobile.</p>
+    </div>
+    <!--The div for the map to be-->
+    <div class="justify-content-center deskhide" id="map2"></div>
+    {{template "mobnav.html"}}
 
 
 
-{{template "scripts.html"}}
-<script>
-    var navTitle = '{{.navtitle}}';
-    document.getElementById('navtitle').innerHTML = navTitle;
-    document.getElementById('navtitle2').innerHTML = navTitle;
-</script>
-<script>
-    let map;
-    let map2;
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 55.909329, lng: -3.319491 },
-            zoom: 16,});
-    }
+    {{template "scripts.html"}}
+    <script>
+        var navTitle = '{{.navtitle}}';
+        document.getElementById('navtitle').innerHTML = navTitle;
+        document.getElementById('navtitle2').innerHTML = navTitle;
     </script>
+
+    <!--Generate the map for the page using the Google My Maps JavaScript API-->
+    <script>
+        let map2;
+        function initMap() {
+            var map2 = new google.maps.Map(document.getElementById('map2'), {
+                center: { lat: 55.909329, lng: -3.319491 },
+                zoom: 16,
+            });
+        }
+    </script>
+
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
-    type="text/javascript"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
+        type="text/javascript"></script>
+
+    <!-- Dynamic height adjustments to get 100% height for map-->
+    <script>
+        var body = document.body, html = document.documentElement;
+        var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 200;
+        document.getElementById('map2').style.height = height + 'px';
+    </script>
 
 </body>
 {{template "footer.html"}}

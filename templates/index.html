@@ -4,35 +4,35 @@
 {{template "head.html"}}
 
 <body writeit-autostart>
-{{template "nav.html"}}
+    {{template "nav.html"}}
 
 
-<div class = "mobhide">
-    <!--GREETING AND FACT DESKTOP-->
-    <div class = "pt-4 textcol justify-content-center d-flex align-items-center mobhide">
-        <p writeit-animate id="greeting" class="mobhide"></p>
+    <div class="mobhide">
+        <!--GREETING AND FACT DESKTOP-->
+        <div class="pt-4 textcol justify-content-center d-flex align-items-center mobhide">
+            <p writeit-animate id="greeting" class="mobhide"></p>
+        </div>
+
+        <div class="container fact justify-content-center d-flex align-items-center mobhide pt-0 pb-0">
+            <i class="fas fa-search ftitle pr-3"> </i>
+            <p id="fact" class="mobhide animated fadeIn pl-2"></p>
+        </div>
+        <hr class="justify-content-center hr" style="width: 65%;">
+        <!--/GREETING AND FACT DESKTOP-->
     </div>
-   
-    <div class= "container fact justify-content-center d-flex align-items-center mobhide pt-0 pb-0">
-            <i class="fas fa-search ftitle pr-3"> </i> 
-           <p id="fact" class="mobhide animated fadeIn pl-2"></p>
+
+    <div class="deskhide">
+        <!--GREETING AND FACT MOBILE-->
+        <div class="pl-3 pt-2 pb-0 mb-0 textcolmob d-flex align-items-center deskhide">
+            <p writeit-animate id="greeting2" class="deskhide"></p>
+        </div>
+        <div class="pl-3 pt-0 mt-0 pb-0 factmob align-items-center deskhide">
+            <i class="fas fa-search ftitle pr-2"> </i>
+            <p id="fact2" class="deskhide animated fadeIn"></p>
+        </div>
+        <hr class="justify-content-center hr pt-0" style="width: 85%;">
+        <!--/GREETING AND FACT MOBILE-->
     </div>
-    <hr class="justify-content-center hr" style="width: 65%;">
-    <!--/GREETING AND FACT DESKTOP-->
-</div>
-
-<div class = "deskhide">
-    <!--GREETING AND FACT MOBILE-->
-    <div class= "pl-3 pt-2 pb-0 mb-0 textcolmob d-flex align-items-center deskhide">
-        <p writeit-animate id="greeting2" class="deskhide"></p>
-    </div>
-    <div class= "pl-3 pt-0 mt-0 pb-0 factmob align-items-center deskhide">
-        <i class="fas fa-search ftitle pr-2"> </i> 
-        <p id="fact2" class="deskhide animated fadeIn"></p>
-    </div>
-    <hr class="justify-content-center hr pt-0" style="width: 85%;">
-    <!--/GREETING AND FACT MOBILE-->
-</div>
 
 
 
@@ -41,56 +41,56 @@
 
 
 
-{{template "mobnav.html"}}
+    {{template "mobnav.html"}}
     <script>
         var myDate = new Date();
         var hrs = myDate.getHours();
-      
+
         var greet;
-      
+
         if (hrs < 12)
-          greet = 'Good Morning';
+            greet = 'Good Morning';
         else if (hrs >= 12 && hrs <= 16)
-          greet = 'Good Afternoon';
+            greet = 'Good Afternoon';
         else if (hrs >= 16 && hrs <= 24)
-          greet = 'Good Evening';
-      
+            greet = 'Good Evening';
+
         document.getElementById('greeting').innerHTML = greet;
         document.getElementById('greeting2').innerHTML = greet;
-      </script>
+    </script>
     {{template "scripts.html"}}
-      
 
-      <script>
-          var navTitle = '{{.navtitle}}';
-          document.getElementById('navtitle').innerHTML = navTitle;
-          document.getElementById('navtitle2').innerHTML = navTitle;
-      </script>
 
     <script>
-        function fact(){
-        var json = (function() {
-            var json = null;
-            $.ajax({
-                'async': false,
-                'global': false,
-                'url': "/static/facts.json",
-                'dataType': "json",
-                'success': function(data) {
-                json = data;
-                }
-            });
-            return json;
+        var navTitle = '{{.navtitle}}';
+        document.getElementById('navtitle').innerHTML = navTitle;
+        document.getElementById('navtitle2').innerHTML = navTitle;
+    </script>
+
+    <script>
+        function fact() {
+            var json = (function () {
+                var json = null;
+                $.ajax({
+                    'async': false,
+                    'global': false,
+                    'url': "/static/facts.json",
+                    'dataType': "json",
+                    'success': function (data) {
+                        json = data;
+                    }
+                });
+                return json;
             })();
-      let randomIndex = Math.floor(Math.random() * 25)
-      document.getElementById('fact').innerHTML = json[randomIndex];
-      document.getElementById('fact2').innerHTML = json[randomIndex];
+            let randomIndex = Math.floor(Math.random() * 25)
+            document.getElementById('fact').innerHTML = json[randomIndex];
+            document.getElementById('fact2').innerHTML = json[randomIndex];
         }
-    
+
         fact();
-        setInterval(function(){
-        fact()
-    }, 20000)
-      </script>
+        setInterval(function () {
+            fact()
+        }, 20000)
+    </script>
 </body>
 {{template "footer.html"}}
