@@ -6,7 +6,7 @@
 <body>
 {{template "nav.html"}}
 
-<span class="mobhide" id="map"></div>
+<div class="mobhide" id="themap"></div>
 
 <div class="pl-0 pt-0 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
     <iframe class="deskhide" src="https://www.google.com/maps/d/embed?mid=19nWUrSIbzzyBa13LxIAP9qG9gtUs8Kwv" width="1000" height="500"></iframe>
@@ -28,7 +28,7 @@
 let map;
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(document.getElementById("themap"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8,
   });
