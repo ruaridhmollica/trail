@@ -8,9 +8,6 @@
 
 <div class="textcolmob justify-content-center wipfooter d-flex align-items-center mobhide" id="map"></div>
 
-<div class="pl-0 pt-0 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
-    <iframe class="deskhide" src="https://www.google.com/maps/d/embed?mid=19nWUrSIbzzyBa13LxIAP9qG9gtUs8Kwv" width="1000" height="500"></iframe>
-</div>
 {{template "mobnav.html"}}
 
 
@@ -30,7 +27,7 @@ let map;
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
+        center: { lat: 55.909329, lng: -3.319491 },
         zoom: 8,});
 } // now it IS a function and it is in global
 </script>
