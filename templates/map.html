@@ -28,16 +28,11 @@
 <script>
 let map;
 
-function initMap() {} // now it IS a function and it is in global
-
-$(() => {
-  initMap = function() {
+function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 8,});
-    // and other stuff...
-  }
-})
+} // now it IS a function and it is in global
 </script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
 type="text/javascript"></script>
