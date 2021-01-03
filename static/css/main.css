@@ -148,6 +148,7 @@ footer{
  color: rgb(0, 184, 0) !important;
 }
 
-#themap{
-  height: 100%;
+#map{
+  height: 500px; 
+  width: 400px; 
 }
