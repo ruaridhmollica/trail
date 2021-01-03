@@ -6,7 +6,7 @@
 <body>
 {{template "nav.html"}}
 
-<div class="mobhide" id="themap"></div>
+<div id="themap"></div>
 
 <div class="pl-0 pt-0 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
     <iframe class="deskhide" src="https://www.google.com/maps/d/embed?mid=19nWUrSIbzzyBa13LxIAP9qG9gtUs8Kwv" width="1000" height="500"></iframe>
@@ -27,12 +27,18 @@
 <script>
 let map;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("themap"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
+function initMap() {} // now it IS a function and it is in global
+
+$(() => {
+  initMap = function() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,});
+    // and other stuff...
+  }
+})
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
+type="text/javascript"></script>
 </body>
 {{template "footer.html"}}
