@@ -6,10 +6,10 @@
 <body>
     {{template "nav.html"}}
     <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
-        <p class="deskhide">Will be the scan page</p>
+        <p class="deskhide">Scan a QR code:</p>
     </div>
     <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
-  <canvas id="canvas" hidden></canvas>
+  <canvas class="w-30 h-30" id="canvas" hidden></canvas>
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
     <div hidden><b>Data:</b> <span id="outputData"></span></div>
