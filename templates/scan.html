@@ -9,9 +9,15 @@
         <p class="deskhide">Scan a QR code:</p>
     </div>
 
-    <span class="align-items-center justify-content-center">
-    <div style="width: 250px" id="reader"></div>
-    </span>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: center;margin-bottom: 20px;">
+                <div id="reader" style="display: inline-block;"></div>
+                <div class="empty"></div>
+                <div id="scanned-result"></div>
+            </div>
+        </div>
+    </div>
 
   {{template "mobnav.html"}}
 
@@ -32,23 +38,31 @@
     
     <!-- QR CODE SCANNER BEGIN-->
     <script>
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 10, qrbox: 250 });
-            
-    function onScanSuccess(qrCodeMessage) {
-        // handle on success condition with the decoded message
-        html5QrcodeScanner.clear();
-        // ^ this will stop the scanner (video feed) and clear the scan area.
+function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // call on next available tick
+        setTimeout(fn, 1);
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
     }
-
-    function onScanError(errorMessage) {
-    // handle on error condition, with error message
-    }
-
-    html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-
+}
+docReady(function() {
+	hljs.initHighlightingOnLoad();
+	var results = document.getElementById('scanned-result');
+	var lastMessage;
+	var codesFound = 0;
+	function onScanSuccess(qrCodeMessage) {
+		if (lastMessage !== qrCodeMessage) {
+			lastMessage = qrCodeMessage;
+			++codesFound;
+			results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
+		}
+	}
+	var html5QrcodeScanner = new Html5QrcodeScanner(
+		"reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
+	html5QrcodeScanner.render(onScanSuccess, _ => { /** ignore error */ });
+});
     </script>
     <!-- QR CODE SCANNER END-->
 </body>
