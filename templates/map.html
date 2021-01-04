@@ -32,6 +32,11 @@
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 16,
             });
+            const marker = new google.maps.Marker({
+                position: { lat: 55.909329, lng: -3.319491 },
+                map: map,
+                icon: "/static/img/tree1.svg"
+            });
         }
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
