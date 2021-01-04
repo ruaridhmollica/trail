@@ -29,6 +29,9 @@
     </script>
     
     <script>
+    // Create instance of the object. The only argument is the "id" of HTML element created above.
+    const html5QrCode = new Html5Qrcode("reader");
+    
     Html5Qrcode.getCameras().then(devices => {
     /**
      * devices would be an array of objects of type:
@@ -41,9 +44,6 @@
     }).catch(err => {
     // handle err
     });
-
-    // Create instance of the object. The only argument is the "id" of HTML element created above.
-    const html5QrCode = new Html5Qrcode("reader");
 
     html5QrCode.start(
     cameraId,     // retreived in the previous step.
