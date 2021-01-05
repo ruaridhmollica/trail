@@ -17,16 +17,16 @@
     </div>
 -->
 <div class="container w-80 h-50 justify-content-center align-items-center d-flex">
-		<div class="col-md-12 justify-content-center align-items-center">
-            <div class="justify-content-center align-items-center" id="reader" >
-            </div>
+		<div class="col-12 justify-content-center align-items-center">
+            <div class="justify-content-center align-items-center" id="reader" ></div>
 			<div class="empty"></div>
            <div id="scanned-result"></div>
-           <div class="justify-content-center align-items-center">
+           <div class="justify-content-center align-items-center pt-4">
                 <button id="start" class="btn btn-success justify-content-center align-items-center">Start Scanning.</button>
            </div>
 		</div>
 </div>
+<hr class="justify-content-center hr pt-0" style="width: 85%;">
 <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter align-items-center deskhide">
     <p class="deskhide descriptiontitle">How to scan a QR code:</p>
     <p class="deskhide description">Press "Start Scanning" and aim the camera at the QR code on the tree.</p>
@@ -62,6 +62,17 @@
                 document.addEventListener("DOMContentLoaded", fn);
             }
         }
+
+        function validURL(str) {
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return !!pattern.test(str);
+        }
+
         function startScanning() {
             console.log("Scan beginning")
             var results = document.getElementById('scanned-result');
@@ -69,8 +80,14 @@
             var codesFound = 0;
 
             function onScanSuccess(qrCodeMessage) {
-                    ++codesFound;
-                    results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
+                if (lastMessage !== qrCodeMessage) {
+                    lastMessage = qrCodeMessage;
+                    if (validURL(qrCodeMessage)) {
+                    stopScanning();
+                    alert('This code is taking you to another page');
+                    window.location.href = qrCodeMessage;
+                    }
+                }
             }
             return html5qrcode.start(
                 { facingMode: "environment" },
@@ -115,48 +132,5 @@
             });
         });
         </script>
-    <!-- QR CODE SCANNER BEGIN-->
-    <!--
-    <script>
-function docReady(fn) {
-    // see if DOM is already available
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        // call on next available tick
-        setTimeout(fn, 1);
-    } else {
-        document.addEventListener("DOMContentLoaded", fn);
-    }
-}
-
-function validURL(str) {
-  var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-  return !!pattern.test(str);
-}
-
-docReady(function() {
-	var results = document.getElementById('scanned-result');
-	var lastMessage;
-	var codesFound = 0;
-	function onScanSuccess(qrCodeMessage) {
-		if (lastMessage !== qrCodeMessage) {
-			lastMessage = qrCodeMessage;
-			++codesFound;
-            results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
-            if (validURL(qrCodeMessage)) {
-            window.location.href = qrCodeMessage;
-  }
-		}
-	}
-	var html5QrcodeScanner = new Html5QrcodeScanner(
-		"reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
-	html5QrcodeScanner.render(onScanSuccess, _ => { /** ignore error */ });
-});
-</script> -->
-    <!-- QR CODE SCANNER END-->
 </body>
 {{template "footer.html"}}

@@ -163,13 +163,7 @@ footer{
   padding-top: 0% !important;
 }
 
-
-#map{
-  /*height: 90vh !important; */
-}
-
 #reader{
-  display: inline-block; 
   border: 3px; 
   border-color: rgb(0, 80, 4) !important;
 }
