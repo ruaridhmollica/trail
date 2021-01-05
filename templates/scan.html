@@ -19,18 +19,17 @@
         </div>
     </div>
 -->
-<div class="container">
+<div class="container w-80 h-80">
 	<div class="row">
-		<div class="col-md-12" style="text-align: center;margin-bottom: 20px;">
+		<div class="col-md-12 justify-content-center align-items-center">
 			<div id="reader" style="display: inline-block;"></div>
 			<div class="empty"></div>
            <div id="scanned-result"></div>
            <div>
-                <select id="facingMode">
-                    <option value="user">user</option>
+                <select id="facingMode" class="d-none">
                     <option value="environment">environment</option>
                 </select>
-                <button id="start">Start Scanning</button>
+                <button id="start" class="btn btn-success">Start Scanning.</button>
            </div>
 		</div>
 	</div>
@@ -71,15 +70,12 @@
             var lastMessage;
             var codesFound = 0;
             function onScanSuccess(qrCodeMessage) {
-                if (lastMessage !== qrCodeMessage) {
-                    lastMessage = qrCodeMessage;
                     ++codesFound;
                     results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
-                }
             }
             return html5qrcode.start(
                 { facingMode: facingMode },
-                { fps: 10, qrbox: 250 },
+                { fps: 10, qrbox: 200 },
                 onScanSuccess);
         }
         function stopScanning() {
@@ -87,11 +83,10 @@
         }
         docReady(function() {
             var button = document.getElementById('start');
-            var facingModeSelect = document.getElementById('facingMode');
+            var facingModeSelect = "document.getElementById('facingMode');"
             button.addEventListener('click', function() {
                 if (!scanning) {
                     button.disabled = true;
-                    facingModeSelect.disabled = true;
                     startScanning(facingModeSelect.value)
                     .then(_ => {
                         scanning = true;
@@ -100,7 +95,6 @@
                     })
                     .catch(err => {
                         button.disabled = false;
-                        facingModeSelect.disabled = false;
                         alert(err);
                     })
                 } else {
@@ -109,7 +103,6 @@
                     .then(_ => {
                         scanning = false;
                         button.disabled = false;
-                        facingModeSelect.disabled = false;
                         button.innerHTML = "Start Scanning";
                     })
                     .catch(err => {
