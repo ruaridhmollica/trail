@@ -8,7 +8,7 @@
     <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
         <p class="deskhide">Scan a QR code:</p>
     </div>
-
+<!--
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="text-align: center;margin-bottom: 20px;">
@@ -18,7 +18,23 @@
             </div>
         </div>
     </div>
-
+-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" style="text-align: center;margin-bottom: 20px;">
+			<div id="reader" style="display: inline-block;"></div>
+			<div class="empty"></div>
+           <div id="scanned-result"></div>
+           <div>
+                <select id="facingMode">
+                    <option value="user">user</option>
+                    <option value="environment">environment</option>
+                </select>
+                <button id="start">Start Scanning</button>
+           </div>
+		</div>
+	</div>
+</div>
   {{template "mobnav.html"}}
 
 
@@ -35,8 +51,78 @@
         document.getElementById('navtitle').innerHTML = navTitle;
         document.getElementById('navtitle2').innerHTML = navTitle;
     </script>
-    
+    <script src="/static/js/html5-qrcode.min.js"></script>
+    <script>
+        var scanning = false;
+        var scanningRequested = false;
+        var html5qrcode = new Html5Qrcode("reader", true);
+        function docReady(fn) {
+            // see if DOM is already available
+            if (document.readyState === "complete" || document.readyState === "interactive") {
+                // call on next available tick
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        }
+        function startScanning(facingMode) {
+            console.log(facingMode)
+            var results = document.getElementById('scanned-result');
+            var lastMessage;
+            var codesFound = 0;
+            function onScanSuccess(qrCodeMessage) {
+                if (lastMessage !== qrCodeMessage) {
+                    lastMessage = qrCodeMessage;
+                    ++codesFound;
+                    results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
+                }
+            }
+            return html5qrcode.start(
+                { facingMode: facingMode },
+                { fps: 10, qrbox: 250 },
+                onScanSuccess);
+        }
+        function stopScanning() {
+            return html5qrcode.stop();
+        }
+        docReady(function() {
+            hljs.initHighlightingOnLoad();
+            var button = document.getElementById('start');
+            var facingModeSelect = document.getElementById('facingMode');
+            button.addEventListener('click', function() {
+                if (!scanning) {
+                    button.disabled = true;
+                    facingModeSelect.disabled = true;
+                    startScanning(facingModeSelect.value)
+                    .then(_ => {
+                        scanning = true;
+                        button.disabled = false;
+                        button.innerHTML = "Stop Scanning";
+                    })
+                    .catch(err => {
+                        button.disabled = false;
+                        facingModeSelect.disabled = false;
+                        alert(err);
+                    })
+                } else {
+                    button.disabled = true;
+                    stopScanning()
+                    .then(_ => {
+                        scanning = false;
+                        button.disabled = false;
+                        facingModeSelect.disabled = false;
+                        button.innerHTML = "Start Scanning";
+                    })
+                    .catch(err => {
+                        button.disabled = false;
+                        alert(err);
+                    }) 
+                }
+            });
+        });
+        </script>
     <!-- QR CODE SCANNER BEGIN-->
+    <!--
     <script>
 function docReady(fn) {
     // see if DOM is already available
@@ -47,6 +133,17 @@ function docReady(fn) {
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
+
+function validURL(str) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return !!pattern.test(str);
+}
+
 docReady(function() {
 	var results = document.getElementById('scanned-result');
 	var lastMessage;
@@ -55,14 +152,17 @@ docReady(function() {
 		if (lastMessage !== qrCodeMessage) {
 			lastMessage = qrCodeMessage;
 			++codesFound;
-			results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
+            results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
+            if (validURL(qrCodeMessage)) {
+            window.location.href = qrCodeMessage;
+  }
 		}
 	}
 	var html5QrcodeScanner = new Html5QrcodeScanner(
 		"reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
 	html5QrcodeScanner.render(onScanSuccess, _ => { /** ignore error */ });
 });
-    </script>
+</script> -->
     <!-- QR CODE SCANNER END-->
 </body>
 {{template "footer.html"}}
