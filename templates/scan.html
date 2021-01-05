@@ -16,21 +16,19 @@
         </div>
     </div>
 -->
-<div class="container w-80 h-50 justify-content-center align-items-center d-flex">
-		<div class="col-12 justify-content-center align-items-center">
-            <div class="justify-content-center align-items-center" id="reader" ></div>
-			<div class="empty"></div>
-           <div id="scanned-result"></div>
-           <div class="justify-content-center align-items-center pt-4">
-                <button id="start" class="btn btn-success justify-content-center align-items-center">Start Scanning.</button>
-           </div>
-		</div>
-</div>
-<hr class="justify-content-center hr pt-0" style="width: 85%;">
-<div class="pl-3 pt-2 textcolmob justify-content-center wipfooter align-items-center deskhide">
-    <p class="deskhide descriptiontitle">How to scan a QR code:</p>
-    <p class="deskhide description">Press "Start Scanning" and aim the camera at the QR code on the tree.</p>
-</div>
+    <div class="container justify-content-center align-items-center text-center w-80 h-50 pt-3">
+            <div class="" id="reader" ></div>
+    </div>
+    <hr class="justify-content-center hr" style="width: 85%;">
+    <div class="justify-content-center align-items-center text-center">
+        <button id="start" class="btn btn-success">Start Scanning.</button>
+   </div>
+
+    <hr class="justify-content-center hr pt-0" style="width: 85%;">
+    <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter align-items-center deskhide">
+        <p class="deskhide descriptiontitle">How to scan a QR code:</p>
+        <p class="deskhide description">Press "Start Scanning" and aim the camera at the QR code on the tree.</p>
+    </div>
   {{template "mobnav.html"}}
 
 
@@ -80,12 +78,17 @@
             var codesFound = 0;
 
             function onScanSuccess(qrCodeMessage) {
+                var button = document.getElementById('start');
                 if (lastMessage !== qrCodeMessage) {
                     lastMessage = qrCodeMessage;
                     if (validURL(qrCodeMessage)) {
-                    stopScanning();
-                    alert('This code is taking you to another page');
-                    window.location.href = qrCodeMessage;
+                        stopScanning();
+                        scanning = false;
+                        button.disabled = false;
+                        button.innerHTML = "Start Scanning";
+                        button.setAttribute('class','btn btn-success');
+                        //alert('This code is taking you to another page');
+                        window.location.href = qrCodeMessage;
                     }
                 }
             }
