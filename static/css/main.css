@@ -158,7 +158,7 @@ footer{
   font-weight: bold;
 }
 .description{
-  color: rgb(0, 80, 4) !important;
+  color: rgb(0, 80, 4);
   font-size: 0.5em !important;
   padding-top: 0% !important;
 }
@@ -166,4 +166,9 @@ footer{
 #reader{
   border: 3px; 
   border-color: rgb(0, 80, 4) !important;
+}
+
+.scandes{
+  background-color: rgb(167, 167, 167);
+  width: 100%;
 }
