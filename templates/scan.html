@@ -64,8 +64,8 @@
                 document.addEventListener("DOMContentLoaded", fn);
             }
         }
-        function startScanning(facingMode) {
-            console.log(facingMode)
+        function startScanning() {
+            console.log("Scan beginning")
             var results = document.getElementById('scanned-result');
             var lastMessage;
             var codesFound = 0;
@@ -74,7 +74,7 @@
                     results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
             }
             return html5qrcode.start(
-                { facingMode: facingMode },
+                { facingMode: "environment" },
                 { fps: 10, qrbox: 200 },
                 onScanSuccess);
         }
@@ -87,7 +87,7 @@
             button.addEventListener('click', function() {
                 if (!scanning) {
                     button.disabled = true;
-                    startScanning(facingModeSelect.value)
+                    startScanning()
                     .then(_ => {
                         scanning = true;
                         button.disabled = false;
