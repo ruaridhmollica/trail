@@ -75,7 +75,11 @@
                         button.innerHTML = "Start Scanning";
                         button.setAttribute('class','btn btn-success');
                         //alert('This code is taking you to another page');
+                        if (qrCodeMessage.includes("thetrailapp")){
                         window.location.href = qrCodeMessage;
+                        }else{
+                            alert("Sorry you can only scan QR codes designed for the Trail application");
+                        }
                     }
                 }
             }
