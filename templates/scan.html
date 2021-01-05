@@ -5,9 +5,6 @@
 
 <body>
     {{template "nav.html"}}
-    <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
-        <p class="deskhide">Scan a QR code:</p>
-    </div>
 <!--
     <div class="container">
         <div class="row">
@@ -19,20 +16,19 @@
         </div>
     </div>
 -->
-<div class="container w-80 h-80">
-	<div class="row">
-		<div class="col-md-12 justify-content-center align-items-center">
+<div class="container w-80 h-50">
+		<div class="justify-content-center align-items-center">
 			<div id="reader" style="display: inline-block;"></div>
 			<div class="empty"></div>
            <div id="scanned-result"></div>
-           <div>
-                <select id="facingMode" class="d-none">
-                    <option value="environment">environment</option>
-                </select>
+           <div class="justify-content-center align-items-center">
                 <button id="start" class="btn btn-success">Start Scanning.</button>
            </div>
 		</div>
-	</div>
+</div>
+<div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
+    <p class="deskhide descriptiontitle">How to scan a QR code:</p>
+    <p class="deskhide description">Press "Start Scanning" and aim the camera at the QR code on the tree.</p>
 </div>
   {{template "mobnav.html"}}
 
@@ -55,6 +51,7 @@
         var scanning = false;
         var scanningRequested = false;
         var html5qrcode = new Html5Qrcode("reader", true);
+
         function docReady(fn) {
             // see if DOM is already available
             if (document.readyState === "complete" || document.readyState === "interactive") {
@@ -69,21 +66,23 @@
             var results = document.getElementById('scanned-result');
             var lastMessage;
             var codesFound = 0;
+
             function onScanSuccess(qrCodeMessage) {
                     ++codesFound;
                     results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
             }
             return html5qrcode.start(
                 { facingMode: "environment" },
-                { fps: 10, qrbox: 200 },
+                { fps: 10, qrbox: 150 },
                 onScanSuccess);
         }
+
         function stopScanning() {
             return html5qrcode.stop();
         }
+
         docReady(function() {
             var button = document.getElementById('start');
-            var facingModeSelect = "document.getElementById('facingMode');"
             button.addEventListener('click', function() {
                 if (!scanning) {
                     button.disabled = true;
@@ -92,6 +91,7 @@
                         scanning = true;
                         button.disabled = false;
                         button.innerHTML = "Stop Scanning";
+                        button.setAttribute('class','btn btn-danger')
                     })
                     .catch(err => {
                         button.disabled = false;
@@ -104,6 +104,7 @@
                         scanning = false;
                         button.disabled = false;
                         button.innerHTML = "Start Scanning";
+                        button.setAttribute('class','btn btn-success');
                     })
                     .catch(err => {
                         button.disabled = false;

@@ -151,6 +151,17 @@ footer{
  color: rgb(0, 184, 0) !important;
 }
 
+.descriptiontitle{
+  color: rgb(0, 80, 4) !important;
+  font-size: 1em !important;
+  padding-top: 0% !important;
+}
+.description{
+  color: rgb(0, 80, 4) !important;
+  font-size: 0.5em !important;
+  padding-top: 0% !important;
+}
+
 
 #map{
   /*height: 90vh !important; */
