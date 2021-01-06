@@ -22,11 +22,12 @@
         document.getElementById('navtitle').innerHTML = navTitle;
         document.getElementById('navtitle2').innerHTML = navTitle;
     </script>
-
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
         var src = "https://www.filehosting.org/file/details/916113/EdiTrees.kml";
+
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
@@ -40,19 +41,26 @@
             anchor: new google.maps.Point(0, 20),
              }
 
-            map.data.loadGeoJson(
-                "/static/Trees.geojson"
-            );
+           
+            map.data.loadGeoJson('/static/Trees.geojson', null, function (features) {
 
-            map.data.setStyle({
-            icon: tree
+            var markers = features.map(function (feature) {
+                var g = feature.getGeometry();
+                var marker = new google.maps.Marker({ 'position': g.get(0) });
+                return marker;
             });
 
-            
-            /*var kmlLayer = new google.maps.KmlLayer(src, {
-            suppressInfoWindows: true,
-            preserveViewport: false,
-            map: map
+            var markerCluster = new MarkerClusterer(map, markers,{ 
+                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            });
+
+
+            map.data.setStyle(function (feature) {
+            return { icon: tree, visible: false };
+            });
+
+            /*map.data.setStyle({
+            icon: tree
             });*/
         }
     </script>
