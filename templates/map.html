@@ -7,7 +7,7 @@
     {{template "nav.html"}}
 
     <!--The div for the map to be-->
-    <div class="justify-content-center" style="position: absolute;" id="map"></div>
+    <div class="justify-content-center" id="map"></div>
  
 
 
@@ -62,9 +62,6 @@
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
-            /*map.data.setStyle({
-            icon: tree
-            });*/
         }
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
