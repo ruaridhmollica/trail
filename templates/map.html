@@ -27,7 +27,7 @@
     <script>
         let map;
         var src = 'http://s000.tinyupload.com/?file_id=05043547947493868537'
-
+        var test = 'http://googlemaps.github.io/kml-samples/kml/Placemark/placemark.kml'
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
@@ -45,8 +45,8 @@
             icon: tree
             });
 
-            var kmlLayer = new google.maps.KmlLayer(src, {
-            suppressInfoWindows: false,
+            var kmlLayer = new google.maps.KmlLayer(test, {
+            suppressInfoWindows: true,
             preserveViewport: false,
             map: map
             });
