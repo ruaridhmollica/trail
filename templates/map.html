@@ -38,11 +38,11 @@
             "https://opendata.arcgis.com/datasets/4dfc8f18a40346009b9fc32cbee34039_39.geojson"
             );
 
-            var tree1 = {
-            url: "/static/img/tree1.svg",
-            scaledSize: new google.maps.Size(64, 64),
+            var circle = {
+            url: "/static/img/circle.svg",
+            scaledSize: new google.maps.Size(10, 10),
             origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 64),
+            anchor: new google.maps.Point(0, 10),
              }
 
             /*const marker = new google.maps.Marker({
@@ -52,7 +52,7 @@
             });*/
 
             map.data.setStyle({
-            icon: tree1
+            icon: circle
             });
         }
     </script>
