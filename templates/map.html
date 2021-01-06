@@ -8,10 +8,11 @@
 
     <!--The div for the map to be-->
     <div class="justify-content-center" id="map">
-    <div id="wrapper">
-        <button id="load_map" class="mdc-button mdc-button--raised" onclick="">Load Map</button>
+    <div id="wrapper justify-content-center">
+        <button id="load_map" class="btn btn-success" onclick="">Load Map</button>
     </div>
 </div>
+
     {{template "mobnav.html"}}
 
 
@@ -54,7 +55,7 @@
                 });
                 return marker;
             });
-
+         
             var markerCluster = new MarkerClusterer(map, markers,{ 
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             });
@@ -63,16 +64,14 @@
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
-
-            const wrapper = document.getElementById("wrapper");
-            wrapper.style.backgroundImage = `url(https://maps.googleapis.com/maps/api/staticmap?center=55.942567,-3.216411&zoom=12&scale=2&size=700x700&key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA)`;
-            wrapper.addEventListener("click", () => {
-            wrapper.remove();
-            }
             /*map.data.setStyle({
             icon: tree
             });*/
         }
+        const wrapper = document.getElementById("wrapper");
+            wrapper.style.backgroundImage = `url(https://maps.googleapis.com/maps/api/staticmap?center=55.942567,-3.216411&zoom=12&scale=2&size=700x700&key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA)`;
+            wrapper.addEventListener("click", () => {wrapper.remove();});
+
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
     <script async defer
