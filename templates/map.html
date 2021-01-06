@@ -7,11 +7,11 @@
     {{template "nav.html"}}
 
     <!--The div for the map to be-->
-    <div class="justify-content-center" id="map">
+    <div class="justify-content-center" id="map"></div>
     <div id="wrapper justify-content-center">
         <button id="load_map" class="btn btn-success" onclick="">Load Map</button>
     </div>
-</div>
+
 
     {{template "mobnav.html"}}
 
@@ -68,10 +68,6 @@
             icon: tree
             });*/
         }
-        const wrapper = document.getElementById("wrapper");
-            wrapper.style.backgroundImage = `url(https://maps.googleapis.com/maps/api/staticmap?center=55.942567,-3.216411&zoom=12&scale=2&size=700x700&key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA)`;
-            wrapper.addEventListener("click", () => {wrapper.remove();});
-
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
     <script async defer
