@@ -9,7 +9,7 @@
     <!--The div for the map to be-->
     <div class="container">
     <div id="wrapper justify-content-center text-center w-100 h-100" style="background-color: white;">
-        <button id="load_map" class="btn btn-success" style="position: relative;" onclick="show()">Load Map</button>
+        <button id="load_map" class="btn btn-success justify-content-center text-center" style="position: relative;" onclick="show()">Load Map</button>
     </div>
     <div class="justify-content-center" style="position: absolute;" id="map"></div>
     </div>
@@ -85,7 +85,7 @@
     <script>
     function show(){
     var wrapper = document.getElementById("wrapper");
-    wrapper.setAttribute("style","visibility: hidden");
+    wrapper.setAttribute("class","d-none");
     };
     </script>
 </body>
