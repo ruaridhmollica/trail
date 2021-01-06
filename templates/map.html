@@ -30,18 +30,18 @@
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
-                zoom: 13,
+                zoom: 12,
             });
 
             var tree = {
             url: "/static/img/tree1.svg",
-            scaledSize: new google.maps.Size(10, 10),
+            scaledSize: new google.maps.Size(20, 20),
             origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 10),
+            anchor: new google.maps.Point(0, 20),
              }
 
             map.data.loadGeoJson(
-                "/static/Trees.json"
+                "/static/Trees.geojson"
             );
 
             map.data.setStyle({
