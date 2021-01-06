@@ -7,9 +7,11 @@
     {{template "nav.html"}}
 
     <!--The div for the map to be-->
-    <div class="justify-content-center" style="position: relative;" id="map"></div>
+    <div class="container">
     <div id="wrapper justify-content-center text-center w-100 h-100" style="background-color: white;">
         <button id="load_map" class="btn btn-success" style="position: absolute;" onclick="show()">Load Map</button>
+    </div>
+    <div class="justify-content-center" style="position: relative;" id="map"></div>
     </div>
 
 
@@ -83,7 +85,6 @@
     <script>
     function show(){
     var wrapper = document.getElementById("wrapper");
-    var map = document.getElementById("map");
     wrapper.setAttribute("style","visibility: hidden");
     };
     </script>
