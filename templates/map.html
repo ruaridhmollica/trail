@@ -46,7 +46,10 @@
 
             var markers = features.map(function (feature) {
                 var g = feature.getGeometry();
-                var marker = new google.maps.Marker({ 'position': g.get(0) });
+                var marker = new google.maps.Marker({ 
+                    'position': g.get(0),
+                    'icon': tree
+                });
                 return marker;
             });
 
@@ -56,7 +59,7 @@
 
 
             map.data.setStyle(function (feature) {
-            return { icon: tree};
+            return { icon: tree, visible: false };
             });
 
             /*map.data.setStyle({
