@@ -26,7 +26,7 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
-        let map2;
+        var src = 'http://s000.tinyupload.com/?file_id=05043547947493868537'
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -34,25 +34,21 @@
                 zoom: 13,
             });
 
-            map.data.loadGeoJson(
-            "https://opendata.arcgis.com/datasets/4dfc8f18a40346009b9fc32cbee34039_39.geojson"
-            );
-
-            var circle = {
-            url: "/static/img/circle.svg",
+            var tree = {
+            url: "/static/img/tree1.svg",
             scaledSize: new google.maps.Size(10, 10),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(0, 10),
              }
 
-            /*const marker = new google.maps.Marker({
-                position: { lat: 55.942567, lng: -3.216411 },
-                map: map,
-                icon: spruce
-            });*/
-
             map.data.setStyle({
-            icon: circle
+            icon: tree
+            });
+
+            var kmlLayer = new google.maps.KmlLayer(src, {
+            suppressInfoWindows: false,
+            preserveViewport: false,
+            map: map
             });
         }
     </script>
