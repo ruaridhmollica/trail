@@ -26,7 +26,7 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
-        var src = 'https://www.filehosting.org/file/details/916113/EdiTrees.kml'
+        var src = "https://www.filehosting.org/file/details/916113/EdiTrees.kml";
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
@@ -40,15 +40,20 @@
             anchor: new google.maps.Point(0, 10),
              }
 
+            map.data.loadGeoJson(
+                "https://www.filehosting.org/file/details/916114/Trees.json"
+            );
+
             map.data.setStyle({
             icon: tree
             });
 
-            var kmlLayer = new google.maps.KmlLayer(src, {
+            
+            /*var kmlLayer = new google.maps.KmlLayer(src, {
             suppressInfoWindows: true,
             preserveViewport: false,
             map: map
-            });
+            });*/
         }
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
