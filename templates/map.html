@@ -26,8 +26,7 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
-        var src = 'http://s000.tinyupload.com/?file_id=05043547947493868537'
-        var test = 'https://developers.google.com/kml/documentation/KML_Samples.kml'
+        var src = 'https://www.filehosting.org/file/details/916108/EdiTrees.kml'
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
@@ -45,7 +44,7 @@
             icon: tree
             });
 
-            var kmlLayer = new google.maps.KmlLayer(test, {
+            var kmlLayer = new google.maps.KmlLayer(src, {
             suppressInfoWindows: true,
             preserveViewport: false,
             map: map
