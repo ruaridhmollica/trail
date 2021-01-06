@@ -102,7 +102,7 @@
                     .then(_ => {
                         scanning = true;
                         button.disabled = false;
-                        button.innerHTML = "Stop Scanning";
+                        button.innerHTML = "Stop Scanning.";
                         button.setAttribute('class','btn btn-danger')
                     })
                     .catch(err => {
@@ -115,7 +115,7 @@
                     .then(_ => {
                         scanning = false;
                         button.disabled = false;
-                        button.innerHTML = "Start Scanning";
+                        button.innerHTML = "Start Scanning.";
                         button.setAttribute('class','btn btn-success');
                     })
                     .catch(err => {
