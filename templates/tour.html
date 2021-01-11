@@ -57,13 +57,25 @@
         return navigator.geolocation.getCurrentPosition(onSuccess, onError);
         };
 
+        const trackLocation = ({ onSuccess, onError = () => { } }) => {
+        if ('geolocation' in navigator === false) {
+            return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
+        }
+
+        return navigator.geolocation.watchPosition(onSuccess, onError, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        });
+        };
+
         function initMap() {
 
             const locationMarker = {
             url: "/static/img/marker.svg",
-            scaledSize: new google.maps.Size(64, 64),
+            scaledSize: new google.maps.Size(34, 34),
             origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 64),
+            anchor: new google.maps.Point(0, 34),
             }
 
             const tree = {
@@ -85,6 +97,15 @@
                 icon: locationMarker});
 
             getCurrentPosition({
+                onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
+                marker.setPosition({ lat, lng });
+                map.panTo({ lat, lng });
+                },
+                onError: err =>
+                alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
+            });
+
+            trackLocation({
                 onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                 marker.setPosition({ lat, lng });
                 map.panTo({ lat, lng });
