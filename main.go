@@ -53,7 +53,7 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
-	router.GET("/location/:lat/:long", func(c *gin.Context) {
+	router.GET("/location", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
