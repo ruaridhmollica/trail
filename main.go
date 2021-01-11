@@ -63,7 +63,7 @@ func main() {
 			return
 		}
 
-		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),lat, long)"); err != nil {
+		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),$1, $2)", lat, long); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error incrementing tick: %q", err))
 			return
