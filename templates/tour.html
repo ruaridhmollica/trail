@@ -10,8 +10,15 @@
         <p class="mobhide">The tour can only be undertaken on mobile.</p>
     </div>
     <!--The div for the map to be-->
-    <div class="justify-content-center deskhide pt-0" id="map2"></div>
-    <p class="deskhide pt-0">How To:</p>
+    <div class="justify-content-center deskhide pt-0" id="tourmap"></div>
+    <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
+    <div class=" scandes pl-3 pt-2 textcolmob justify-content-center wipfooter align-items-center deskhide">
+        <p class="deskhide descriptiontitle">How to take a Tour.:</p>
+        <p class="deskhide description">Select the tour and travel to the location of the tour (directions given)</p>
+        <p class="deskhide description" style="color: red;">*If you receive an error, check your location settings on your device</p>
+    </div>
+    <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
+    <div class="h-100"></div>
     {{template "mobnav.html"}}
 
 
@@ -25,7 +32,7 @@
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
-        let map;
+        let tourmap;
 
         const getPositionError = code => {
             switch (code) {
@@ -39,14 +46,14 @@
         }
 
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            var tourmap = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 16,
             });
 
             const initial = { lat: 55.909329, lng: -3.319491 };
 
-            const marker = new google.maps.Marker({ map, position: initial});
+            const marker = new google.maps.Marker({ tourmap, position: initial});
 
             if ('geolocation' in navigator) {
                 navigator.geolocation.getCurrentPosition(
@@ -58,7 +65,7 @@
                     });
 
                     // Center map to user's position.
-                    map.panTo({
+                    tourmap.panTo({
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                     });
@@ -80,7 +87,7 @@
     <script>
         var body = document.body, html = document.documentElement;
         var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 190;
-        document.getElementById('map2').style.height = height + 'px';
+        document.getElementById('tourmap').style.height = height + 'px';
     </script>
 
 </body>
