@@ -54,9 +54,9 @@ func main() {
 	})
 
 	router.GET("/location", func(c *gin.Context) {
-		c.ParseForm()
-		lat := c.FormValue("lat")
-		long := c.FormValue("long")
+		c.Request.ParseForm()
+		lat := c.PostForm("lat")
+		long := c.PostForm("long")
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
