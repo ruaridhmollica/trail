@@ -1,14 +1,38 @@
 {
-    "name": "Trail",
-    "short_name": "Trail",
-    "theme_color": "#1c1b20",
-    "background_color": "#121116",
-    "display": "standalone",
-    "orientation": "portrait",
-    "Scope": "/",
-    "start_url": "/",
-    "icons": [
-    ],
-    "splash_pages": null
-  }
-  
+  "name": "Trail.",
+  "short_name": "Trail.",
+  "theme_color": "#00b800",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/static/img/icon-72.png",
+      "sizes": "72x71",
+      "type": "img/png"
+    },
+    {
+      "src": "/static/img/icon-128.png",
+      "sizes": "128x127",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icon-152.png",
+      "sizes": "152x151",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icon-192.png",
+      "sizes": "192x191",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}
