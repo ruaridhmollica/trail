@@ -46,19 +46,7 @@
             }
         }
 
-        const locationMarker = {
-            url: "/static/img/marker.svg",
-            scaledSize: new google.maps.Size(64, 64),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 64),
-            }
-
-        const tree = {
-            url: "/static/img/tree1.svg",
-            scaledSize: new google.maps.Size(54, 54),        
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 54),
-        }
+      
 
 
         const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
@@ -71,6 +59,20 @@
 
         function initMap() {
 
+            const locationMarker = {
+            url: "/static/img/marker.svg",
+            scaledSize: new google.maps.Size(64, 64),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 64),
+            }
+
+            const tree = {
+                url: "/static/img/tree1.svg",
+                scaledSize: new google.maps.Size(54, 54),        
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 54),
+            }
+
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 15,
@@ -80,7 +82,7 @@
             var marker = new google.maps.Marker({ 
                 map, 
                 position: initial, 
-                icon: locationMarker,});
+                icon: locationMarker});
 
             getCurrentPosition({
                 onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
