@@ -53,6 +53,20 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
+	router.GET("/location", func(c *gin.Context) {
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)"); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error creating database table: %q", err))
+			return
+		}
+
+		if _, err := db.Exec("INSERT INTO ticks VALUES (now())"); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error incrementing tick: %q", err))
+			return
+		}
+	})
+
 	router.Run(":" + port)
 	heroku.ForceSsl(router)
 }

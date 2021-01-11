@@ -34,6 +34,7 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
+        let time;
 
         const getPositionError = code => {
             switch (code) {
@@ -107,8 +108,11 @@
 
             trackLocation({
                 onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-                marker.setPosition({ lat, lng });
-                map.panTo({ lat, lng });
+                    marker.setPosition({ lat, lng });
+                    map.panTo({ lat, lng });
+                    $.ajax({
+                        url: "https://www.thetrailapp.com/location"
+                        });
                 },
                 onError: err =>
                 alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
