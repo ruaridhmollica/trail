@@ -53,10 +53,9 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
-	router.GET("/location", func(c *gin.Context) {
-		c.Request.ParseForm()
-		lat := c.PostForm("lat")
-		long := c.PostForm("long")
+	router.GET("/location/:lat/:long", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
