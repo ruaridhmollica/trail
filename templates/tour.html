@@ -112,7 +112,7 @@
                     map.panTo({ lat, lng });
                     $.ajax({
                         url: "https://www.thetrailapp.com/location",
-                        data:{'lat':lat,"long":long}
+                        data:{'lat':lat,"long":lng}
                         });
                 },
                 onError: err =>
