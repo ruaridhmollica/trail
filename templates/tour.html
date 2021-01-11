@@ -111,7 +111,8 @@
                     marker.setPosition({ lat, lng });
                     map.panTo({ lat, lng });
                     $.ajax({
-                        url: "https://www.thetrailapp.com/location"
+                        url: "https://www.thetrailapp.com/location",
+                        data:{'lat':lat,"long":long}
                         });
                 },
                 onError: err =>

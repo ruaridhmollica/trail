@@ -53,14 +53,17 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
-	router.GET("/location", func(c *gin.Context) {
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)"); err != nil {
+	router.GET("/location", func(c *gin.Context, r *http.Request) {
+		r.ParseForm()
+		lat := r.FormValue("lat")
+		long := r.FormValue("long")
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
 
-		if _, err := db.Exec("INSERT INTO ticks VALUES (now())"); err != nil {
+		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),lat, long)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error incrementing tick: %q", err))
 			return
