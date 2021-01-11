@@ -60,9 +60,6 @@
             anchor: new google.maps.Point(0, 54),
         }
 
-        const createMarker = ({ map, position }) => {
-        return new google.maps.Marker({ map, position, icon});
-        };
 
         const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
         if ('geolocation' in navigator === false) {
@@ -80,7 +77,10 @@
             });
 
             const initial = { lat: 55.909329, lng: -3.319491 };
-            const marker = createMarker({ map, position: initial, icon: locationMarker });
+            var marker = new google.maps.Marker({ 
+                map, 
+                position: initial, 
+                icon: locationMarker,});
 
             getCurrentPosition({
                 onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
