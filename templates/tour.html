@@ -10,7 +10,7 @@
         <p class="mobhide">The tour can only be undertaken on mobile.</p>
     </div>
     <!--The div for the map to be-->
-    <div class="justify-content-center deskhide pt-0" id="tourmap"></div>
+    <div class="justify-content-center deskhide pt-0" id="map2"></div>
     <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
     <div class=" scandes pl-3 pt-2 textcolmob justify-content-center wipfooter align-items-center deskhide">
         <p class="deskhide descriptiontitle">How to take a Tour.:</p>
@@ -32,7 +32,7 @@
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
-        let tourmap;
+        let map2;
 
         const getPositionError = code => {
             switch (code) {
@@ -46,14 +46,14 @@
         }
 
         function initMap() {
-            var tourmap = new google.maps.Map(document.getElementById('map'), {
+            var map2 = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 16,
             });
 
             const initial = { lat: 55.909329, lng: -3.319491 };
 
-            const marker = new google.maps.Marker({ tourmap, position: initial});
+            const marker = new google.maps.Marker({ map2, position: initial});
 
             if ('geolocation' in navigator) {
                 navigator.geolocation.getCurrentPosition(
@@ -65,7 +65,7 @@
                     });
 
                     // Center map to user's position.
-                    tourmap.panTo({
+                    map2.panTo({
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                     });
@@ -87,7 +87,7 @@
     <script>
         var body = document.body, html = document.documentElement;
         var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 190;
-        document.getElementById('tourmap').style.height = height + 'px';
+        document.getElementById('map2').style.height = height + 'px';
     </script>
 
 </body>
