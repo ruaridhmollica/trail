@@ -18,6 +18,7 @@
         <p class="deskhide description" style="color: red;">*If you receive an error, check your location settings on your device</p>
     </div>
     <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
+    <div class="h-100"></div>
     
     {{template "mobnav.html"}}
 
@@ -32,7 +33,7 @@
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
-        let map2;
+        let map;
 
         const getPositionError = code => {
             switch (code) {
@@ -45,54 +46,51 @@
             }
         }
 
+        const locationMarker = {
+            url: "/static/img/marker.svg",
+            scaledSize: new google.maps.Size(64, 64),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 64),
+            }
+
+        const tree = {
+            url: "/static/img/tree1.svg",
+            scaledSize: new google.maps.Size(54, 54),        
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 54),
+        }
+
+        const createMarker = ({ map, position }) => {
+        return new google.maps.Marker({ map, position, icon});
+        };
+
+        const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
+        if ('geolocation' in navigator === false) {
+            return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
+        }
+
+        return navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        };
+
         function initMap() {
-            var map2 = new google.maps.Map(document.getElementById('map2'), {
+
+            var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 15,
             });
 
             const initial = { lat: 55.909329, lng: -3.319491 };
+            const marker = createMarker({ map, position: initial, icon: locationMarker });
 
-            var tree = {
-            url: "/static/img/tree1.svg",
-            scaledSize: new google.maps.Size(54, 54),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 54),
-            }
-
-            var locationMarker = {
-            url: "/static/img/marker.svg",
-            scaledSize: new google.maps.Size(54, 54),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 54),
-            }
-
-            var marker = new google.maps.Marker({ 
-                position: initial,
-                map2, 
-                icon: locationMarker,
-            });
-
-            if ('geolocation' in navigator) {
-                navigator.geolocation.getCurrentPosition(
-                position => {console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
-                    // Set marker's position.
-                    marker.setPosition({
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                    });
-
-                    // Center map to user's position.
-                    map2.panTo({
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                    });
+            getCurrentPosition({
+                onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
+                marker.setPosition({ lat, lng });
+                map.panTo({ lat, lng });
                 },
-                err => alert(`Error (${err.code}): ${getPositionError(err.code)}`)
-                );
-            } else {
-                alert('Sorry, Geolocation is not supported by this browser.');
-            }
+                onError: err =>
+                alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
+            });
+        
         }
     </script>
 
