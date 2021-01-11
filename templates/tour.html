@@ -26,11 +26,32 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map2;
+
+        const getPositionError = code => {
+            switch (code) {
+                case 1:
+                return 'Permission denied.';
+                case 2:
+                return 'Position unavailable.';
+                case 3:
+                return 'Timeout reached.';
+            }
+        }
+
         function initMap() {
             var map2 = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 16,
             });
+
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                position => console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
+                err => alert(`Error (${err.code}): ${getPositionError(err.code)}`)
+                );
+            } else {
+                alert('Sorry, Geolocation is not supported by this browser.');
+            }
         }
     </script>
 
