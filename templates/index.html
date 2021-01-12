@@ -92,6 +92,7 @@
             fact()
         }, 20000)
     </script>
+
     <script>
         async function registerSW() {
             if ('serviceWorker' in navigator){
@@ -102,6 +103,8 @@
                 }
             }
         }
+
+        registerSW();
     </script>
 </body>
 {{template "footer.html"}}
