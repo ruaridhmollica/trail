@@ -1,8 +1,12 @@
 const cacheName = 'trail-v2';
 const staticAssets = [
-    'main.go',
-   '/templates/',
-   '/static/',
+   './',
+   'Trees.geojson',
+   'manifest.json',
+   '/css/',
+   '/font/',
+   '/img/',
+   '/js/',
    '/templates/index.html',
    '/templates/footer.html',
    '/templates/head.html',
