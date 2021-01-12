@@ -12,5 +12,8 @@ self.addEventListener('install', async e => {
     return self.skipWaiting();
 });
 
+self.addEventListener('active', e => {
+    self.ClientRectList.claim();
+});
 
 
