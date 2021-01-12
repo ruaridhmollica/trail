@@ -94,20 +94,18 @@
     </script>
 
     <script>
-    window.onload = function() {
-        async function registerSW() {
             if ('serviceWorker' in navigator) {
             // declaring scope manually
-            navigator.serviceWorker.register('/sw.js', {scope: './'}).then(function(registration) {
-                console.log('Service worker registration succeeded:', registration);
-            }, /*catch*/ function(error) {
-                console.log('Service worker registration failed:', error);
-            });
-            } else {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('../service-worker.js').then(function(registration) {
+                        console.log('Service worker registration succeeded:', registration);
+                    }, /*catch*/ function(error) {
+                        console.log('Service worker registration failed:', error);
+                    });
+                });
+                }else {
             console.log('Service workers are not supported.');
             }
-        }
-    }
        // registerSW();
     </script>
 </body>
