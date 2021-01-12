@@ -5,7 +5,7 @@
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/static/",
+  "Scope": "https://www.thetrailapp.com/static/",
   "start_url": "/",
   "icons": [
     {
