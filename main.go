@@ -26,11 +26,11 @@ func main() {
 
 	router := gin.New()
 	router.Use(gin.Logger())
-	router.LoadHTMLGlob("/static/templates/*.html")
+	router.LoadHTMLGlob("/templates/*.html")
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "/templates/index.html", gin.H{"navtitle": "Trail."})
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
 	})
 
 	router.GET("/tour", func(c *gin.Context) {
