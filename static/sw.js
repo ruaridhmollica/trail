@@ -1,5 +1,3 @@
-const cacheName = 'trail-v3';
-
 self.addEventListener( "install", function( event ){
     event.waitUntil(
         caches.open( "static-cache" )
