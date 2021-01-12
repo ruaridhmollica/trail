@@ -3,7 +3,6 @@ const staticAssets = [
     'main.go',
    '/templates/',
    '/static/',
-   '/bin/',
    '/templates/index.html',
    '/templates/footer.html',
    '/templates/head.html',
