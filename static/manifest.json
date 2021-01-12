@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "https://www.thetrailapp.com/static/",
-  "start_url": "/",
+  "start_url": "https://www.thetrailapp.com/",
   "icons": [
     {
       "src": "/static/img/icon-72.png",
