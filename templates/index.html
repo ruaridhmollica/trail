@@ -4,6 +4,18 @@
 {{template "head.html"}}
 
 <body writeit-autostart>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/js/service-worker.js')
+            .then((reg) => {
+              console.log('Service worker registered.', reg);
+            });
+      });
+    }
+    </script>
+
     {{template "nav.html"}}
 
 
@@ -93,20 +105,5 @@
         }, 20000)
     </script>
 
-    <script>
-            if ('serviceWorker' in navigator) {
-            // declaring scope manually
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('../service-worker.js').then(function(registration) {
-                        console.log('Service worker registration succeeded:', registration);
-                    }, /*catch*/ function(error) {
-                        console.log('Service worker registration failed:', error);
-                    });
-                });
-                }else {
-            console.log('Service workers are not supported.');
-            }
-       // registerSW();
-    </script>
 </body>
 {{template "footer.html"}}
