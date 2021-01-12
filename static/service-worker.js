@@ -1,4 +1,4 @@
-const cacheName = 'trail-v2';
+const cacheName = 'trail-v3';
 const staticAssets = [
    './',
    'Trees.geojson',
