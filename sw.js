@@ -1,9 +1,9 @@
 const cacheName = 'trail-v1';
 const staticAssets = [
-    './main.go',
-   './templates/',
+    'main.go',
+   '/templates/',
    '/static/',
-   './bin/',
+   '/bin/',
    '/templates/index.html',
    '/templates/footer.html',
    '/templates/head.html',
