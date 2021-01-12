@@ -94,6 +94,7 @@
     </script>
 
     <script>
+    window.onload = function() {
         async function registerSW() {
             if ('serviceWorker' in navigator){
                 try{
@@ -103,8 +104,8 @@
                 }
             }
         }
-
-        registerSW();
+    }
+       // registerSW();
     </script>
 </body>
 {{template "footer.html"}}
