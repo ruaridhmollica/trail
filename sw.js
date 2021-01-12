@@ -1,4 +1,4 @@
-const cacheName = 'trail-v1';
+const cacheName = 'trail-v2';
 const staticAssets = [
     'main.go',
    '/templates/',
