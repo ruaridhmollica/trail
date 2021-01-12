@@ -92,5 +92,16 @@
             fact()
         }, 20000)
     </script>
+    <script>
+        async function registerSW() {
+            if ('serviceWorker' in navigator){
+                try{
+                    await navigator.serviceWorker.register('/static/sw.js');
+                }catch(e){
+                    console.log('SW registration failed');
+                }
+            }
+        }
+    </script>
 </body>
 {{template "footer.html"}}

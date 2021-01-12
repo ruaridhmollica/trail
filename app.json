@@ -1,12 +1,12 @@
 {
-  "name": "Start on Heroku: Go",
-  "description": "Go Getting Started Example App",
+  "name": "Trail",
+  "description": "Tree information and tour application for Heriot-Watt Campus and Edinburgh",
   "keywords": [
-    "getting-started",
-    "go",
-    "sample",
-    "example"
+    "Tree",
+    "Heriot-Watt",
+    "Trail",
+    "App"
   ],
-  "website": "http://github.com/heroku/go-getting-started",
-  "repository": "http://github.com/heroku/go-getting-started"
+  "website": "",
+  "repository": ""
 }
