@@ -27,12 +27,10 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.LoadHTMLGlob("static/templates/*.html")
-	router.Static("/static", "static")
+	router.Static("/", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			redirect := r.URL.Host + "/home"
-		})
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
 	})
 
 	router.GET("/home", func(c *gin.Context) {
