@@ -33,7 +33,7 @@ self.addEventListener('fetch', event => {
       '/static/img/tree1.svg',
       '/static/js/WriteIt.js',	
       '/static/js/jquery.js',
-      'manifest.json',
+      'manifest.webmanifest',
       '/static/facts.json',
       '/static/templates/footer.html',
       '/static/templates/head.html',
