@@ -1,12 +1,12 @@
 console.log("Service Worker Waking UP :)");
 
 self.addEventListener('install', function(event) {
-    event.waitUntil(){
+    event.waitUntil(
         caches.open(CACHE_NAME)
         .then(cache => {
             return cache.addAll(cacheurls);
         })
-    }
+    );
 });
 
 self.addEventListener('activate', function(event) {
