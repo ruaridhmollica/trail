@@ -48,5 +48,14 @@ self.addEventListener('fetch', event => {
       '/static/templates/settings.html',
       '/static/templates/tour.html',
       '/static/font/coolvetica_rg-webfont.woff2',
-      '/static/font/coolvetica_rg-webfont.woff'	
+      '/static/font/coolvetica_rg-webfont.woff',
+      '/static/fontawesome/css/all.min.css',
+      '/static/css/bootstrap.min.css',
+      '/static/js/jquery.min.js',
+      '/static/js/popper.min.js',
+      '/static/js/bootstrap.min.js',
+      '/static/js/mdb.min.js',
+      '/static/js/WriteIt.min.js',
+      '/static/js/html5-qrcode.min.js',
+      '/static/img/icon-144.png'
   ]
