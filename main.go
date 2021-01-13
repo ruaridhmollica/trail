@@ -27,7 +27,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.LoadHTMLGlob("static/templates/*.html")
-	router.Static("/", "static")
+	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
