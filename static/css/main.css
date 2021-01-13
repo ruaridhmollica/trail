@@ -168,3 +168,8 @@ footer{
   border-color: rgb(0, 80, 4) !important;
 }
 
+.add-button {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
