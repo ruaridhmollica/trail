@@ -13,6 +13,15 @@ self.addEventListener('activate', function(event) {
     console.log("NEW Service Worker Activated :)");
   });
 
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+        .then(response => {
+            return response || fetch(event.request);
+        })
+    );
+});
+
   const CACHE_NAME = 'Trail-cache-v1';
   const cacheurls = [
       '/static/Trees.geojson',
