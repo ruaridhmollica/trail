@@ -40,10 +40,16 @@ func main() {
 		})
 	  }
 
-	router.GET("/home", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
+	router.GET("/", func(c *gin.Context) {
+		http.HandlerFunc(func (w http.ResponseWriter, r *http.Request) {
+		redirect := r.URL.Host+"/home"
+		}
+		
 	})
 
+	router.GET("/home", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
+	}
 	router.GET("/tour", func(c *gin.Context) {
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL, description varchar(450) NOT NULL,location GEOMETRY(POINT,4326))"); err != nil {
 			c.String(http.StatusInternalServerError,
