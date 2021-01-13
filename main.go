@@ -29,7 +29,18 @@ func main() {
 	router.LoadHTMLGlob("static/templates/*.html")
 	router.Static("/static", "static")
 
-	router.GET("/", func(c *gin.Context) {
+	func RedirectRoot(servefile http.Handler) http.Handler {
+		return http.HandlerFunc(func (w http.ResponseWriter, r *http.Request) {
+		  if r.URL.Path == "/" {
+			redirect := r.URL.Host+"/home"
+			http.Redirect(w, r, redirect, http.StatusSeeOther)
+		  } else {
+			servefile.ServeHTTP(w, r)
+		  }
+		})
+	  }
+
+	router.GET("/home", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
 	})
 
