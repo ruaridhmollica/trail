@@ -16,5 +16,27 @@ self.addEventListener('activate', function(event) {
   const CACHE_NAME = 'Trail-cache-v1';
   const cacheurls = [
       '/',
-      '/static',
+      '/static/Trees.geojson',
+      '/static/css/bootstrap.css',
+      '/static/css/main.css',
+      '/static/css/mdb.css',
+      '/static/img/favicon.png',
+      '/static/img/marker.svg',
+      '/static/img/tree1.svg',
+      '/static/js/WriteIt.js',	
+      '/static/js/jquery.js',
+      'manifest.json',
+      '/static/facts.json',
+      '/static/templates/footer.html',
+      '/static/templates/head.html',
+      '/static/templates/index.html',
+      '/static/templates/map.html',
+      '/static/templates/mobnav.html',
+      '/static/templates/nav.html',
+      '/static/templates/scan.html',
+      '/static/templates/scripts.html',
+      '/static/templates/settings.html',
+      '/static/templates/tour.html',
+      '/static/font/coolvetica_rg-webfont.woff2',
+      '/static/font/coolvetica_rg-webfont.woff'	
   ]
