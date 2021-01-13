@@ -15,7 +15,6 @@ self.addEventListener('activate', function(event) {
 
   const CACHE_NAME = 'Trail-cache-v1';
   const cacheurls = [
-      '/',
       '/static/Trees.geojson',
       '/static/css/bootstrap.css',
       '/static/css/main.css',
