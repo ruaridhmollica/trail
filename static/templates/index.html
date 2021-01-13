@@ -6,13 +6,14 @@
 <body writeit-autostart>
 
    <script>
-        if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/static/service-worker.js')
-            .then((reg) => {
-              console.log('Service worker registered.', reg);
-            });
-      });
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/static/service-worker.js', {scope: '/static/'})
+        .then(function(registration) {
+            console.log('Registration successful, scope is:', registration.scope);
+        })
+        .catch(function(error) {
+            console.log('Service worker registration failed, error:', error);
+        });
     }
     </script>
 
