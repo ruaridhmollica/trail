@@ -82,7 +82,7 @@
     </script>
 
     <script>
-        function fact() {
+        async function fact() {
             var json = (function () {
                 var json = null;
                 $.ajax({
@@ -110,7 +110,7 @@
     let deferredPrompt;
 
     const addBtn = document.querySelector('.add-button');
-  
+    addBtn.style.display = 'none';
     addBtn.addEventListener('click', (e) => {
       // hide our user interface that shows our A2HS button
       deferredPrompt = e;
