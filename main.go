@@ -29,7 +29,7 @@ func main() {
 	router.LoadHTMLGlob("static/templates/*.html")
 	router.Static("/static", "static")
 	router.StaticFile("sw.js", "./sw.js")
-	router.StaticFile("manifest.json", "./manifest.json")
+	router.StaticFile("manifest.webmanifest", "./manifest.webmanifest")
 
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Trail."})
