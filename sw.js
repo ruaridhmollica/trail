@@ -24,6 +24,7 @@ self.addEventListener('fetch', event => {
 
   const CACHE_NAME = 'Trail-cache-v1';
   const cacheurls = [
+      './',
       '/static/Trees.geojson',
       '/static/css/bootstrap.css',
       '/static/css/main.css',
@@ -34,6 +35,7 @@ self.addEventListener('fetch', event => {
       '/static/js/WriteIt.js',	
       '/static/js/jquery.js',
       'manifest.webmanifest',
+      'sw.js',
       '/static/facts.json',
       '/static/templates/footer.html',
       '/static/templates/head.html',
