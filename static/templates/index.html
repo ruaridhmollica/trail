@@ -19,7 +19,7 @@
 
     {{template "nav.html"}}
 
-    <button class="add-button">Add to home screen</button>
+    <button class="add-button btn">Add to home screen</button>
 
     <div class="mobhide">
         <!--GREETING AND FACT DESKTOP-->
@@ -110,17 +110,11 @@
     let deferredPrompt;
 
     const addBtn = document.querySelector('.add-button');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    // Update UI to notify the user they can add to home screen
-    addBtn.style.display = 'block';
   
     addBtn.addEventListener('click', (e) => {
       // hide our user interface that shows our A2HS button
+      deferredPrompt = e;
+    // Update UI to notify the user they can add to home screen
       addBtn.style.display = 'none';
       // Show the prompt
       deferredPrompt.prompt();
@@ -134,7 +128,6 @@
           deferredPrompt = null;
         });
     });
-  });
     </script>
 </body>
 {{template "footer.html"}}
