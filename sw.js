@@ -22,7 +22,7 @@ self.addEventListener('fetch', event => {
     );
 });
 
-  const CACHE_NAME = 'Trail-cache-v1';
+  const CACHE_NAME = 'Trail-cache-v2';
   const cacheurls = [
       './',
       '/static/Trees.geojson',
