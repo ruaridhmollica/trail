@@ -27,7 +27,6 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
-        var src = "https://www.filehosting.org/file/details/916113/EdiTrees.kml";
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -43,7 +42,7 @@
              }
 
            
-            map.data.loadGeoJson('/static/Trees.geojson', null, function (features) {
+            map.data.loadGeoJson('/static/TreesEdi.geojson', null, function (features) {
 
             var markers = features.map(function (feature) {
                 var g = feature.getGeometry();
