@@ -57,5 +57,6 @@ self.addEventListener('fetch', event => {
       '/static/js/mdb.min.js',
       '/static/js/WriteIt.min.js',
       '/static/js/html5-qrcode.min.js',
-      '/static/img/icon-144.png'
+      '/static/img/icon-144.png',
+      '/static/fontawesome/webfonts/fa-solid-900.woff2'
   ]
