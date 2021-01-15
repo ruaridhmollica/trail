@@ -54,6 +54,7 @@ self.addEventListener('fetch', event => {
       '/static/js/jquery.js',
       'manifest.webmanifest',
       'sw.js',
+      'main.go',
       '/static/facts.json',
       '/static/templates/footer.html',
       '/static/templates/head.html',
