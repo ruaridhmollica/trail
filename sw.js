@@ -13,11 +13,29 @@ self.addEventListener('activate', function(event) {
     console.log("NEW Service Worker Activated :)");
   });
 
-self.addEventListener('fetch', event => {
+/*self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
         .then(response => {
             return response || fetch(event.request);
+        })
+    );
+});*/
+
+self.addEventListener('fetch', event => {
+    console.log('[Trail - ServiceWorker] Fetch event fired.', event.request.url);
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            if (response) {
+                console.log('[Trail - ServiceWorker] Retrieving from cache...');
+                return response;
+            }
+            console.log('[Trail - ServiceWorker] Retrieving from URL...');
+            return fetch(event.request).catch(function (e) {
+               //you might want to do more error checking here too,
+               //eg, check what e is returning..
+               alert('You appear to be offline, please try again when back online');
+            });
         })
     );
 });
