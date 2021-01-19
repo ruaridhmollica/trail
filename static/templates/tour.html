@@ -4,22 +4,30 @@
 {{template "head.html"}}
 
 <body>
+    <!-- Imports the desktop navbar template -->
     {{template "nav.html"}}
 
     <div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
         <p class="mobhide">The tour can only be undertaken on mobile.</p>
     </div>
+
     <!--The div for the map to be-->
     <div class="justify-content-center deskhide pt-0" id="map2"></div>
+
+    <!-- Section underneath map -->
     <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
     <div class="scandes pl-3 pt-2 h-100 textcolmob justify-content-center wipfooter align-items-center deskhide">
         <p class="deskhide descriptiontitle">How to take a Tour.:</p>
         <p class="deskhide description">Select the tour and travel to the location of the tour (directions given)</p>
-        <p class="deskhide description" style="color: red;">*If you receive an error, check your location settings on your device</p>
+        <p class="deskhide description" style="color: red;">*If you receive an error, check your location settings on
+            your device</p>
     </div>
     <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
     <div class="h-100"></div>
-    
+
+    <!-- Imports the modal for tree description -->
+    {{template "infomodal.html"}}
+    <!-- Imports the mobile navbar template -->
     {{template "mobnav.html"}}
 
 
@@ -36,97 +44,130 @@
         let map;
         let time;
 
+        //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
             switch (code) {
                 case 1:
-                return 'Permission denied, you may have to enable geolocation in your device settings.';
+                    return 'Permission denied, you may have to enable geolocation in your device settings.';
                 case 2:
-                return 'Position unavailable.';
+                    return 'Position unavailable.';
                 case 3:
-                return 'Timeout reached.';
+                    return 'Timeout reached.';
             }
         }
 
-      
-
-
+        //checks if geolocation is enabled and supported in the users browser
         const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
-        if ('geolocation' in navigator === false) {
-            return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
-        }
-
-        return navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            if ('geolocation' in navigator === false) {
+                return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
+            }
+            return navigator.geolocation.getCurrentPosition(onSuccess, onError);
         };
 
+        //checks if a users location can be tracked and if this feature is supported by browser, if it is then it calls
+        //the "watchposition" method that updates every time a user's location changes
         const trackLocation = ({ onSuccess, onError = () => { } }) => {
-        if ('geolocation' in navigator === false) {
-            return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
-        }
+            if ('geolocation' in navigator === false) {
+                return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
+            }
 
-        return navigator.geolocation.watchPosition(onSuccess, onError, {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
-        });
+            return navigator.geolocation.watchPosition(onSuccess, onError, {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            });
         };
 
+        //this function handles all map generation stuff
         function initMap() {
 
+            //defines a data structure for creating the icon that shows a user's location on the map
             const locationMarker = {
-            url: "/static/img/marker.svg",
-            scaledSize: new google.maps.Size(34, 34),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 34),
-            }
+                url: "/static/img/marker.svg",
+                scaledSize: new google.maps.Size(34, 34),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 34),
+            };
 
             const tree = {
                 url: "/static/img/tree1.svg",
-                scaledSize: new google.maps.Size(54, 54),        
+                scaledSize: new google.maps.Size(54, 54),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(0, 54),
-            }
+            };
 
+            //google maps API call that generates a map with specific center and zoom values
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 15,
             });
 
+            //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
             const initial = { lat: 55.909329, lng: -3.319491 };
-            var marker = new google.maps.Marker({ 
-                map, 
-                position: initial, 
-                icon: locationMarker});
 
-            getCurrentPosition({
-                onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-                marker.setPosition({ lat, lng });
-                map.panTo({ lat, lng });
-                },
-                onError: err =>
-                alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
+            //generates the initial location marker 
+            var marker = new google.maps.Marker({
+                map,
+                position: initial,
+                icon: locationMarker
             });
 
-            trackLocation({
-                onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-                    marker.setPosition({ lat, lng });
-                    map.panTo({ lat, lng });
-                    $.ajax({
-                        url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
+            //loads the tree data from a geojson file located in the /static directory
+            map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
+
+                //generates markers on the map based off of the geolocations of the trees and the custom marker defined in the json
+                var markers = features.map(function (feature) {
+                    var g = feature.getGeometry();
+                    var marker = new google.maps.Marker({
+                        'position': g.get(0),
+                        'icon': tree
+                    });
+                    return marker;
+                });
+
+                //gets the current position of the user
+                getCurrentPosition({
+                    onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
+                        marker.setPosition({ lat, lng });
+                        map.panTo({ lat, lng });
+                    },
+                    onError: err =>
+                        alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
+                });
+
+                //tracks the users current location and updates the map to pan to the location, lat and long data is also
+                //sent to backend for testing (where it is added to a database)
+                trackLocation({
+                    onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
+                        marker.setPosition({ lat, lng });
+                        map.panTo({ lat, lng });
+                        $.ajax({
+                            url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });
-                },
-                onError: err =>
-                alert(`Error: ${getPositionError(err.code) || err.message}`)
+                    },
+                    onError: err =>
+                        alert(`Error: ${getPositionError(err.code) || err.message}`)
+                });
             });
-        
+
+            // Handles click event on a tree marker, pulls matching tree data from json and renders it in a pop-up modal on screen
+            map.data.addListener('click', function (event) {
+                //var tree_name = event.feature.getProperty('');
+               // var tree_age = event.feature.getProperty('');
+               // var tree_height = event.feature.getProperty('');
+                //var tree_description = event.feature.getProperty('');
+                $('#myModal').modal('show');
+            });
         }
     </script>
 
-    <!-- This link performs the API call using my key and the result of the initialisation function above-->
+    //This link performs the API call using my key and the result of the initialisation function above-->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
-        type="text/javascript"></script>
+        type="text/javascript">
+        </script>
 
-    <!-- Dynamic height adjustments to get 100% height for map-->
+    //Dynamic height adjustments to get 100% height for map-->
     <script>
         var body = document.body, html = document.documentElement;
         var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 190;

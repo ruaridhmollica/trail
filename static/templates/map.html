@@ -4,13 +4,16 @@
 {{template "head.html"}}
 
 <body>
+    <!-- Imports the desktop navbar template -->
     {{template "nav.html"}}
 
     <!--The div for the map to be-->
     <div class="justify-content-center" id="map"></div>
  
+    <!-- Imports the modal for tree description -->
+    {{template "infomodal.html"}}
 
-
+    <!-- Imports the mobile navbar template -->
     {{template "mobnav.html"}}
 
 
@@ -60,6 +63,14 @@
 
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
+            });
+
+            map.data.addListener('click', function (event) {
+                //var tree_name = event.feature.getProperty('');
+                //var tree_age = event.feature.getProperty('');
+                //var tree_height = event.feature.getProperty('');
+                //var tree_description = event.feature.getProperty('');
+                $('#myModal').modal('show');
             });
         }
     </script>
