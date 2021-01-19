@@ -116,13 +116,13 @@
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
 
                 //generates markers on the map based off of the geolocations of the trees and the custom marker defined in the json
-                var markers = features.map(function (feature) {
+                var tree_markers = features.map(function (feature) {
                     var g = feature.getGeometry();
-                    var marker = new google.maps.Marker({
+                    var tree_marker = new google.maps.Marker({
                         'position': g.get(0),
                         'icon': tree
                     });
-                    return marker;
+                    return tree_marker;
                 });
 
                 //gets the current position of the user
