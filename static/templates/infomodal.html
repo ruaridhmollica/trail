@@ -7,6 +7,7 @@
           <button
             type="button"
             class="fas-fa-cross"
+            datatoggle="modal" 
             onclick="closeModal();">
         </button>
         </div>
@@ -18,7 +19,7 @@
           <p id="tree_info">Tree info</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="$('#myModal').modal({ show: false});">
+          <button type="button" class="btn btn-secondary" datatoggle="modal" onclick="$('#myModal').modal('hide');">
             Close
           </button>
         </div>
