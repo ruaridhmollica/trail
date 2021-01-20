@@ -93,9 +93,11 @@
             //google maps API call that generates a map with specific center and zoom values
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
-                zoom: 15,
+                zoom: 18,
+                mapTypeId: 'satellite'
             });
 
+            var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
             const initial = { lat: 55.909329, lng: -3.319491 };
 
@@ -105,6 +107,7 @@
                 position: initial,
                 icon: locationMarker
             });
+            map.set('styles',customStyled);
 
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
