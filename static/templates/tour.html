@@ -156,12 +156,13 @@
                 //var tree_description = event.feature.getProperty('');
                 $('#myModal').modal('show');
             });
+        function closeModal(){
+             $('#myModal').modal({ show: false});
+        }
         }
     </script>
     <script>
-    function closeModal(){
-        $('#myModal').modal({ show: false});
-    }
+  
     </script>
 
     <!--This link performs the API call using my key and the result of the initialisation function above-->

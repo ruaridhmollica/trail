@@ -6,10 +6,9 @@
           <h5 class="modal-title" id="tree_title">(#number) TreeName</h5>
           <button
             type="button"
-            class="btn-close"
-            data-mdb-dismiss="modal"
-            aria-label="Close"
-          ></button>
+            class="fas-fa-cross"
+            onclick="closeModal();">
+        </button>
         </div>
         <div class="modal-body">
           <h6>Age:</h6> <p id="tree_age">5 years</p>
@@ -19,7 +18,7 @@
           <p id="tree_info">Tree info</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" onclick="closeModal();">
+          <button type="button" class="btn btn-secondary" onclick="closeModal();">
             Close
           </button>
         </div>
