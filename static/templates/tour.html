@@ -89,12 +89,6 @@
                 anchor: new google.maps.Point(0, 34),
             };
 
-            const tree = {
-                url: "/static/img/tree1.svg",
-                scaledSize: new google.maps.Size(54, 54),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 54),
-            };
 
             //google maps API call that generates a map with specific center and zoom values
             var map = new google.maps.Map(document.getElementById('map2'), {
@@ -115,8 +109,15 @@
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
 
+          
             map.data.setStyle(function(feature) {
-             return {icon:feature.getProperty('icon')};
+                var tree = {
+                url: feature.getProperty('icon'),
+                scaledSize: new google.maps.Size(54, 54),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 54),
+                };
+             return {icon: tree};
             });
 
                 //gets the current position of the user
