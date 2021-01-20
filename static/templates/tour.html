@@ -115,15 +115,9 @@
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
 
-                //generates markers on the map based off of the geolocations of the trees and the custom marker defined in the json
-                var tree_markers = features.map(function (feature) {
-                    var g = feature.getGeometry();
-                    var tree_marker = new google.maps.Marker({
-                        'position': g.get(0),
-                        'icon': tree
-                    });
-                    return tree_marker;
-                });
+            map.data.setStyle(function(feature) {
+             return {icon:feature.getProperty('icon')};
+            });
 
                 //gets the current position of the user
                 getCurrentPosition({
