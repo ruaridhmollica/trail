@@ -113,9 +113,9 @@
             map.data.setStyle(function(feature) {
                 var tree = {
                 url: feature.getProperty('icon'),
-                scaledSize: new google.maps.Size(54, 54),
+                scaledSize: new google.maps.Size(64, 64),
                 origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 54),
+                anchor: new google.maps.Point(0, 64),
                 };
              return {icon: tree};
             });
@@ -151,7 +151,7 @@
                // var tree_age = event.feature.getProperty('');
                // var tree_height = event.feature.getProperty('');
                 //var tree_description = event.feature.getProperty('');
-                $('#myModal').modal('show');
+                jQuery('#myModal').modal('show');
             });
         }
     </script>

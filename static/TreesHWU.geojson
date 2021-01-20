@@ -865,7 +865,7 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree2.svg"
+        "icon": "/static/img/endTree.svg"
       },
       "geometry": {
         "type": "Point",
