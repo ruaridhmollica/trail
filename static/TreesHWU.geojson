@@ -10,7 +10,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -29,7 +34,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -48,7 +58,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -67,7 +82,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -86,7 +106,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -105,7 +130,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -124,7 +154,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -143,7 +178,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -162,7 +202,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -181,7 +226,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -200,7 +250,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -219,7 +274,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -238,7 +298,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -257,7 +322,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -276,7 +346,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -295,7 +370,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -314,7 +394,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -333,7 +418,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -352,7 +442,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -371,7 +466,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -390,7 +490,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -409,7 +514,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -428,7 +538,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -447,7 +562,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -466,7 +586,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -485,7 +610,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -504,7 +634,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -523,7 +658,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -542,7 +682,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -561,7 +706,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -580,7 +730,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -599,7 +754,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -618,7 +778,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -637,7 +802,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -656,7 +826,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -675,7 +850,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -694,7 +874,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -713,7 +898,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -732,7 +922,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -751,7 +946,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -770,7 +970,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -789,7 +994,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -808,7 +1018,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -827,7 +1042,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -846,7 +1066,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
@@ -865,7 +1090,12 @@
         "Height": "",
         "Age": "",
         "Description": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": {
+          "url": "/static/img/tree1.svg",
+          "scaledSize": "new google.maps.Size(54, 54)",
+          "origin": "new google.maps.Point(0, 0)",
+          "anchor": "new google.maps.Point(0, 54)",
+        }
       },
       "geometry": {
         "type": "Point",
