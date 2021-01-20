@@ -18,7 +18,11 @@
           <p id="tree_info">Tree info</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="closeModal();">
+          <button type="button" class="btn btn-secondary" onclick=" <script>
+            function closeModal(){
+                $('#myModal').modal({ show: false})
+           }
+       </script>">
             Close
           </button>
         </div>
