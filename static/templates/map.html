@@ -52,6 +52,9 @@
                     'position': g.get(0),
                     'icon': tree
                 });
+                google.maps.event.addListener(marker, 'click', function(evt) {
+                   alert('CLICK');
+                })
                 return marker;
             });
 
@@ -64,10 +67,10 @@
             return { icon: tree, visible: false };
             });
 
-            map.data.addListener('click', function (event) {
+           /* map.data.addListener('click', function (event) {
                 $('#myModal').modal('show');
                 alert("CLICK");
-            });
+            });*/
         }
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
