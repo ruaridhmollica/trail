@@ -56,7 +56,7 @@
                 return marker;
             });
 
-            google.maps.event.addListener(marker, 'click', function() {
+            google.maps.event.addListener(markers, 'click', function() {
                 alert('marker ' + feature.getGeometry('Id') + ' clicked');
             });
          
