@@ -175,12 +175,13 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqdMIQIIw-bxjUWGb1LNwXgB8sb4saeA&callback=initMap"
         type="text/javascript">
-        </script>
+    </script>
 
-    <!--Dynamic height adjustments to get 100% height for map-->
+   
+    <!-- Dynamic height adjustments to get 100% height for map-->
     <script>
         var body = document.body, html = document.documentElement;
-        var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 190;
+        var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - 100;
         document.getElementById('map2').style.height = height + 'px';
     </script>
 
