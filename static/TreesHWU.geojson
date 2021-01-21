@@ -5,6 +5,7 @@
       "type": "Feature",
       "properties": {
         "Id": "1",
+        "Src": "/static/img/icon-512.png",
         "CommonName": "Hungarian Oak",
         "LatinName": "Quercus frainetto",
         "Height": "15ft",
