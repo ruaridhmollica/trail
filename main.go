@@ -40,7 +40,7 @@ func main() {
 	})
 
 	router.GET("/tour", func(c *gin.Context) {
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL,latinname varchar(45), height numeric, age integer,description varchar(450) NOT NULL,location GEOMETRY(POINT,4326))"); err != nil {
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trees (id  SERIAL PRIMARY KEY, treename varchar(45) NOT NULL,latinname varchar(45), height numeric, age integer,description varchar(450) NOT NULL,location GEOMETRY(POINT,4326)),origin VARCHAR(45)"); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
@@ -59,7 +59,7 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
-	router.GET("/location/:lat/:long", func(c *gin.Context) {
+	/*router.GET("/location/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
@@ -73,7 +73,7 @@ func main() {
 				fmt.Sprintf("Error incrementing tick: %q", err))
 			return
 		}
-	})
+	})*/
 
 	router.Run(":" + port)
 	heroku.ForceSsl(router)
