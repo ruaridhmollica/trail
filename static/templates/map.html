@@ -54,6 +54,8 @@
                 });
                 google.maps.event.addListener(marker, 'click', () => {
                 
+                //Try and catch statements as some data in the Edin Trees dataset is null and hence would throw undefined errors,
+                //these statements handle any errors if the clicked on tree has any undefined elements
                 try {
                     if (event.feature.getProperty('CommonName')){
                         var tree_name = event.feature.getProperty('CommonName');
@@ -63,26 +65,49 @@
                     var tree_name = "Insufficient Data";
                 };
 
-                /*if (typeof(event.feature.getProperty('LatinName')) == 'undefined'){
+                try {
+                    if (event.feature.getProperty('LatinName')){
+                        var latin_name = event.feature.getProperty('LatinName');
+                    }
+                }
+                catch(e){
                     var latin_name = "Insufficient Data";
-                }else{var latin_name = event.feature.getProperty('LatinName');}
+                };
 
-                if (typeof(event.feature.getProperty('AgeGroup')) == 'undefined'){
+                try {
+                    if (event.feature.getProperty('AgeGroup')){
+                        var tree_age = event.feature.getProperty('AgeGroup');
+                    }
+                }
+                catch(e){
                     var tree_age = "Insufficient Data";
-                }else{ var tree_age = event.feature.getProperty('AgeGroup');}
+                };
 
-                if (typeof(event.feature.getProperty('Height')) == 'undefined'){
+                try {
+                    if (event.feature.getProperty('Height')){
+                        var tree_height = event.feature.getProperty('Height');
+                    }
+                }
+                catch(e){
                     var tree_height = "Insufficient Data";
-                }else{ var tree_height = event.feature.getProperty('Height');}
-                var tree_description = event.feature.getProperty('Site');*/
+                };
+                //try and catch 
+                try {
+                    if (event.feature.getProperty('Site')){
+                        var tree_description = event.feature.getProperty('Site');
+                    }
+                }
+                catch(e){
+                    var tree_description = "Insufficient Data";
+                };
                 var tree_origin = "Insufficient Data";
                 var tree_img = "";
                 $('#tree_title').html(tree_name);
                 $('#tree_img').attr("src", tree_img);
-                //$('#tree_age').html(tree_age);
-                //$('#latin_name').html(latin_name);
-                //$('#tree_height').html(tree_height);
-                //$('#tree_info').html('Located at ' + tree_description);
+                $('#tree_age').html(tree_age);
+                $('#latin_name').html(latin_name);
+                $('#tree_height').html(tree_height);
+                $('#tree_info').html('Located at ' + tree_description);
                 $('#tree_origin').html(tree_origin);
                 $('#myModal').modal('show');
                 })
