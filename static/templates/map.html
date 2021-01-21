@@ -53,7 +53,21 @@
                     'icon': tree
                 });
                 google.maps.event.addListener(marker, 'click', function(evt) {
-                   alert('CLICK');
+                var tree_name = event.feature.getProperty('CommonName');
+                var latin_name = event.feature.getProperty('LatinName');
+                var tree_age = event.feature.getProperty('AgeGroup');
+                var tree_height = event.feature.getProperty('Height');
+                var tree_description = event.feature.getProperty('Site');
+                var tree_origin = "Insufficient Data";
+                var tree_img = "";
+                $('#tree_title').html(tree_name);
+                $('#tree_img').attr("src", tree_img);
+                $('#tree_age').html(tree_age);
+                $('#latin_name').html(latin_name);
+                $('#tree_height').html(tree_height);
+                $('#tree_info').html('Located at ' + tree_description);
+                $('#tree_origin').html(tree_origin);
+                $('#myModal').modal('show');
                 })
                 return marker;
             });
@@ -66,11 +80,6 @@
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
-
-           /* map.data.addListener('click', function (event) {
-                $('#myModal').modal('show');
-                alert("CLICK");
-            });*/
         }
     </script>
     <!-- This link performs the API call using my key and the result of the initialisation function above-->
