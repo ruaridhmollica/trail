@@ -53,13 +53,19 @@
                     'icon': tree
                 });
                 google.maps.event.addListener(marker, 'click', () => {
-                if (typeof(event.feature.getProperty('CommonName')) == 'undefined'){
+                
+                try {
+                    if (event.feature.getProperty('CommonName')){
+                        var tree_name = event.feature.getProperty('CommonName');
+                    }
+                }
+                catch(e){
                     var tree_name = "Insufficient Data";
-                }else{var tree_name = event.feature.getProperty('CommonName');}
+                };
 
-                if (typeof(event.feature.getProperty('LatinName')) == 'undefined'){
+                /*if (typeof(event.feature.getProperty('LatinName')) == 'undefined'){
                     var latin_name = "Insufficient Data";
-                }else{var latin_name = event.feature.getProperty('LatinName');}
+                }else{var latin_name = event.feature.getProperty('LatinName');}*/
 
                 if (typeof(event.feature.getProperty('AgeGroup')) == 'undefined'){
                     var tree_age = "Insufficient Data";
