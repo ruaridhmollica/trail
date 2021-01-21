@@ -56,15 +56,15 @@
                 return marker;
             });
 
-            google.maps.event.addListener(markers, 'click', function() {
-                alert('marker ' + feature.getGeometry('Id') + ' clicked');
-            });
          
             var markerCluster = new MarkerClusterer(map, markers,{ 
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             });
 
-
+            google.maps.event.addListener(markers, 'click', function() {
+                alert('marker ' + feature.getGeometry('Id') + ' clicked');
+            });
+            
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
