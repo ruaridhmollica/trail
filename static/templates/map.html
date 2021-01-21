@@ -46,7 +46,6 @@
 
            
             map.data.loadGeoJson('/static/TreesEdi.geojson', null, function (features) {
-            var marker;
             var markers = features.map(function (feature) {
                 var g = feature.getGeometry();
                 marker = new google.maps.Marker({ 
@@ -61,16 +60,13 @@
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             });
 
-            google.maps.event.addListener(marker, 'click', function() {
-                alert('marker ' + feature.getGeometry('Id') + ' clicked');
-            });
-
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
 
             map.data.addListener('click', function (event) {
                 $('#myModal').modal('show');
+                alert("CLICK");
             });
         }
     </script>
