@@ -17,13 +17,13 @@ import (
 
 func main() {
 
-	/*var name string
+	var name string
 	var latinname string
 	var height int
 	var age int
 	var description string
 	var origin string
-	var imgsrc string*/
+	var imgsrc string
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -60,7 +60,7 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
+			err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum).Scan(&name,&&latinname, &height, &age, &description, &origin, &imgsrc)
 			if err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error querying database: %q", err))
