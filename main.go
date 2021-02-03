@@ -59,13 +59,11 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			row := db.QueryRow("SELECT treename FROM trees WHERE id = ?;", treeNum)
-			err := row.Scan(&name)
-			if err != nil {
-				log.Fatalf("Error querying database: %q", err)
-			}
+			db.QueryRow("SELECT treename FROM trees WHERE id = ?;", treeNum).Scan(&name)
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
+		} else {
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
 	})
 
 	router.GET("/map", func(c *gin.Context) {
