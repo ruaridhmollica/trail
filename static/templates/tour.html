@@ -42,16 +42,16 @@
         var description = '{{.description}}';
         var origin = '{{.origin}}';
         var img = '{{.img}}';
-        $('#tree_title').html(tree_id + ": " + tree_name);
-        $('#tree_img').attr("src", tree_img);
-        $('#tree_age').html(tree_age);
-        $('#latin_name').html(latin_name);
-        $('#tree_height').html(tree_height);
-        $('#tree_info').html(tree_description);
-        $('#tree_origin').html(tree_origin);
+        $('#tree_title').html(id + ": " + name);
+        $('#tree_img').attr("src", img);
+        $('#tree_age').html(age);
+        $('#latin_name').html(latinname);
+        $('#tree_height').html(height);
+        $('#tree_info').html(description);
+        $('#tree_origin').html(origin);
         $('#myModal').modal('show');
     }
-    
+
     </script>
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
