@@ -48,7 +48,7 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
-		var name string
+		//var name string
 		//var latinname string
 		//var height int
 		//var age int
@@ -59,7 +59,22 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			db.QueryRow("SELECT treename FROM trees WHERE id = ?;", treeNum).Scan(&name)
+			rows, err := db.QueryContext("SELECT treename FROM trees WHERE id = ?", treeNum)
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer rows.Close()
+
+			for rows.Next() {
+				var name string
+				if err := rows.Scan(&name); err != nil {
+					log.Fatal(err)
+				}
+			}
+			// Check for errors from iterating over rows.
+			if err := rows.Err(); err != nil {
+				log.Fatal(err)
+			}
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
