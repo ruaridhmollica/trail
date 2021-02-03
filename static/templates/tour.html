@@ -37,8 +37,16 @@
         var navTitle = '{{.navtitle}}';
         document.getElementById('navtitle').innerHTML = navTitle;
         document.getElementById('navtitle2').innerHTML = navTitle;
-        var test = '{{.treeNum}}';
-        alert("CONFIRMED, tree name is " + test);
+    </script>
+
+    <script>
+    var qr = '{{.qr}}';
+    if (qr){
+        var name = '{{.treename}}';
+        var latinname = '{{.lattinname}}'
+        var height = '{{.height}}'
+        alert("CONFIRMED, tree name is " + name + "also known as " + latinname + "and is " + height + "ft tall");
+    }
     </script>
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
