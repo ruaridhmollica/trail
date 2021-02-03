@@ -63,7 +63,7 @@ func main() {
 			rows := db.QueryRow("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
 			rows.Scan(&name, &latinname)
 			log.Println(name, latinname, height, age, description, origin, imgsrc)
-			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
 		}
 
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
