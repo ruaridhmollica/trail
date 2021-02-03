@@ -58,8 +58,8 @@ func main() {
 		}
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		//temp := c.Request.URL.Query()
-		fmt.Println("HELLO IM HERE")
-		treeNum := c.Query("id")
+		treeNum string
+		treeNum = c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		/*if treeNum != "" {
 			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
@@ -82,7 +82,7 @@ func main() {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}*/
 
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": ("?",treeNum)})
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
 	})
 
 	router.GET("/map", func(c *gin.Context) {
