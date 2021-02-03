@@ -65,7 +65,7 @@ func main() {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error querying database: %q", err))
 			}
-			defer rows.Close()
+			/*defer rows.Close()
 			for rows.Next() {
 				err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &imgsrc)
 				if err != nil {
@@ -76,7 +76,7 @@ func main() {
 			err = rows.Err()
 			if err != nil {
 				log.Fatal(err)
-			}
+			}*/
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
 		}
 
