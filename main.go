@@ -10,6 +10,9 @@ import (
 	"github.com/gin-gonic/gin"
 	heroku "github.com/jonahgeorge/force-ssl-heroku"
 	_ "github.com/lib/pq"
+
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
