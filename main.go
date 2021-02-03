@@ -57,6 +57,7 @@ func main() {
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
+		var name string
 		if treeNum != "" {
 			rows, err := db.QueryContext(ctx, "SELECT treename FROM trees WHERE id=?", treeNum)
 			if err != nil {
@@ -65,7 +66,6 @@ func main() {
 			defer rows.Close()
 
 			for rows.Next() {
-				var name string
 				if err := rows.Scan(&name); err != nil {
 					log.Fatal(err)
 				}
