@@ -63,7 +63,7 @@ func main() {
 		if treeNum != "" {
 
 			if_, err := db.Query("SELECT treename FROM trees WHERE id=?", treeNum).Scan(&name);err != nil{
-					fmt.Sprintf("Error querying database: %q", err)
+					fmt.Sprintf("Error querying database")
 				return
 			}
 
