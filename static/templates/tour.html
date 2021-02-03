@@ -14,16 +14,6 @@
     <!--The div for the map to be-->
     <div class="justify-content-center pt-0" id="map2"></div>
 
-    <!-- Section underneath map
-    <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
-    <div class="scandes pl-3 pt-2 h-100 textcolmob justify-content-center wipfooter align-items-center deskhide">
-        <p class="deskhide descriptiontitle">How to take a Tour.:</p>
-        <p class="deskhide description">Select the tour and travel to the location of the tour (directions given)</p>
-        <p class="deskhide description" style="color: red;">*If you receive an error, check your location settings on
-            your device</p>
-    </div>
-    <hr class="justify-content-center hr pt-0 deskhide" style="width: 85%;">
-    <div class="h-100"></div>-->
 
     <!-- Imports the modal for tree description -->
     {{template "infomodal.html"}}
@@ -42,11 +32,26 @@
     <script>
     var qr = '{{.qr}}';
     if (qr){
+        $('#myModal').modal('hide');
+        qr = false;
+        var id = '{{.id}}';
         var name = '{{.treename}}';
-        var latinname = '{{.lattinname}}'
-        var height = '{{.height}}'
-        alert("CONFIRMED, tree name is " + name + "also known as " + latinname + "and is " + height + "ft tall");
+        var latinname = '{{.latinname}}';
+        var height = '{{.height}}';
+        var age = '{{.age}}';
+        var description = '{{.description}}';
+        var origin = '{{.origin}}';
+        var img = '{{.img}}';
+        $('#tree_title').html(tree_id + ": " + tree_name);
+        $('#tree_img').attr("src", tree_img);
+        $('#tree_age').html(tree_age);
+        $('#latin_name').html(latin_name);
+        $('#tree_height').html(tree_height);
+        $('#tree_info').html(tree_description);
+        $('#tree_origin').html(tree_origin);
+        $('#myModal').modal('show');
     }
+    
     </script>
 
     <!--Generate the map for the page using the Google My Maps JavaScript API-->

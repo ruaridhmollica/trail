@@ -54,7 +54,7 @@ func main() {
 		fmt.Println("Tree ID is ?", treeNum)
 
 		if treeNum != "" {
-			rows, err := db.Query("SELECT treename, latinname, height FROM trees WHERE id = $1", treeNum)
+			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id = $1", treeNum)
 			if err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error reading trees: %q", err))
@@ -64,8 +64,12 @@ func main() {
 			var name string
 			var latinname string
 			var height int
+			var age int
+			var description string
+			var origin string
+			var img string
 			for rows.Next() {
-				if err := rows.Scan(&name, &latinname, &height); err != nil {
+				if err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 					c.String(http.StatusInternalServerError,
 						fmt.Sprintf("Error scanning trees: %q", err))
 					return
@@ -73,9 +77,14 @@ func main() {
 			}
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
 				"qr":        true,
+				"id":	treeNum,
 				"treename":  name,
 				"latinname": latinname,
 				"height":    height,
+				"age": age,
+				"description": description,
+				"origin": origin,
+				"img": img
 			})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
