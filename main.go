@@ -59,7 +59,7 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			row := db.QueryRow("SELECT treename FROM trees WHERE id=?;", treeNum).Scan(&name)
+			row := db.QueryRow("SELECT treename FROM trees WHERE id=?;", treeNum)
 			err := row.Scan(&name)
 			if err != nil && err != sql.ErrNoRows {
 				log.Fatalf("Error querying database: %q", err)
