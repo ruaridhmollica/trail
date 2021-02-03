@@ -13,14 +13,6 @@ self.addEventListener('activate', function(event) {
     console.log("NEW Service Worker Activated :)");
   });
 
-/*self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-        .then(response => {
-            return response || fetch(event.request);
-        })
-    );
-});*/
 
 self.addEventListener('fetch', event => {
     console.log('[Trail - ServiceWorker] Fetch event fired.', event.request.url);
