@@ -12,6 +12,7 @@ import (
 	_ "github.com/lib/pq"
 
 	"database/sql"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -73,7 +74,7 @@ func main() {
 	//This section of code handles the routing to a specific tree when a user scans a QR code
 	router.GET("/tour/:num", func(c *gin.Context) {
 		treeNum := c.Param("num")
-		rows, err := db.Exec("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
+		rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error creating database table: %q", err))
