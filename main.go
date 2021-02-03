@@ -76,6 +76,7 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}
 
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
