@@ -65,11 +65,11 @@ func main() {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error querying database: %q", err))
 			}
-				err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &imgsrc)
-				if err != nil {
-					log.Fatal(err)
-				}
-				log.Println(name, latinname, height, age, description, origin, imgsrc)
+			if _, err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &imgsrc); err != nil {
+				log.Fatal(err)
+				return
+			}
+			log.Println(name, latinname, height, age, description, origin, imgsrc)
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
 		}
 
