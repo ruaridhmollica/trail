@@ -24,7 +24,6 @@ func main() {
 	var description string
 	var origin string
 	var imgsrc string*/
-	var treeNum string
 
 	port := os.Getenv("PORT")
 	if port == "" {
