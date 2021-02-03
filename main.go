@@ -82,7 +82,7 @@ func main() {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}*/
 
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": "?"}, treeNum)
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": "5"})
 	})
 
 	router.GET("/map", func(c *gin.Context) {
