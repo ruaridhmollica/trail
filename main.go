@@ -17,14 +17,6 @@ import (
 
 func main() {
 
-	var name string
-	//var latinname string
-	//var height int
-	//var age int
-	//var description string
-	//var origin string
-	//var imgsrc string
-
 	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("$PORT must be set")
@@ -56,13 +48,22 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
+		var name string
+		//var latinname string
+		//var height int
+		//var age int
+		//var description string
+		//var origin string
+		//var imgsrc string
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			db.QueryRow("SELECT treename FROM trees WHERE id=?;", treeNum).Scan(&name)
-			//rows.Scan(&name)
-			//log.Println(name, latinname, height, age, description, origin, imgsrc)
+			row := db.QueryRow("SELECT treename FROM trees WHERE id=?;", treeNum).Scan(&name)
+			err := row.Scan(&name)
+			if err != nil && err != sql.ErrNoRows {
+				log.Fatalf("Error querying database: %q", err)
+			}
 		}
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
 	})
