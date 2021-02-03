@@ -17,7 +17,7 @@ import (
 
 func main() {
 
-	//var name string
+	var name string
 	//var latinname string
 	//var height int
 	//var age int
@@ -60,7 +60,7 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			name := db.QueryRow("SELECT treename FROM trees WHERE id=?", treeNum).Scan()
+			db.QueryRow("SELECT treename FROM trees WHERE id=?", treeNum).Scan(&name)
 			//rows.Scan(&name)
 			//log.Println(name, latinname, height, age, description, origin, imgsrc)
 		}
