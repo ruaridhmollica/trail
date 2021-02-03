@@ -60,14 +60,31 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			err := db.Query("SELECT treename FROM trees WHERE id=?", treeNum).Scan(&name)
-			err := db.Query("SELECT latinname FROM trees WHERE id=?", treeNum).Scan(&latinname)
-			err := db.Query("SELECT height WHERE id=?", treeNum).Scan(&height)
-			err := db.Query("SELECT age FROM trees WHERE id=?", treeNum).Scan(&age)
-			err := db.Query("SELECT description FROM trees WHERE id=?", treeNum).Scan(&description)
-			err := db.Query("SELECT origin FROM trees WHERE id=?", treeNum).Scan(&origin)
-			err := db.Query("SELECT img FROM trees WHERE id=?", treeNum).Scan(&origin)
-			if err != nil {
+			if_, err := db.Query("SELECT treename FROM trees WHERE id=?", treeNum).Scan(&name);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT latinname FROM trees WHERE id=?", treeNum).Scan(&latinname);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT height WHERE id=?", treeNum).Scan(&height);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT age FROM trees WHERE id=?", treeNum).Scan(&age);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT description FROM trees WHERE id=?", treeNum).Scan(&description);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT origin FROM trees WHERE id=?", treeNum).Scan(&origin);err != nil{
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error querying database: %q", err))
+			}
+			if_, err := db.Query("SELECT img FROM trees WHERE id=?", treeNum).Scan(&imgsrc);err != nil{
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error querying database: %q", err))
 			}
