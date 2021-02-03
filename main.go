@@ -56,6 +56,28 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
+		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
+		treeNum := c.Request.URL.Query().Get("tree")
+		if treeNum != "" {
+			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
+			if err != nil {
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error creating database table: %q", err))
+			}
+			defer rows.Close()
+			for rows.Next() {
+				err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &imgsrc)
+				if err != nil {
+					log.Fatal(err)
+				}
+				log.Println(name, latinname, height, age, description, origin, imgsrc)
+			}
+			err = rows.Err()
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 	})
 
@@ -68,30 +90,6 @@ func main() {
 	})
 	router.GET("/scan", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
-	})
-
-	//This section of code handles the routing to a specific tree when a user scans a QR code
-	router.GET("/qr/:num", func(c *gin.Context) {
-		treeNum := c.Param("num")
-		rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
-		if err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error creating database table: %q", err))
-		}
-		defer rows.Close()
-		for rows.Next() {
-			err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &imgsrc)
-			if err != nil {
-				log.Fatal(err)
-			}
-			log.Println(name, latinname, height, age, description, origin, imgsrc)
-		}
-		err = rows.Err()
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 	})
 
 	/*router.GET("/location/:lat/:long", func(c *gin.Context) {
