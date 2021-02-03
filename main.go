@@ -60,12 +60,8 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
-			if err != nil {
-				c.String(http.StatusInternalServerError,
-					fmt.Sprintf("Error querying database: %q", err))
-			}
-			
+			rows := db.QueryRow("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
+
 			log.Println(name, latinname, height, age, description, origin, imgsrc)
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
 		}
