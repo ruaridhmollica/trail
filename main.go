@@ -17,7 +17,7 @@ import (
 
 func main() {
 
-	var name string
+	//var name string
 	//var latinname string
 	//var height int
 	//var age int
