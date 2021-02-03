@@ -70,7 +70,6 @@ func main() {
 					log.Fatal(err)
 				}
 				log.Println(name, latinname, height, age, description, origin, imgsrc)
-			}
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": treeNum})
 		}
 
