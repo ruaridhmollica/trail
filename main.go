@@ -60,8 +60,8 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			rows := db.QueryRow("SELECT treename FROM trees WHERE id=?", treeNum)
-			rows.Scan(&name)
+			name := db.QueryRow("SELECT treename FROM trees WHERE id=?", treeNum).Scan()
+			//rows.Scan(&name)
 			//log.Println(name, latinname, height, age, description, origin, imgsrc)
 		}
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", "treeNum": name})
