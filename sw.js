@@ -125,10 +125,10 @@ self.addEventListener('fetch', event => {
       '/static/img/tree45.svg',
       '/static/img/tree46.svg',
       '/static/img/tree47.svg',
-      '/static/img/cluster/m1.png',
-      '/static/img/cluster/m2.png',
-      '/static/img/cluster/m3.png',
-      '/static/img/cluster/m4.png',
-      '/static/img/cluster/m5.png'
+      '/static/img/cluster/1.png',
+      '/static/img/cluster/2.png',
+      '/static/img/cluster/3.png',
+      '/static/img/cluster/4.png',
+      '/static/img/cluster/5.png'
 
   ]
