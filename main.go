@@ -60,7 +60,7 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			db.QueryRow("SELECT treename FROM trees WHERE id=?", treeNum).Scan(&name)
+			db.QueryRow("SELECT treename FROM trees WHERE id=?;", treeNum).Scan(&name)
 			//rows.Scan(&name)
 			//log.Println(name, latinname, height, age, description, origin, imgsrc)
 		}
