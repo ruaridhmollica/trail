@@ -24,6 +24,7 @@ func main() {
 	var description string
 	var origin string
 	var imgsrc string*/
+	var treeNum string
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -58,7 +59,6 @@ func main() {
 		}
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		//temp := c.Request.URL.Query()
-		treeNum := ""
 		treeNum = c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		/*if treeNum != "" {
