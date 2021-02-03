@@ -18,12 +18,12 @@ import (
 func main() {
 
 	var name string
-	var latinname string
-	var height int
-	var age int
-	var description string
-	var origin string
-	var imgsrc string
+	//var latinname string
+	//var height int
+	//var age int
+	//var description string
+	//var origin string
+	//var imgsrc string
 
 	port := os.Getenv("PORT")
 	if port == "" {
