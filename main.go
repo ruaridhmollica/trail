@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,9 +15,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-var (
-	ctx context.Context
-)
+
 
 func main() {
 
@@ -59,7 +56,7 @@ func main() {
 		fmt.Println("Tree ID is ?", treeNum)
 
 		if treeNum != "" {
-			rows, err := db.Query(ctx, "SELECT treename FROM trees WHERE id=?", treeNum)
+			rows, err := db.Query("SELECT treename FROM trees WHERE id=?", treeNum)
 			if err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error reading trees: %q", err))
