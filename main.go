@@ -75,7 +75,7 @@ func main() {
 													"qr": true, 
 													"treename": name, 
 													"latinname": latinname, 
-													"height": height 
+													"height": height,
 													})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
