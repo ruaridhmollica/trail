@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -13,6 +14,10 @@ import (
 	"database/sql"
 
 	_ "github.com/go-sql-driver/mysql"
+)
+
+var (
+	ctx context.Context
 )
 
 func main() {
