@@ -32,7 +32,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree2.svg"
       },
       "geometry": {
         "type": "Point",
@@ -52,7 +52,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree3.svg"
       },
       "geometry": {
         "type": "Point",
@@ -72,7 +72,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree4.svg"
       },
       "geometry": {
         "type": "Point",
@@ -92,7 +92,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree5.svg"
       },
       "geometry": {
         "type": "Point",
@@ -112,7 +112,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree6.svg"
       },
       "geometry": {
         "type": "Point",
@@ -132,7 +132,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree7.svg"
       },
       "geometry": {
         "type": "Point",
@@ -152,7 +152,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree8.svg"
       },
       "geometry": {
         "type": "Point",
@@ -172,7 +172,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree9.svg"
       },
       "geometry": {
         "type": "Point",
@@ -192,7 +192,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree10.svg"
       },
       "geometry": {
         "type": "Point",
@@ -212,7 +212,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree11.svg"
       },
       "geometry": {
         "type": "Point",
@@ -232,7 +232,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree12.svg"
       },
       "geometry": {
         "type": "Point",
@@ -252,7 +252,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree13.svg"
       },
       "geometry": {
         "type": "Point",
@@ -272,7 +272,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree14.svg"
       },
       "geometry": {
         "type": "Point",
@@ -292,7 +292,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree15.svg"
       },
       "geometry": {
         "type": "Point",
@@ -312,7 +312,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree16.svg"
       },
       "geometry": {
         "type": "Point",
@@ -332,7 +332,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree17.svg"
       },
       "geometry": {
         "type": "Point",
@@ -352,7 +352,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree18.svg"
       },
       "geometry": {
         "type": "Point",
@@ -372,7 +372,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree19.svg"
       },
       "geometry": {
         "type": "Point",
@@ -392,7 +392,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree20.svg"
       },
       "geometry": {
         "type": "Point",
@@ -412,7 +412,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree21.svg"
       },
       "geometry": {
         "type": "Point",
@@ -432,7 +432,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree22.svg"
       },
       "geometry": {
         "type": "Point",
@@ -452,7 +452,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree23.svg"
       },
       "geometry": {
         "type": "Point",
@@ -472,7 +472,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree24.svg"
       },
       "geometry": {
         "type": "Point",
@@ -492,7 +492,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree25.svg"
       },
       "geometry": {
         "type": "Point",
@@ -512,7 +512,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree26.svg"
       },
       "geometry": {
         "type": "Point",
@@ -532,7 +532,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree27.svg"
       },
       "geometry": {
         "type": "Point",
@@ -552,7 +552,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree28.svg"
       },
       "geometry": {
         "type": "Point",
@@ -572,7 +572,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree29.svg"
       },
       "geometry": {
         "type": "Point",
@@ -592,7 +592,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree30.svg"
       },
       "geometry": {
         "type": "Point",
@@ -612,7 +612,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree31.svg"
       },
       "geometry": {
         "type": "Point",
@@ -632,7 +632,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree32.svg"
       },
       "geometry": {
         "type": "Point",
@@ -652,7 +652,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree33.svg"
       },
       "geometry": {
         "type": "Point",
@@ -672,7 +672,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree34.svg"
       },
       "geometry": {
         "type": "Point",
@@ -692,7 +692,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree35.svg"
       },
       "geometry": {
         "type": "Point",
@@ -712,7 +712,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree36.svg"
       },
       "geometry": {
         "type": "Point",
@@ -732,7 +732,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree37.svg"
       },
       "geometry": {
         "type": "Point",
@@ -752,7 +752,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree38.svg"
       },
       "geometry": {
         "type": "Point",
@@ -772,7 +772,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree39.svg"
       },
       "geometry": {
         "type": "Point",
@@ -792,7 +792,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree40.svg"
       },
       "geometry": {
         "type": "Point",
@@ -812,7 +812,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree41.svg"
       },
       "geometry": {
         "type": "Point",
@@ -832,7 +832,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree42.svg"
       },
       "geometry": {
         "type": "Point",
@@ -852,7 +852,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree43.svg"
       },
       "geometry": {
         "type": "Point",
@@ -872,7 +872,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree44.svg"
       },
       "geometry": {
         "type": "Point",
@@ -892,7 +892,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree45.svg"
       },
       "geometry": {
         "type": "Point",
@@ -912,7 +912,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/endTree.svg"
+        "icon": "/static/img/tree46.svg"
       },
       "geometry": {
         "type": "Point",
