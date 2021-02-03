@@ -71,7 +71,7 @@ func main() {
 	})
 
 	//This section of code handles the routing to a specific tree when a user scans a QR code
-	router.GET("/tour/:num", func(c *gin.Context) {
+	router.GET("/qr/:num", func(c *gin.Context) {
 		treeNum := c.Param("num")
 		rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
 		if err != nil {
@@ -91,7 +91,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Scan."})
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 	})
 
 	/*router.GET("/location/:lat/:long", func(c *gin.Context) {
