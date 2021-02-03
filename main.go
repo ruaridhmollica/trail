@@ -58,10 +58,10 @@ func main() {
 		}
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		//temp := c.Request.URL.Query()
+		fmt.Println("HELLO IM HERE")
 		treeNum := c.Query("id")
-		log.Println("HELLO IM HERE")
 		fmt.Println("Tree ID is ?", treeNum)
-		if treeNum != "" {
+		/*if treeNum != "" {
 			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id=?", treeNum)
 			if err != nil {
 				c.String(http.StatusInternalServerError,
@@ -80,7 +80,7 @@ func main() {
 				log.Fatal(err)
 			}
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
-		}
+		}*/
 
 		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 	})
