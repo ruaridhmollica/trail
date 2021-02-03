@@ -48,18 +48,12 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
-		//var name string
-		//var latinname string
-		//var height int
-		//var age int
-		//var description string
-		//var origin string
-		//var imgsrc string
+
 		//The following section of code handles the event in which a user scans a QR code of a specific tree (variable is passed in ? url param)
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 		if treeNum != "" {
-			rows, err := db.QueryContext("SELECT treename FROM trees WHERE id = ?", treeNum)
+			rows, err := db.QueryContext(ctx, "SELECT treename FROM trees WHERE id=?", treeNum)
 			if err != nil {
 				log.Fatal(err)
 			}
