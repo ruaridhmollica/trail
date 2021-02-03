@@ -54,7 +54,7 @@ func main() {
 		fmt.Println("Tree ID is ?", treeNum)
 
 		if treeNum != "" {
-			rows, err := db.Query("SELECT treename latinname height FROM trees WHERE id = $1", treeNum)
+			rows, err := db.Query("SELECT treename, latinname, height FROM trees WHERE id = $1", treeNum)
 			if err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error reading trees: %q", err))
@@ -71,12 +71,12 @@ func main() {
 					return
 				}
 			}
-			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.", 
-													"qr": true, 
-													"treename": name, 
-													"latinname": latinname, 
-													"height": height,
-													})
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+				"qr":        true,
+				"treename":  name,
+				"latinname": latinname,
+				"height":    height,
+			})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}
