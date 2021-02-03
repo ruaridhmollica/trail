@@ -84,7 +84,7 @@ func main() {
 				"age": age,
 				"description": description,
 				"origin": origin,
-				"img": img
+				"img": img,
 			})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
