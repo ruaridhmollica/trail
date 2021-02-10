@@ -76,15 +76,15 @@ func main() {
 				}
 			}
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
-				"qr":        true,
-				"id":	treeNum,
-				"treename":  name,
-				"latinname": latinname,
-				"height":    height,
-				"age": age,
+				"qr":          true,
+				"id":          treeNum,
+				"treename":    name,
+				"latinname":   latinname,
+				"height":      height,
+				"age":         age,
 				"description": description,
-				"origin": origin,
-				"img": img,
+				"origin":      origin,
+				"img":         img,
 			})
 		} else {
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
@@ -102,7 +102,7 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
-	/*router.GET("/location/:lat/:long", func(c *gin.Context) {
+	router.GET("/location/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
@@ -116,7 +116,7 @@ func main() {
 				fmt.Sprintf("Error incrementing tick: %q", err))
 			return
 		}
-	})*/
+	})
 
 	router.Run(":" + port)
 	heroku.ForceSsl(router)
