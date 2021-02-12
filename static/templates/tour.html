@@ -154,9 +154,9 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        $.ajax({
+                        /*$.ajax({
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
-                        });
+                        });*/
                     },
                     onError: err =>
                         alert(`Error: ${getPositionError(err.code) || err.message}`)
