@@ -158,7 +158,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		fmt.Println("TEST")
+		c.JSON(200, "TEST")
 		//}
 		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 

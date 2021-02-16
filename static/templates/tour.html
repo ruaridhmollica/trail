@@ -186,12 +186,16 @@ function geofence(){
                         $.ajax({
                             url: "https://www.thetrailapp.com/geofence/", //+ lat + "/" + lng,
                             method: "POST",
-						success: function(data) {
-							if(data != ""){
-                                alert(data);
-                            }
-                           
-						},
+                            contentType:'application/json&apos',
+                            dataType: 'json',
+                            cache: false,
+                            scriptCharset: 'utf-8',
+                        }). done (function (jdata) {
+                            console.log (jdata);
+                            alert ("Success");
+                        }). fail (function (jdata) {
+                            console.log (jdata);
+                            alert ("Fail");
                         });
                     },
                     onError: err =>
