@@ -122,7 +122,7 @@ func main() {
 		lat := c.Param("lat")
 		long := c.Param("long")
 
-		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
+		/*rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading trees: %q", err))
@@ -144,7 +144,7 @@ func main() {
 				return
 			}
 		}
-		if name != "" {
+		if name != "" { */
 			/*c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
 				"geo":         true,
 				"id":          id,
@@ -158,9 +158,9 @@ func main() {
 				"long": long,
 				//"img":         img,
 			})*/
-			fmt.Println(name, latinname, height, age, description, origin)
+			fmt.Println("TEST")
 		}
-		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
+		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."}) 
 
 	})
 
