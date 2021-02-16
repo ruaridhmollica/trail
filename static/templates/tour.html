@@ -52,8 +52,10 @@
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
     }
+
+function geofence(){
     if (geo){
-        location.href("https://www.thetrailapp.com/geofence/" + '{{.lat}}' + '{{.long}}');
+        //location.href("https://www.thetrailapp.com/geofence/" + '{{.lat}}' + '{{.long}}');
         alert("I got to here? did i work?");
         $('#myModal').modal('hide');
         var id = '{{.id}}';
@@ -74,6 +76,7 @@
         $('#myModal').modal('show');
         geo = false;
     }
+}
 
     </script>
 
@@ -181,7 +184,11 @@
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });*/
                         $.ajax({
-                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng
+                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng,
+                            method: "GET",
+						success: function(data) {
+							geofence();
+						},
                         });
                     },
                     onError: err =>
