@@ -157,8 +157,7 @@ func main() {
 				//"img":         img,
 			})
 		}
-		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Tour."
-			})
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Tour."})
 
 	})
 
