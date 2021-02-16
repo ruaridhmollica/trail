@@ -187,7 +187,10 @@ function geofence(){
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng,
                             method: "GET",
 						success: function(data) {
-							alert(data);
+							if(data != ""){
+                                alert(data);
+                            }
+                           
 						},
                         });
                     },

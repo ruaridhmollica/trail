@@ -118,7 +118,7 @@ func main() {
 		}
 	})
 
-	router.GET("/geofence/:lat/:long", func(c *gin.Context) {
+	router.POST("/geofence/:lat/:long", func(c *gin.Context) {
 		//lat := c.Param("lat")
 		//long := c.Param("long")
 
@@ -145,22 +145,22 @@ func main() {
 			}
 		}
 		if name != "" { */
-			/*c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
-				"geo":         true,
-				"id":          id,
-				"treename":    name,
-				"latinname":   latinname,
-				"height":      height,
-				"age":         age,
-				"description": description,
-				"origin":      origin,
-				"lat": lat,
-				"long": long,
-				//"img":         img,
-			})*/
-			fmt.Println("TEST")
+		/*c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+			"geo":         true,
+			"id":          id,
+			"treename":    name,
+			"latinname":   latinname,
+			"height":      height,
+			"age":         age,
+			"description": description,
+			"origin":      origin,
+			"lat": lat,
+			"long": long,
+			//"img":         img,
+		})*/
+		fmt.Println("TEST")
 		//}
-		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."}) 
+		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 
 	})
 
