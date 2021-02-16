@@ -118,7 +118,7 @@ func main() {
 		}
 	})
 
-	router.POST("/geofence/:lat", func(c *gin.Context) {
+	router.POST("/geofence/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
