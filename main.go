@@ -159,7 +159,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, lat)
+		c.JSON(200, lat, long)
 		//}
 		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 
