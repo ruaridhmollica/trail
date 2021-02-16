@@ -118,7 +118,7 @@ func main() {
 		}
 	})
 
-	router.POST("/geofence/:lat/:long", func(c *gin.Context) {
+	router.POST("/geofence", func(c *gin.Context) {
 		//lat := c.Param("lat")
 		//long := c.Param("long")
 

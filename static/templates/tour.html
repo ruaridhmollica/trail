@@ -185,7 +185,7 @@ function geofence(){
                         });*/
                         $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng,
-                            method: "GET",
+                            method: "POST",
 						success: function(data) {
 							if(data != ""){
                                 alert(data);
