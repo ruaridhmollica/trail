@@ -145,7 +145,7 @@ func main() {
 			}
 		}
 		if name != "" {
-			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+			c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Tour.",
 				"qr":          true,
 				"id":          id,
 				"treename":    name,
@@ -157,6 +157,8 @@ func main() {
 				//"img":         img,
 			})
 		}
+		c.HTML(http.StatusOK, "index.html", gin.H{"navtitle": "Tour."
+			})
 
 	})
 
