@@ -159,7 +159,7 @@ func main() {
 				//"img":         img,
 			})*/
 			fmt.Println("TEST")
-		}
+		//}
 		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."}) 
 
 	})
