@@ -174,7 +174,7 @@ function geofence(){
                         alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
                 });
 
-                //tracks the users current location and updates the map to pan to the location, lat and long data is also
+                //tracks the users current location and upda-tes the map to pan to the location, lat and long data is also
                 //sent to backend for testing (where it is added to a database)
                 trackLocation({
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
@@ -184,7 +184,7 @@ function geofence(){
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });*/
                         $.ajax({
-                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng,
+                            url: "https://www.thetrailapp.com/geofence/", //+ lat + "/" + lng,
                             method: "POST",
 						success: function(data) {
 							if(data != ""){
