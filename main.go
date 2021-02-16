@@ -118,6 +118,45 @@ func main() {
 		}
 	})
 
+	router.GET("/geofence/:lat/:long", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
+
+		rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 3) limit 1", lat, long)
+		if err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error reading trees: %q", err))
+			return
+		}
+		defer rows.Close()
+		var name string
+		var latinname string
+		var height int
+		var age int
+		var description string
+		var origin string
+		var img string
+		for rows.Next() {
+			if err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &img); err != nil {
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error scanning trees: %q", err))
+				return
+			}
+		}
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+			"qr":          true,
+			"id":          treeNum,
+			"treename":    name,
+			"latinname":   latinname,
+			"height":      height,
+			"age":         age,
+			"description": description,
+			"origin":      origin,
+			"img":         img,
+		})
+
+	})
+
 	router.Run(":" + port)
 	heroku.ForceSsl(router)
 }

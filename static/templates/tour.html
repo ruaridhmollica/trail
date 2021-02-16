@@ -157,6 +157,9 @@
                         /*$.ajax({
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });*/
+                        $.ajax({
+                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng
+                        });
                     },
                     onError: err =>
                         alert(`Error: ${getPositionError(err.code) || err.message}`)
