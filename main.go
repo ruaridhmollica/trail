@@ -144,17 +144,19 @@ func main() {
 				return
 			}
 		}
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
-			"qr":          true,
-			"id":          id,
-			"treename":    name,
-			"latinname":   latinname,
-			"height":      height,
-			"age":         age,
-			"description": description,
-			"origin":      origin,
-			//"img":         img,
-		})
+		if name != "" {
+			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+				"qr":          true,
+				"id":          id,
+				"treename":    name,
+				"latinname":   latinname,
+				"height":      height,
+				"age":         age,
+				"description": description,
+				"origin":      origin,
+				//"img":         img,
+			})
+		}
 
 	})
 
