@@ -145,7 +145,7 @@ func main() {
 			}
 		}
 		if name != "" {
-			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+			/*c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
 				"geo":         true,
 				"id":          id,
 				"treename":    name,
@@ -157,9 +157,10 @@ func main() {
 				"lat": lat,
 				"long": long,
 				//"img":         img,
-			})
+			})*/
+			fmt.Println(name, latinname, height, age, description, origin)
 		}
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
+		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 
 	})
 
