@@ -122,7 +122,7 @@ func main() {
 		//lat := c.Param("lat")
 		//long := c.Param("long")
 		lat := c.PostForm("lat")
-		long := c.PostForm("lng")
+		//long := c.PostForm("lng")
 		/*rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
@@ -159,7 +159,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, lat, long)
+		c.JSON(200, lat)
 		//}
 		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 
