@@ -121,8 +121,9 @@ func main() {
 	router.POST("/geofence", func(c *gin.Context) {
 		//lat := c.Param("lat")
 		//long := c.Param("long")
-
-		/*rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
+		lat := c.PostForm("lat")
+		long := c.PostForm("lng")
+		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading trees: %q", err))
@@ -144,8 +145,8 @@ func main() {
 				return
 			}
 		}
-		if name != "" { */
-		/*c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
+		/*if name != "" {
+		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
 			"geo":         true,
 			"id":          id,
 			"treename":    name,
@@ -158,7 +159,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, "TEST")
+		c.JSON(200, name)
 		//}
 		//c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 

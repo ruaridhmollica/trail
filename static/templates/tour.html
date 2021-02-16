@@ -188,6 +188,9 @@ function geofence(){
                             method: "POST",
                             contentType:'application/json&apos',
                             dataType: 'json',
+                            data: {
+                                "data": '{"lat":' + lat + ',"lastName":' + lng + '}' 
+                            },
                             cache: false,
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
