@@ -31,8 +31,8 @@
 
     <script>
     var qr = '{{.qr}}';
+    var geo = '{{.geo}}';
     if (qr){
-        alert("I got to here? did i work?");
         $('#myModal').modal('hide');
         qr = false;
         var id = '{{.id}}';
@@ -51,6 +51,28 @@
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
+    }
+    if (geo){
+        location.href("https://www.thetrailapp.com/geofence/" + '{{.lat}}' + '{{.long}}');
+        alert("I got to here? did i work?");
+        $('#myModal').modal('hide');
+        var id = '{{.id}}';
+        var name = '{{.treename}}';
+        var latinname = '{{.latinname}}';
+        var height = '{{.height}}';
+        var age = '{{.age}}';
+        var description = '{{.description}}';
+        var origin = '{{.origin}}';
+        var img = '{{.img}}';
+        $('#tree_title').html(id + ": " + name);
+        $('#tree_img').attr("src", img);
+        $('#tree_age').html(age);
+        $('#latin_name').html(latinname);
+        $('#tree_height').html(height);
+        $('#tree_info').html(description);
+        $('#tree_origin').html(origin);
+        $('#myModal').modal('show');
+        geo = false;
     }
 
     </script>
