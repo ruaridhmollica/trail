@@ -155,7 +155,7 @@ func main() {
 				"description": description,
 				"origin":      origin,
 				"lat": lat,
-				"long": long
+				"long": long,
 				//"img":         img,
 			})
 		}
