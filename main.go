@@ -122,7 +122,7 @@ func main() {
 		lat := c.Param("lat")
 		long := c.Param("long")
 
-		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 15) limit 1", long, lat)
+		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 15) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading trees: %q", err))
@@ -135,10 +135,10 @@ func main() {
 		var age int
 		var description string
 		var origin string
-		var img string
+		//var img string
 		var id int
 		for rows.Next() {
-			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
+			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin); err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error scanning trees: %q", err))
 				return
@@ -153,7 +153,7 @@ func main() {
 			"age":         age,
 			"description": description,
 			"origin":      origin,
-			"img":         img,
+			//"img":         img,
 		})
 
 	})
