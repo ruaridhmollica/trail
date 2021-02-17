@@ -51,7 +51,7 @@
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
-    }
+    };
 
     </script>
 
@@ -60,8 +60,6 @@
         let map;
         let time;
         var visited = 0;
-
-        function geofence(){
 
     //this piece of code runs when a geofence is entered
     function geofence (){
@@ -75,7 +73,7 @@
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
-    }
+    };
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
             switch (code) {
@@ -86,7 +84,7 @@
                 case 3:
                     return 'Timeout reached.';
             }
-        }
+        };
 
         //checks if geolocation is enabled and supported in the users browser
         const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
