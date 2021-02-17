@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -14,6 +15,17 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 )
+
+type TreeJson struct {
+	Id          string `json:"key1"`
+	Name        string `json:"key2"`
+	Latinname   string `json:"key3"`
+	Height      int    `json:"key4"`
+	Age         int    `json:"key5"`
+	Description string `json:"key6"`
+	Origin      string `json:"key7"`
+	Img         string `json:"key8"`
+}
 
 func main() {
 
@@ -126,7 +138,7 @@ func main() {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		visited := c.Param("visited")
-		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
+		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading trees: %q", err))
@@ -139,31 +151,30 @@ func main() {
 		var age int
 		var description string
 		var origin string
-		//var img string
+		var img string
 		var id string
 		for rows.Next() {
-			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin); err != nil {
+			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 				c.String(http.StatusInternalServerError,
 					fmt.Sprintf("Error scanning trees: %q", err))
 				return
 			}
 		}
-		/*if name != "" {
-		c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
-			"geo":         true,
-			"id":          id,
-			"treename":    name,
-			"latinname":   latinname,
-			"height":      height,
-			"age":         age,
-			"description": description,
-			"origin":      origin,
-			"lat": lat,
-			"long": long,
-			//"img":         img,
-		})*/
+
+		treeJson := TreeJson{
+			Id:          id,
+			Name:        name,
+			Latinname:   latinname,
+			Height:      height,
+			Age:         age,
+			Description: description,
+			Img:         img,
+		}
+
+		js, err := json.Marshal(treeJson)
+
 		if id != visited {
-			c.JSON(200, id) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
+			c.JSON(200, js) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
 		}
 	})
 
