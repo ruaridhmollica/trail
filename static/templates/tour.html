@@ -64,14 +64,14 @@
     //this piece of code runs when a geofence is entered
     function geofence (json){
         alert(visited);
-       /* var id = ;
-        var name = ;
-        var latinname = ;
-        var height = ;
-        var age = ;
-        var description = ;
-        var origin = ;
-        var img = ;*/
+       var id = json.id;
+        var name = json.name;
+        var latinname = json.latinname;
+        var height = json.height;
+        var age = json.age;
+        var description = json.description;
+        var origin = json.origin;
+        var img = json.img;
         $('#myModal').modal('hide');
         $('#tree_title').html(id + ": " + name);
         $('#tree_img').attr("src", img);
@@ -188,11 +188,10 @@
                             cache: false,
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
-                           // console.log (jdata);
                            var data = $.parseJSON(jdata);
-                            alert (data.id);
-                            //visited = jdata[id];
-                           // geofence(data);
+                            //alert (data.id);
+                            visited = data.id;
+                            geofence(data);
 
                         }). fail (function (jdata) {
                             console.log (jdata);
