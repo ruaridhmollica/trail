@@ -174,7 +174,7 @@ func main() {
 		js, err := json.Marshal(treeJson)
 
 		if id != visited {
-			c.JSON(200, js) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
+			c.JSON(200, string(js)) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
 		}
 	})
 
