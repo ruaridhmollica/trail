@@ -189,9 +189,10 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            // console.log (jdata);
-                            alert (jdata);
-                            visited = jdata[id];
-                            geofence(jdata);
+                           var data = $.parseJSON(jdata);
+                            alert (data);
+                            //visited = jdata[id];
+                           // geofence(data);
 
                         }). fail (function (jdata) {
                             console.log (jdata);
