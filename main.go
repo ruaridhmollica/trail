@@ -157,7 +157,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, name)
+		c.JSON(200, name) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
 
 	})
 
