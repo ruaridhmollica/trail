@@ -140,7 +140,7 @@ func main() {
 		var description string
 		var origin string
 		//var img string
-		var id int
+		var id string
 		for rows.Next() {
 			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin); err != nil {
 				c.String(http.StatusInternalServerError,
