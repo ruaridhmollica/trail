@@ -31,7 +31,7 @@
 
     <script>
     var qr = '{{.qr}}';
-    var geo = '{{.geo}}';
+    
     if (qr){
         $('#myModal').modal('hide');
         qr = false;
@@ -53,19 +53,20 @@
         $('#myModal').modal('show');
     }
 
-function geofence(){
-    if (geo){
-        //location.href("https://www.thetrailapp.com/geofence/" + '{{.lat}}' + '{{.long}}');
-        alert("I got to here? did i work?");
+    </script>
+
+    <!--Generate the map for the page using the Google My Maps JavaScript API-->
+    <script>
+        let map;
+        let time;
+        var visited = 0;
+
+        function geofence(){
+
+    //this piece of code runs when a geofence is entered
+    function geofence (){
+        alert(visited);
         $('#myModal').modal('hide');
-        var id = '{{.id}}';
-        var name = '{{.treename}}';
-        var latinname = '{{.latinname}}';
-        var height = '{{.height}}';
-        var age = '{{.age}}';
-        var description = '{{.description}}';
-        var origin = '{{.origin}}';
-        var img = '{{.img}}';
         $('#tree_title').html(id + ": " + name);
         $('#tree_img').attr("src", img);
         $('#tree_age').html(age);
@@ -74,17 +75,7 @@ function geofence(){
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
-        geo = false;
     }
-}
-
-    </script>
-
-    <!--Generate the map for the page using the Google My Maps JavaScript API-->
-    <script>
-        let map;
-        let time;
-
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
             switch (code) {
@@ -121,7 +112,7 @@ function geofence(){
 
         //this function handles all map generation stuff
         function initMap() {
-            var visited = 0;
+            
             //defines a data structure for creating the icon that shows a user's location on the map
             const locationMarker = {
                 url: "/static/img/marker.svg",
@@ -184,7 +175,7 @@ function geofence(){
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });*/
                         $.ajax({
-                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng,
+                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
                             method: "POST",
                             contentType:'application/json&apos',
                             dataType: 'json',
@@ -192,8 +183,10 @@ function geofence(){
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            // console.log (jdata);
-                            alert (jdata);
+                            //alert (jdata);
                             visited = jdata;
+                            geofence();
+
                         }). fail (function (jdata) {
                             console.log (jdata);
                             alert ("Fail");

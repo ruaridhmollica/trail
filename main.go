@@ -122,9 +122,10 @@ func main() {
 		}
 	})
 
-	router.POST("/geofence/:lat/:long", func(c *gin.Context) {
+	router.POST("/geofence/:lat/:long/:visited", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
+		visited := c.Param("visited")
 		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
@@ -161,8 +162,9 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, id) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
-
+		if id != visited {
+			c.JSON(200, id) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
+		}
 	})
 
 	router.Run(":" + port)
