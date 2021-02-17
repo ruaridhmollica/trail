@@ -1,3 +1,36 @@
 # Trail
-A PWA that allows a user to get information about the trees on the Heriot-Watt using QR and Spatial technologies.
-* WIP Deployed at: https://www.thetrailapp.com/
+A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR and Spatial technologies.
+* Work In Progress Deployed at: https://www.thetrailapp.com/
+
+## Stack
+
+### Hosting
+Trail is hosted on [Heroku](https://www.heroku.com/) and has a full valid SSH certification as well as a custom domain.
+- Heroku also hosts the applications database.
+- Heroku builds and deploys the web application automatically.
+
+### Database
+Trail makes use of a [PostgreSQL](https://www.postgresql.org/) database with the [postGIS](https://postgis.net/) extension installed for the ability to query and store geospatial data.
+
+### Backend
+This web application is powered by Golang v1.13.1 and handles the following:
+* File serving
+* Page routing, made easier by the use of the [Gin-Gonic/gin framework] (https://github.com/gin-gonic/gin)
+* Database connection and querying (using [Go-SQL-driver](https://github.com/go-sql-driver/mysql)
+* Outlining package details and dependencies to Heroku for hosting
+
+### Front-end
+To make this web app usable and pretty the following technologies are used:
+* HTML
+* CSS
+* JavaScript (to provide more complex functionality and handle API calls)
+* [JQuery](https://jquery.com/)
+* [Material Design Bootstrap](https://mdbootstrap.com/) (to make everything that little bit easier)
+
+### APIs
+* [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/overview) is used to generate custom, cross-compatible, interactive maps.
+
+### JavaScript Libraries
+* [html5-qrcode](https://blog.minhazav.dev/HTML5-QR-Code-scanning-launched-v1.0.1/#how-to-use) by Minhaz - this library was crucial in development and allowed for a QR code scanner to be embedded into the web application.
+* [WriteIT.js](https://khushit-shah.github.io/WriteIt.js/) by khushit-shah - used for the homepage greeting.
+* Google Maps' [Marker Clusterer Library](https://googlemaps.github.io/v3-utility-library/classes/_google_markerclustererplus.markerclusterer.html)
