@@ -63,8 +63,9 @@
 
     //this piece of code runs when a geofence is entered
     function geofence (json){
-        //alert(visited);
-       var id = json.id;
+    if (visited != 0){
+        $('#myModal').modal('hide');
+        var id = json.id;
         var name = json.name;
         var latinname = json.latinname;
         var height = json.height;
@@ -81,6 +82,7 @@
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
+     }
     };
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
@@ -189,9 +191,11 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                            //alert (data.id);
                             visited = data.id;
+                            //makes sure the modal is not triggered when no data has been obtained yet
+                            if ($.isEmptyObject(data) == false){
                             geofence(data);
+                            }
 
                         }). fail (function (jdata) {
                             console.log (jdata);
