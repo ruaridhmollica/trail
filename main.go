@@ -17,14 +17,14 @@ import (
 )
 
 type TreeJson struct {
-	Id          string `json:"key1"`
-	Name        string `json:"key2"`
-	Latinname   string `json:"key3"`
-	Height      int    `json:"key4"`
-	Age         int    `json:"key5"`
-	Description string `json:"key6"`
-	Origin      string `json:"key7"`
-	Img         string `json:"key8"`
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	Latinname   string `json:"latinname"`
+	Height      int    `json:"height"`
+	Age         int    `json:"age"`
+	Description string `json:"description"`
+	Origin      string `json:"origin"`
+	Img         string `json:"img"`
 }
 
 func main() {

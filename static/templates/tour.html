@@ -62,7 +62,7 @@
         var visited = 0;
 
     //this piece of code runs when a geofence is entered
-    function geofence (json_data){
+    function geofence (json){
         alert(visited);
        /* var id = ;
         var name = ;
@@ -190,8 +190,8 @@
                         }). done (function (jdata) {
                            // console.log (jdata);
                             alert (jdata);
-                            //visited = jdata;
-                            //geofence();
+                            visited = jdata[id];
+                            geofence(jdata);
 
                         }). fail (function (jdata) {
                             console.log (jdata);
