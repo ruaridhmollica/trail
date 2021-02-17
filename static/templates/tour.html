@@ -121,7 +121,7 @@ function geofence(){
 
         //this function handles all map generation stuff
         function initMap() {
-
+            var visited = 0;
             //defines a data structure for creating the icon that shows a user's location on the map
             const locationMarker = {
                 url: "/static/img/marker.svg",
@@ -193,6 +193,7 @@ function geofence(){
                         }). done (function (jdata) {
                            // console.log (jdata);
                             alert (jdata);
+                            visited = jdata;
                         }). fail (function (jdata) {
                             console.log (jdata);
                             alert ("Fail");

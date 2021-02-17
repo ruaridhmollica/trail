@@ -53,6 +53,7 @@ func main() {
 		treeNum := c.Query("id")
 		fmt.Println("Tree ID is ?", treeNum)
 
+		//if the variable value is not null then pull all tree info corresponding to that id from database
 		if treeNum != "" {
 			rows, err := db.Query("SELECT treename, latinname, height, age, description, origin, img FROM trees WHERE id = $1", treeNum)
 			if err != nil {
@@ -61,6 +62,7 @@ func main() {
 				return
 			}
 			defer rows.Close()
+
 			var name string
 			var latinname string
 			var height int
@@ -68,6 +70,7 @@ func main() {
 			var description string
 			var origin string
 			var img string
+			//loop through the data recieved from the SELECT statement and store in the specific variables above
 			for rows.Next() {
 				if err := rows.Scan(&name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 					c.String(http.StatusInternalServerError,
@@ -75,6 +78,7 @@ func main() {
 					return
 				}
 			}
+			//serve the tour page, passing in the tree info variables
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour.",
 				"qr":          true,
 				"id":          treeNum,
@@ -86,7 +90,7 @@ func main() {
 				"origin":      origin,
 				"img":         img,
 			})
-		} else {
+		} else { //if the QR code has no variable assigned to it just load the tour page
 			c.HTML(http.StatusOK, "tour.html", gin.H{"navtitle": "Tour."})
 		}
 	})
@@ -157,7 +161,7 @@ func main() {
 			"long": long,
 			//"img":         img,
 		})*/
-		c.JSON(200, name) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
+		c.JSON(200, id) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
 
 	})
 
