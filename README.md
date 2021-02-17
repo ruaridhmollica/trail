@@ -15,7 +15,7 @@ Trail makes use of a [PostgreSQL](https://www.postgresql.org/) database with the
 ### Backend
 This web application is powered by Golang v1.13.1 and handles the following:
 * File serving
-* Page routing, made easier by the use of the [Gin-Gonic/gin framework] (https://github.com/gin-gonic/gin)
+* Page routing, made easier by the use of the [Gin-Gonic/gin framework](https://github.com/gin-gonic/gin)
 * Database connection and querying (using [Go-SQL-driver](https://github.com/go-sql-driver/mysql)
 * Outlining package details and dependencies to Heroku for hosting
 
