@@ -151,7 +151,7 @@
         function checkGeofence(position){
             lat=position.coords.latitude;
             lng=position.coords.longitude;
-            alert('sending Ajax');
+           // alert('sending Ajax');
             $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
                             method: "POST",

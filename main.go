@@ -118,6 +118,7 @@ func main() {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
 
+	//this function is used for testing geolocation updates
 	router.GET("/location/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
@@ -137,7 +138,7 @@ func main() {
 	router.POST("/geofence/:lat/:long/:visited", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
-		visited := c.Param("visited")
+		//visited := c.Param("visited")
 		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 60) limit 1", long, lat)
 		if err != nil {
 			c.String(http.StatusInternalServerError,
@@ -173,9 +174,9 @@ func main() {
 
 		js, err := json.Marshal(treeJson)
 
-		if id != visited {
-			c.JSON(200, string(js)) //TO DO - pass all tree info in as json struct -- do with ID and set a var so that if the id is the same again then it doesnt send data
-		}
+		//if id != visited {
+		c.JSON(200, string(js))
+		//}
 	})
 
 	router.Run(":" + port)
