@@ -445,60 +445,20 @@
     {
       "type": "Feature",
       "properties": {
-        "Id": "21",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
-        "Age": "",
-        "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree21.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.324643,
-          55.908704
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Id": "22",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
-        "Age": "",
-        "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree22.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.325598,
-          55.908718
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "Id": "23",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Yellow Buckeye Chestnut ",
+        "LatinName": "Aesculus flava",
+        "Height": "35ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The Yellow Buckeye Chestnut can reach 47 metres (154 feet) in height. It is grown as an ornamental tree for its yellow flowers and Autumn colour.",
+        "Origin": "NorthEast America",
         "icon": "/static/img/tree23.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3259071183976276,
-          55.90868722292806
+        -3.3232743256312296,
+        55.9086613178161
         ]
       }
     },
@@ -506,19 +466,19 @@
       "type": "Feature",
       "properties": {
         "Id": "24",
-        "CommonName": " The Big Ash",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Douglas fir",
+        "LatinName": "Pseudotsuga menziesii",
+        "Height": "75ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The Douglas fir is a native of N.W. America. They have been known to live for over 1000 years and the tallest on record was measured in Whatcom County, N. America in 1897 at an incredible 142 metres (465 feet) tall. The Douglas fir is the tallest tree in Britain with a specimen near Inverness standing at over 66 metres (217 feet) tall. Research shows they could reach 476 feet tall at which point water supply would fail!  The timber is used in many industries including construction, marine structures and railways. They are also popular as Christmas trees and are grown ornamentally in parks and gardens.",
+        "Origin": "NorthWest America",
         "icon": "/static/img/tree24.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.326258487767062,
-          55.90890070715301
+        -3.323843784611787,
+        55.90884323062992
         ]
       }
     },
@@ -526,8 +486,8 @@
       "type": "Feature",
       "properties": {
         "Id": "25",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Sawara cypress",
+        "LatinName": "Chamaecyparis pisifera",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -537,8 +497,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.326066,
-          55.908864
+          -3.324541158954131,
+          55.908707923660856
         ]
       }
     },
@@ -546,19 +506,19 @@
       "type": "Feature",
       "properties": {
         "Id": "26",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Mountain hemlock",
+        "LatinName": "Tsuga mertensiana",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "North America",
         "icon": "/static/img/tree26.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.325603,
-          55.909008
+          -3.3251741602862337,
+          55.908710930486485
         ]
       }
     },
@@ -566,7 +526,7 @@
       "type": "Feature",
       "properties": {
         "Id": "27",
-        "CommonName": "",
+        "CommonName": "To be planted",
         "LatinName": "",
         "Height": "",
         "Age": "",
@@ -577,8 +537,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.325468,
-          55.909029
+          -3.3257696106769306,
+          55.90871844755199
         ]
       }
     },
@@ -586,19 +546,19 @@
       "type": "Feature",
       "properties": {
         "Id": "28",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "European beach",
+        "LatinName": "Fagus sylvatica",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "South-East England",
         "icon": "/static/img/tree28.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.325128,
-          55.90904
+          -3.3261585309786414,
+          55.90884323062781
         ]
       }
     },
@@ -606,19 +566,19 @@
       "type": "Feature",
       "properties": {
         "Id": "29",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Ash",
+        "LatinName": "Fraxinus excelsior ",
+        "Height": "100ft*",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The common ash is a member of the olive family and can grow to 43 metres (141 feet) tall. This superb example was around 30 metres (100 feet) high but recently had to be reduced when a large split was discovered in the trunk. They can live up to 250 years. The wood was traditionally used for making bows, tool handles and snooker cues. It was also used in early aircraft construction. Nowadays it is more commonly used in furniture making and flooring.",
+        "Origin": "Europe",
         "icon": "/static/img/tree29.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.324821,
-          55.909049
+          -3.326284594800095,
+          55.90890487031159
         ]
       }
     },
@@ -626,19 +586,19 @@
       "type": "Feature",
       "properties": {
         "Id": "30",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Monkey Puzzle",
+        "LatinName": "Araucaria araucana",
+        "Height": "60-65ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "Commonly known as the monkey puzzle tree or Chilean pine. It can reach heights of 40 metres (130 feet). The seeds are edible, but the wood is seldom used because of its scarcity.",
+        "Origin": "Chile and Western Argentina",
         "icon": "/static/img/tree30.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3247696357023777,
-          55.90920146824154
+          -3.325568445003967,
+          55.90907325138871
         ]
       }
     },
@@ -646,8 +606,8 @@
       "type": "Feature",
       "properties": {
         "Id": "31",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Koyamas spruce",
+        "LatinName": "Picea koyamae",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -657,8 +617,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.324623,
-          55.909176
+          -3.325305588525191,
+          55.909124366927806
         ]
       }
     },
@@ -666,19 +626,19 @@
       "type": "Feature",
       "properties": {
         "Id": "32",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Black Pine",
+        "LatinName": "Pinus nigra dalmatica",
         "Height": "",
         "Age": "",
-        "Description": "",
+        "Description": "Baby",
         "Origin": "",
         "icon": "/static/img/tree32.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.324545,
-          55.909177
+          -3.3248978927621917,
+          55.909198033321466
         ]
       }
     },
@@ -686,19 +646,19 @@
       "type": "Feature",
       "properties": {
         "Id": "33",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Scots pine",
+        "LatinName": "Pinus sylvestris",
         "Height": "",
         "Age": "",
-        "Description": "",
+        "Description": "baby?",
         "Origin": "",
         "icon": "/static/img/tree33.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323956027816842,
-          55.90919995392453
+          -3.324846930791817,
+          55.90924163173344
         ]
       }
     },
@@ -706,19 +666,19 @@
       "type": "Feature",
       "properties": {
         "Id": "34",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Fitzroya",
+        "LatinName": "Fitzroya cupressoides",
         "Height": "",
         "Age": "",
-        "Description": "",
+        "Description": "baby",
         "Origin": "",
         "icon": "/static/img/tree34.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3238613570030395,
-          55.90923319855124
+          -3.324782557776606,
+          55.90922509441054
         ]
       }
     },
@@ -726,19 +686,19 @@
       "type": "Feature",
       "properties": {
         "Id": "35",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Flaky Fir",
+        "LatinName": "Abies squamata",
         "Height": "",
         "Age": "",
-        "Description": "",
+        "Description": "baby",
         "Origin": "",
         "icon": "/static/img/tree35.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3239275125114798,
-          55.90929137657943
+          -3.3246843104151558,
+          55.90923427244734
         ]
       }
     },
@@ -746,8 +706,8 @@
       "type": "Feature",
       "properties": {
         "Id": "36",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "English oak",
+        "LatinName": "Quercus robur",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -757,8 +717,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3244296651347325,
-          55.90930478716668
+         -3.3244987320837502,
+         55.909257217517215
         ]
       }
     },
@@ -766,19 +726,19 @@
       "type": "Feature",
       "properties": {
         "Id": "37",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Western yellow pine",
+        "LatinName": "Pinus ponderosa",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "North America",
         "icon": "/static/img/tree37.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3240484174073774,
-          55.909407732375136
+          -3.324340444683434,
+          55.909306166954224
         ]
       }
     },
@@ -786,19 +746,19 @@
       "type": "Feature",
       "properties": {
         "Id": "38",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Golden Irish yew",
+        "LatinName": "Taxus baccata aurea",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "trio",
+        "Origin": "Northern Europe",
         "icon": "/static/img/tree38.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.324413,
-          55.909399
+          -3.3239529134619703,
+          55.90919756030731
         ]
       }
     },
@@ -806,19 +766,19 @@
       "type": "Feature",
       "properties": {
         "Id": "39",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Irish yew",
+        "LatinName": "Taxus baccata fastigiata",
         "Height": "",
         "Age": "",
-        "Description": "",
+        "Description": "trio",
         "Origin": "",
         "icon": "/static/img/tree39.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.32425,
-          55.909447
+          -3.3238901443204654,
+          55.909240391133984
         ]
       }
     },
@@ -826,19 +786,19 @@
       "type": "Feature",
       "properties": {
         "Id": "40",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Nana Argentea",
+        "LatinName": "Chamaecyparis lawsoniana ‘nana’",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "trio",
+        "Origin": "Europe",
         "icon": "/static/img/tree40.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323908,
-          55.909632
+         -3.323922893437772,
+          55.90928475158314
         ]
       }
     },
@@ -846,8 +806,8 @@
       "type": "Feature",
       "properties": {
         "Id": "41",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Yew",
+        "LatinName": "Taxus baccata adpressa",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -857,8 +817,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323843,
-          55.909609
+          -3.324078451740797,
+          55.90940406564456
         ]
       }
     },
@@ -866,19 +826,19 @@
       "type": "Feature",
       "properties": {
         "Id": "42",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Thuja standishii",
+        "LatinName": "Thuja standishii",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "Japan",
         "icon": "/static/img/tree42.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323614,
-          55.909747
+          -3.3243322573999246,
+          55.90949278611769
         ]
       }
     },
@@ -886,8 +846,8 @@
       "type": "Feature",
       "properties": {
         "Id": "43",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Cryptomeria japonica",
+        "LatinName": "Cryptomeria japonica sinensis",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -897,8 +857,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.32293,
-          55.909725
+          -3.324629728548795,
+          55.90944536657969
         ]
       }
     },
@@ -906,8 +866,8 @@
       "type": "Feature",
       "properties": {
         "Id": "44",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Black pine",
+        "LatinName": "Pinus nigra maritima",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -917,8 +877,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3225383164442968,
-          55.90979406712884
+          -3.324184886366548,
+          55.909631985075464
         ]
       }
     },
@@ -926,8 +886,8 @@
       "type": "Feature",
       "properties": {
         "Id": "45",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Wollemi pine",
+        "LatinName": "Wollemia nobilis",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -937,8 +897,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3226912023554216,
-          55.909721905241504
+          -3.3239338098005287,
+          55.9096977602315
         ]
       }
     },
@@ -946,8 +906,8 @@
       "type": "Feature",
       "properties": {
         "Id": "46",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Tulip tree",
+        "LatinName": "Liriodendron tulipifera",
         "Height": "",
         "Age": "",
         "Description": "",
@@ -957,22 +917,102 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3236755730568133,
-          55.909544506694026
+          -3.3237646060277766,
+          55.90966257818516
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Id": "001",
+        "Id": "47",
+        "CommonName": "Grand fir",
+        "LatinName": "Abies grandis",
+        "Height": "",
+        "Age": "",
+        "Description": "",
+        "Origin": "",
+        "icon": "/static/img/tree46.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.3234807803385187,
+          55.90985837351875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "48",
+        "CommonName": "Copper beach",
+        "LatinName": "Fagus sylvatica purpurea",
+        "Height": "",
+        "Age": "",
+        "Description": "",
+        "Origin": "",
+        "icon": "/static/img/tree46.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.32297043992161,
+          55.90976200562847
+        ]
+      }
+    },
+     {
+      "type": "Feature",
+      "properties": {
+        "Id": "49",
+        "CommonName": "Holly",
+        "LatinName": "Ilex aquafolium",
+        "Height": "",
+        "Age": "",
+        "Description": "",
+        "Origin": "",
+        "icon": "/static/img/tree46.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.3230686872735307,
+          55.909584565711135
+        ]
+      }
+    },
+     {
+      "type": "Feature",
+      "properties": {
+        "Id": "50",
+        "CommonName": "Atlas cedar",
+        "LatinName": "Cedrus atlantica glauca",
+        "Height": "",
+        "Age": "",
+        "Description": "",
+        "Origin": "Morocco",
+        "icon": "/static/img/tree46.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.3237045659679043,
+          55.90954020560495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "005",
         "CommonName": "Rowan",
         "LatinName": "Sorbus aucuparia",
         "Height": "10",
         "Age": "3",
         "Description": "Mature trees can grow to 15m in height and can live for up to 200 years. The bark is smooth and silvery grey, and leaf buds are purple and hairy.",
         "Origin": "Native",
-        "icon": "/static/img/tree1.svg"
+        "icon": "/static/img/tree5.svg"
       },
       "geometry": {
         "type": "Point",
@@ -985,14 +1025,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Id": "002",
+        "Id": "006",
         "CommonName": "Ash",
         "LatinName": "Fraxinus excelsior",
         "Height": "12",
         "Age": "3",
         "Description": "When fully grown, ash trees can reach a height of 35m. Tall and graceful, they often grow together, forming a domed canopy. The bark is pale brown to grey and fissures as the tree ages. The tree is easily identified in winter by its smooth twigs that have distinctive black, velvety leaf buds arranged opposite each other.",
         "Origin": "Native",
-        "icon": "/static/img/tree2.svg"
+        "icon": "/static/img/tree6.svg"
       },
       "geometry": {
         "type": "Point",
@@ -1005,14 +1045,14 @@
       {
       "type": "Feature",
       "properties": {
-        "Id": "003",
+        "Id": "007",
         "CommonName": "Baby Ash",
         "LatinName": "Fraxinus excelsior",
         "Height": "11",
         "Age": "3",
         "Description": "TEST The tree is easily identified in winter by its smooth twigs that have distinctive black, velvety leaf buds arranged opposite each other.",
         "Origin": "Native",
-        "icon": "/static/img/tree3.svg"
+        "icon": "/static/img/tree7.svg"
       },
       "geometry": {
         "type": "Point",

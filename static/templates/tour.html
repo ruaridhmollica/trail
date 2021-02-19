@@ -143,7 +143,6 @@
                 if (navigator.geolocation)
                     {
                     navigator.geolocation.getCurrentPosition(checkGeofence,showError);
-                    alert('getting location');
                     setTimeout(getLocation, 3000);
                     }
                 else{alert("Geolocation is not supported by this browser.");}
@@ -152,6 +151,7 @@
         function checkGeofence(position){
             lat=position.coords.latitude;
             lng=position.coords.longitude;
+            alert('sending Ajax');
             $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
                             method: "POST",
