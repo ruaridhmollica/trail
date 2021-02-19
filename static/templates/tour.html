@@ -143,6 +143,7 @@
                 if (navigator.geolocation)
                     {
                     navigator.geolocation.getCurrentPosition(checkGeofence,showError);
+                    alert('getting location');
                     setTimeout(getLocation, 3000);
                     }
                 else{alert("Geolocation is not supported by this browser.");}

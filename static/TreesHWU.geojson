@@ -8,10 +8,10 @@
         "Src": "/static/img/icon-512.png",
         "CommonName": "Hungarian Oak",
         "LatinName": "Quercus frainetto",
-        "Height": "15ft",
+        "Height": "75-80ft",
         "Age": "50",
-        "Description": "Distinctively different from the common oak.",
-        "Origin": "Hungary",
+        "Description": "Distinctively different from the common oak. They can grow up to 30 metres (125 feet) tall. A wonderfully shaped tree to have outside the main entrance to the university.",
+        "Origin": "South East Europe",
         "icon": "/static/img/tree1.svg"
       },
       "geometry": {
@@ -26,12 +26,12 @@
       "type": "Feature",
       "properties": {
         "Id": "2",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Silver birch",
+        "LatinName": "Abies nordmanniana",
+        "Height": "20ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "Some description about silver burches, this is a group of them",
+        "Origin": "Europe and Eurasia",
         "icon": "/static/img/tree2.svg"
       },
       "geometry": {
@@ -46,19 +46,19 @@
       "type": "Feature",
       "properties": {
         "Id": "3",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Nordmann fir",
+        "LatinName": "Abies nordmanniana",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "CHRISTMAS TREE at roundabout",
+        "Origin": "Mountains south and east of the Black Sea",
         "icon": "/static/img/tree3.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.319043394344669,
-          55.91035662009134
+         -3.3189412418215265,
+         55.90951134603756
         ]
       }
     },
@@ -66,19 +66,19 @@
       "type": "Feature",
       "properties": {
         "Id": "4",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Himalayan Birch",
+        "LatinName": "Betula utilis",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "BIRCH NEXT TO LEANORD HORNAR HALLS",
+        "Origin": "Western Himalayas",
         "icon": "/static/img/tree4.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.317774599666087,
-          55.91077459266458
+          -3.318661539950709,
+          55.91020074009671
         ]
       }
     },
@@ -86,19 +86,19 @@
       "type": "Feature",
       "properties": {
         "Id": "5",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Sycamore maple",
+        "LatinName": "Acer pseudoplatanus",
+        "Height": "75ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The Sycamore tree can live for 450 years reaching 35 metres (115 feet) in height. The timber is used for furniture, flooring, firewood and musical instruments, especially violins.",
+        "Origin": "Europe and Asia",
         "icon": "/static/img/tree5.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.318914,
-          55.911128
+          -3.319086315447709,
+          55.91034757868957
         ]
       }
     },
@@ -106,19 +106,19 @@
       "type": "Feature",
       "properties": {
         "Id": "6",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Cedar of Lebanon",
+        "LatinName": "Cedrus libani",
+        "Height": "55-60ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "Mature trees can be 40 metres (130 feet) tall. It stood intact until storms in 2010/11 caused significant damage. A young tree has since been planted next to it. The coral was built around it to protect the public as these trees can lose branches without warning.",
+        "Origin": "Mediterranean",
         "icon": "/static/img/tree6.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.319281,
-          55.910901
+        -3.3177840094767266,
+         55.91077664114267
         ]
       }
     },
@@ -126,19 +126,19 @@
       "type": "Feature",
       "properties": {
         "Id": "7",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Sweet Cherry",
+        "LatinName": "Prunus avium",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "CHERRY TREE CORNER OF PATH",
+        "Origin": "Western Asia, Eastern Europe",
         "icon": "/static/img/tree7.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.319372239715579,
-          55.910695546669956
+         -3.318650362985287,
+          55.9111494659867
         ]
       }
     },
@@ -146,19 +146,19 @@
       "type": "Feature",
       "properties": {
         "Id": "8",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Grey Poplar",
+        "LatinName": "Populus x Canescens",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "ON THE BANK LEANING, CROSS between white poplar and aspen",
+        "Origin": "Southern and Central Europe, Asia Minor",
         "icon": "/static/img/tree8.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.320257,
-          55.910174
+         -3.319323915463794,
+         55.91098819173287
         ]
       }
     },
@@ -166,19 +166,19 @@
       "type": "Feature",
       "properties": {
         "Id": "9",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Lawson cypress",
+        "LatinName": "Chamaecyparis lawsoniana",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "Connifer etc, next to loch",
+        "Origin": "North America",
         "icon": "/static/img/tree9.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.320631,
-          55.910279
+          -3.3196109118234407,
+          55.91069429058795
         ]
       }
     },
@@ -186,19 +186,19 @@
       "type": "Feature",
       "properties": {
         "Id": "10",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Grand fir",
+        "LatinName": "Abies grandis",
         "Height": "",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "TALL",
+        "Origin": "North America",
         "icon": "/static/img/tree10.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.320683,
-          55.910202
+         -3.320144671421444,
+         55.910104226569295
         ]
       }
     },
@@ -206,19 +206,19 @@
       "type": "Feature",
       "properties": {
         "Id": "11",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "European larch",
+        "LatinName": "Larix decidua",
+        "Height": "75-80ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The European larch is a deciduous conifer and it can grow to 55 metres (180 feet) tall.Reports of 350 years old have been recorded. The timber is used in yacht building and fencing.",
+        "Origin": "Europe",
         "icon": "/static/img/tree11.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.320982789534443,
-          55.91010005301041
+         -3.3205067696321464,
+         55.91020946157222
         ]
       }
     },
@@ -226,13 +226,53 @@
       "type": "Feature",
       "properties": {
         "Id": "12",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Western yellow pine",
+        "LatinName": "Pinus ponderosa",
+        "Height": "45ft",
+        "Age": "",
+        "Description": "The tallest one measured was 81.77 metres (268.29 feet) high. They are grown as ornamental trees in parks and big gardens.",
+        "Origin": "NorthWest America and Canada",
+        "icon": "/static/img/tree12.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.320880876172341,
+          55.91013166932024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "13",
+        "CommonName": "Giant sequoia",
+        "LatinName": "Sequoiadendron giganteum",
+        "Height": "",
+        "Age": "",
+        "Description": "HUGE and RARE",
+        "Origin": "Northern Hemisphere",
+        "icon": "/static/img/tree13.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.3209962111579263,
+          55.910032447554386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "14",
+        "CommonName": "Coast redwood",
+        "LatinName": "Sequoia sempervirens",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree12.svg"
+        "Origin": "Pacific Coast",
+        "icon": "/static/img/tree14.svg"
       },
       "geometry": {
         "type": "Point",
@@ -245,14 +285,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Id": "13",
-        "CommonName": "",
-        "LatinName": "",
+        "Id": "15",
+        "CommonName": "Sweet chesnut",
+        "LatinName": "Castanea sativa",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree13.svg"
+        "Origin": "Southern Europe and Asia Minor",
+        "icon": "/static/img/tree15.svg"
       },
       "geometry": {
         "type": "Point",
@@ -265,60 +305,20 @@
     {
       "type": "Feature",
       "properties": {
-        "Id": "14",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
-        "Age": "",
-        "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree14.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.32156844095075,
-          55.90954922973187
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Id": "15",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
-        "Age": "",
-        "Description": "",
-        "Origin": "",
-        "icon": "/static/img/tree15.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.321233466093601,
-          55.90955047313406
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "Id": "16",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Noble fir",
+        "LatinName": "Abies procera",
+        "Height": "85-90ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The Noble fir can reach 90 metres (295 feet) high. This fine specamin has a poker straight trunk. They make popular Christmas trees and the wood is used in construction and paper making.",
+        "Origin": "North America",
         "icon": "/static/img/tree16.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.32205,
-          55.909318
+       -3.321479887224404,
+       55.90956423259177
         ]
       }
     },
@@ -326,19 +326,19 @@
       "type": "Feature",
       "properties": {
         "Id": "17",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Western Hemlock",
+        "LatinName": "Tsuga heterophylla",
+        "Height": "85-90ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "Western Hemlock is an elegant N.W. American tree growing up to 82metres (270 feet) tall. They have a distinctive drooping lead shoot. Some trees of the  species have been known to reach 1200 years old. They are cultivated as ornamental trees in large gardens. The bark serves as a source of  tannin for tanning.",
+        "Origin": "NorthWest America",
         "icon": "/static/img/tree17.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.322575322181886,
-          55.90889397566801
+          -3.3215536479710006,
+          55.909510110868084
         ]
       }
     },
@@ -346,19 +346,19 @@
       "type": "Feature",
       "properties": {
         "Id": "18",
-        "CommonName": "",
-        "LatinName": "",
-        "Height": "",
+        "CommonName": "Norway Maple",
+        "LatinName": "Acer platanoides ‘Crimson King’",
+        "Height": "20ft",
         "Age": "",
-        "Description": "",
-        "Origin": "",
+        "Description": "The Norway maple can live up to 250 years and grow up to 30 metres (100 feet) high. This young specimen was planted to commemorate the 40th anniversary of Riccarton Estate being gifted to Heriot-Watt University (more information on commemorative stone). The wood is used in furniture making, flooring and musical instruments. Many Stradivarius violins were thought to be made from Norway maple.",
+        "Origin": "Europe and Asia",
         "icon": "/static/img/tree18.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.3226601730424528,
-          55.90885955738086
+          -3.3213900332190356,
+          55.90947402967711
         ]
       }
     },
@@ -366,19 +366,19 @@
       "type": "Feature",
       "properties": {
         "Id": "19",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Coast redwood",
+        "LatinName": "Sequoia sempervirens",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "Pacific Coast",
         "icon": "/static/img/tree19.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323260827833429,
-          55.90866493703173
+          -3.3212800626513843,
+          55.90947177460155
         ]
       }
     },
@@ -386,19 +386,59 @@
       "type": "Feature",
       "properties": {
         "Id": "20",
-        "CommonName": "",
-        "LatinName": "",
+        "CommonName": "Giant sequoia",
+        "LatinName": "Sequoiadendron giganteum",
         "Height": "",
         "Age": "",
         "Description": "",
-        "Origin": "",
+        "Origin": "Northern Hemisphere",
         "icon": "/static/img/tree20.svg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.323931,
-          55.908799
+          -3.3212733571289665,
+          55.90953566835825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "21",
+        "CommonName": "Spanish or Sweet chesnut",
+        "LatinName": "Castanea sativa",
+        "Height": "50-55ft",
+        "Age": "",
+        "Description": "Sweet chesnut can grow to around 35 metres (115 feet) tall. These are around 15-17 metres (50-55 feet) high. They can live for 2000 years. The nuts are edible and traditionally roasted then dipped in salt. Wood use includes furniture making and roof beams. These are a group of trees that originated from the Riccarton Sweet Chestnut which was over 250 years old. The original tree died back leaving peripheral shoots.",
+        "Origin": "",
+        "icon": "/static/img/tree21.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.3226051144839706,
+          55.90888382262644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Id": "22",
+        "CommonName": "Western Red Cedar",
+        "LatinName": "Thuja plicata",
+        "Height": "80ft",
+        "Age": "",
+        "Description": "Western Red Cedar is a large tree growing up to 75 metres (245 feet) tall. Note how it has a layered branch from the mother plant which has created another tree. The oldest verified specimen was recorded at 1460 years old. Its wood is used for a variety of things including lightweight sailing boats and kayaks, posts, guitars and beehive frames. Mature trees have a natural fungicide called Thujaplicin which prevents the wood from rotting up to 100 years after being felled. The bark can be used for making mats, ropes, clothing and other soft goods.",
+        "Origin": "",
+        "icon": "/static/img/tree22.svg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+         -3.3231147341976874,
+         55.90868612415846
         ]
       }
     },
