@@ -61,6 +61,8 @@
         let time;
         var visited = 0;
 
+        getLocation();
+
     //this piece of code runs when a geofence is entered
     function geofence (json){
     if (visited != 0){
@@ -95,6 +97,24 @@
                     return 'Timeout reached.';
             }
         };
+        function showError(error)
+            {
+            switch(error.code) 
+                {
+                case error.PERMISSION_DENIED:
+                x.innerHTML="User denied the request for Geolocation."
+                break;
+                case error.POSITION_UNAVAILABLE:
+                x.innerHTML="Location information is unavailable."
+                break;
+                case error.TIMEOUT:
+                x.innerHTML="The request to get user location timed out."
+                break;
+                case error.UNKNOWN_ERROR:
+                x.innerHTML="An unknown error occurred."
+                break;
+                }
+            };
 
         //checks if geolocation is enabled and supported in the users browser
         const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
@@ -117,6 +137,40 @@
                 maximumAge: 0
             });
         };
+
+        //this is function gets the location every 3 secods so as to not timeout on location requests
+        function getLocation(){
+                if (navigator.geolocation)
+                    {
+                    navigator.geolocation.getCurrentPosition(checkGeofence,showError);
+                    setTimeout(getLocation, 3000);
+                    }
+                else{alert("Geolocation is not supported by this browser.");}
+            };
+
+        function checkGeofence(position){
+            lat=position.coords.latitude;
+            lng=position.coords.longitude;
+            $.ajax({
+                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
+                            method: "POST",
+                            contentType:'application/json&apos',
+                            dataType: 'json',
+                            cache: false,
+                            scriptCharset: 'utf-8',
+                        }). done (function (jdata) {
+                           var data = $.parseJSON(jdata);
+                            visited = data.id;
+                            //makes sure the modal is not triggered when no data has been obtained yet
+                            if ($.isEmptyObject(data) == false){
+                            geofence(data);
+                            }
+
+                        }). fail (function (jdata) {
+                            console.log (jdata);
+                        });
+        };
+
 
         //this function handles all map generation stuff
         function initMap() {
@@ -182,25 +236,6 @@
                         /*$.ajax({
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         });*/
-                        $.ajax({
-                            url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
-                            method: "POST",
-                            contentType:'application/json&apos',
-                            dataType: 'json',
-                            cache: false,
-                            scriptCharset: 'utf-8',
-                        }). done (function (jdata) {
-                           var data = $.parseJSON(jdata);
-                            visited = data.id;
-                            //makes sure the modal is not triggered when no data has been obtained yet
-                            if ($.isEmptyObject(data) == false){
-                            geofence(data);
-                            }
-
-                        }). fail (function (jdata) {
-                            console.log (jdata);
-                            //alert ("Fail");
-                        });
                     },
                     onError: err =>
                         alert(`Error: ${getPositionError(err.code) || err.message}`)
