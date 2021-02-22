@@ -65,7 +65,7 @@
 
     //this piece of code runs when a geofence is entered
     function geofence (json){
-    //if (visited != 0){
+    if (visited != 0){
         $('#myModal').modal('hide');
         var id = json.id;
         var name = json.name;
@@ -84,7 +84,7 @@
         $('#tree_info').html(description);
         $('#tree_origin').html(origin);
         $('#myModal').modal('show');
-     //}
+     }
     };
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
@@ -151,6 +151,7 @@
         function checkGeofence(position){
             lat=position.coords.latitude;
             lng=position.coords.longitude;
+            var i = 0;
            // alert('sending Ajax');
             $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
@@ -161,15 +162,16 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                        //if(data != "null"){
-                            //visited = data.id;
-                            //makes sure the modal is not triggered when no data has been obtained yet
-                            //if ($.isEmptyObject(data) == false){
-                            geofence(data);
-                            //};
-                       // }else{
-                          //  console.log("not in geofence");
-                        //}
+                            if(data != "null"){
+                                visited = data.id;
+                                //makes sure the modal is not triggered when no data has been obtained yet
+                                //if ($.isEmptyObject(data) == false){
+                                geofence(data);
+                                //};
+                            }else{
+                                alert("not in geofence");
+                            }
+                            i++;
 
                         }). fail (function (jdata) {
                             var d = $.parseJSON(jdata);
