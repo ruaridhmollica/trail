@@ -153,7 +153,6 @@
             lat=position.coords.latitude;
             lng=position.coords.longitude;
             var i = 0;
-           // alert('sending Ajax');
             $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
                             method: "POST",
@@ -165,7 +164,7 @@
                            var data = $.parseJSON(jdata);
                            alert(data);
 
-                            if(data == 'failed'){
+                            if(data == "null"){
                                 alert("Not in Geofence");
                             }else{
                                 visited = data.id;
