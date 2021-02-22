@@ -154,6 +154,7 @@ func main() {
 		var origin string
 		var img string
 		var id string
+		var success bool = false
 		//var geofence bool = false
 		for rows.Next() {
 			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
@@ -161,6 +162,7 @@ func main() {
 					fmt.Sprintf("Error scanning trees: %q", err))
 				return
 			}
+			success = true
 		}
 
 		treeJson := TreeJson{
@@ -176,7 +178,7 @@ func main() {
 		js, err := json.Marshal(treeJson)
 
 		//if id != visited {
-		if id != "" {
+		if success == true {
 			c.JSON(200, string(js))
 		} else {
 			c.JSON(200, "null")
