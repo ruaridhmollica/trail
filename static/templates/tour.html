@@ -163,8 +163,8 @@
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
                            alert(data);
-                           
-                            if(data == "null"){
+
+                            if(data === "null"){
                                 alert("Not in Geofence");
                             }else{
                                 visited = data.id;
