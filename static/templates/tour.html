@@ -161,13 +161,19 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                            visited = data.id;
+                        //if(data != "null"){
+                            //visited = data.id;
                             //makes sure the modal is not triggered when no data has been obtained yet
                             if ($.isEmptyObject(data) == false){
                             geofence(data);
-                            }
+                            };
+                       // }else{
+                          //  console.log("not in geofence");
+                        //}
 
                         }). fail (function (jdata) {
+                            var d = $.parseJSON(jdata);
+                            alert("fail");
                             console.log (jdata);
                         });
         };

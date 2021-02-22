@@ -154,6 +154,7 @@ func main() {
 		var origin string
 		var img string
 		var id string
+		//var geofence bool = false
 		for rows.Next() {
 			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 				c.String(http.StatusInternalServerError,
@@ -175,7 +176,11 @@ func main() {
 		js, err := json.Marshal(treeJson)
 
 		//if id != visited {
-		c.JSON(200, string(js))
+		if id != "" {
+			c.JSON(200, string(js))
+		} else {
+			c.JSON(200, "null")
+		}
 		//}
 	})
 
