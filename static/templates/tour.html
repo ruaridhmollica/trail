@@ -162,15 +162,16 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                           alert(data)
-                            if(data != "null"){
+                           alert(data);
+                           
+                            if(data == "null"){
+                                alert("Not in Geofence");
+                            }else{
                                 visited = data.id;
                                 //makes sure the modal is not triggered when no data has been obtained yet
                                 //if ($.isEmptyObject(data) == false){
                                 geofence(data);
                                 //};
-                            }else{
-                                alert("not in geofence");
                             }
                             i++;
 
