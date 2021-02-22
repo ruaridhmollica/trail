@@ -180,7 +180,7 @@ func main() {
 		if success == true && id != visited {
 			c.JSON(200, string(js))
 		} else {
-			c.JSON(200, "null")
+			c.JSON(200, "failed")
 		}
 
 	})
