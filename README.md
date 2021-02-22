@@ -1,4 +1,4 @@
-# Trail
+# Trail - 4th Year CompSci Dissertation Project
 A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR and Spatial technologies.
 * Work In Progress Deployed at: https://www.thetrailapp.com/
 
