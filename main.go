@@ -155,7 +155,7 @@ func main() {
 		var img string
 		var id string
 		var success bool = false
-		//var geofence bool = false
+
 		for rows.Next() {
 			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 				c.String(http.StatusInternalServerError,
