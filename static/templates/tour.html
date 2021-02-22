@@ -162,6 +162,7 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
+                           alert(data)
                             if(data != "null"){
                                 visited = data.id;
                                 //makes sure the modal is not triggered when no data has been obtained yet
