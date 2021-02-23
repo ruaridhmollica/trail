@@ -1,5 +1,5 @@
 # Trail - 4th Year CompSci Dissertation Project
-A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR and Spatial technologies.
+A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR, Spatial and Speech Synth technologies.
 * Work In Progress Deployed at: https://www.thetrailapp.com/
 
 ## Stack
@@ -34,3 +34,4 @@ To make this web app usable and pretty the following technologies are used:
 * [html5-qrcode](https://blog.minhazav.dev/HTML5-QR-Code-scanning-launched-v1.0.1/#how-to-use) by Minhaz - this library was crucial in development and allowed for a QR code scanner to be embedded into the web application.
 * [WriteIT.js](https://khushit-shah.github.io/WriteIt.js/) by khushit-shah - used for the homepage greeting.
 * Google Maps' [Marker Clusterer Library](https://googlemaps.github.io/v3-utility-library/classes/_google_markerclustererplus.markerclusterer.html)
+* [SpeechSynthesis Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - used for text to speech synthesis
