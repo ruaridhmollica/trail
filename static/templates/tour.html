@@ -115,7 +115,7 @@
             if('speechSynthesis' in window){
                 var speech = new SpeechSynthesisUtterance('You are approaching tree number' + id + '. This ' + latinname + '. commonly known as the' + name + '. is ' + height + ' feet tall. ' + age + 'years old. and originates from ' + origin + '.' + description);
                 speech.lang = 'en-GB';
-                textToSpeech.speak(speech);
+                window.speechSynthesis.speak(speech);
             }
         }
     }
