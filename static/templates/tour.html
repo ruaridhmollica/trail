@@ -102,7 +102,7 @@
     };
 
     //this function is called once a geofence is entered and uses the speech synth api to tell a user about the tree they are approaching.
-    function speech(json){
+    function autoSpeech(json){
         if (visited != 0){
             var id = json.id;
             var name = json.name;
@@ -118,6 +118,22 @@
                 textToSpeech.speak(speech);
             }
         }
+    }
+
+    //on IOS you cannot autmatically play audio, it must be triggered by a button push, hence, this code allows for any modal to be spoken aloud via a press of a button
+    function read(){
+            var idName = $('#tree_title').html();
+            var age = $('#tree_age').html();
+            var latinname = $('#latin_name').html();
+            var height = $('#tree_height').html();
+            var description = $('#tree_info').html();
+            var origin = $('#tree_origin').html();
+
+            if('speechSynthesis' in window){
+                var speech = new SpeechSynthesisUtterance('You are approaching tree ' + idName + '. This ' + latinname + '. is ' + height + ' feet tall. ' + age + 'years old. and originates from ' + origin + '.' + description);
+                speech.lang = 'en-GB';
+                textToSpeech.speak(speech);
+            }
     }
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
