@@ -130,7 +130,7 @@
             var origin = $('#tree_origin').html();
 
             if('speechSynthesis' in window){
-                var speech = new SpeechSynthesisUtterance('You are approaching tree ' + idName + '. This ' + latinname + '. is ' + height + ' feet tall. ' + age + 'years old. and originates from ' + origin + '.' + description);
+                var speech = new SpeechSynthesisUtterance('You are approaching tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
                 speech.lang = 'en-GB';
                 textToSpeech.speak(speech);
             }
@@ -226,7 +226,7 @@
                             }else{
                                 visited = data.id;
                                 geofence(data);
-                                speech(data);
+                                autoSpeech(data);
                             }
                             i++;
 
