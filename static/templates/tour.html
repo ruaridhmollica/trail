@@ -23,15 +23,24 @@
 
 
     {{template "scripts.html"}}
+
     <script>
+        //this small section of code updates the page heading to match the page a user is on e.g. TOUR. or MAP.
         var navTitle = '{{.navtitle}}';
         document.getElementById('navtitle').innerHTML = navTitle;
         document.getElementById('navtitle2').innerHTML = navTitle;
     </script>
 
+
+
     <script>
+    //this script handles the event in which a user scanned a QR code of a tree
+    //the qr variable is assigned a value of TRUE in the backend golang code. This value
+    // allows the following modal cration code to be run
     var qr = '{{.qr}}';
     
+    //if a user has scanne dthe QR code then the page will have loaded with special variables containing tree information pulled from the database
+    //this information is then put into javascript variables where it can be placed into html elements in a modal and displayed
     if (qr){
         $('#myModal').modal('hide');
         qr = false;
@@ -61,32 +70,55 @@
         let time;
         var visited = 0;
 
+        //defines the variable used to convert text into speech (speech synth api)
+        var textToSpeech = window.speechSynthesis;
+
+        //kickstarts the obtaining of a users current location
         getLocation();
 
-    //this piece of code runs when a geofence is entered
+    //this piece of code is called when a trees geofence is entered, it displays the corresponding tree information in a modal
     function geofence (json){
-    //alert(json + "I got here");
-    if (visited != 0){
-        $('#myModal').modal('hide');
-        var id = json.id;
-        var name = json.name;
-        var latinname = json.latinname;
-        var height = json.height;
-        var age = json.age;
-        var description = json.description;
-        var origin = json.origin;
-        var img = json.img;
-        $('#myModal').modal('hide');
-        $('#tree_title').html(id + ": " + name);
-        $('#tree_img').attr("src", img);
-        $('#tree_age').html(age);
-        $('#latin_name').html(latinname);
-        $('#tree_height').html(height);
-        $('#tree_info').html(description);
-        $('#tree_origin').html(origin);
-        $('#myModal').modal('show');
-     }
+        //this if statement makes sure to not run this code before a geofence is entered
+        if (visited != 0){
+            $('#myModal').modal('hide');
+            var id = json.id;
+            var name = json.name;
+            var latinname = json.latinname;
+            var height = json.height;
+            var age = json.age;
+            var description = json.description;
+            var origin = json.origin;
+            var img = json.img;
+            $('#myModal').modal('hide');
+            $('#tree_title').html(id + ": " + name);
+            $('#tree_img').attr("src", img);
+            $('#tree_age').html(age);
+            $('#latin_name').html(latinname);
+            $('#tree_height').html(height);
+            $('#tree_info').html(description);
+            $('#tree_origin').html(origin);
+            $('#myModal').modal('show');
+        }
     };
+
+    //this function is called once a geofence is entered and uses the speech synth api to tell a user about the tree they are approaching.
+    function speech(json){
+        if (visited != 0){
+            var id = json.id;
+            var name = json.name;
+            var latinname = json.latinname;
+            var height = json.height;
+            var age = json.age;
+            var description = json.description;
+            var origin = json.origin;
+
+            if('speechSynthesis' in window){
+                var speech = new SpeechSynthesisUtterance('You are approaching tree number' + id + '. This ' + latinname + 'commonly known as the' + name + ' is ' + height + ' feet tall, ' + age + 'years old, and originates from ' + origin + '.' + description);
+                speech.lang = 'en-GB';
+                textToSpeech.speak(speech);
+            }
+        }
+    }
         //returns to the user an error messaged based on a received error code
         const getPositionError = code => {
             switch (code) {
@@ -98,6 +130,7 @@
                     return 'Timeout reached.';
             }
         };
+        //error handling for geolocation methods
         function showError(error)
             {
             switch(error.code) 
@@ -139,7 +172,8 @@
             });
         };
 
-        //this is function gets the location every 3 secods so as to not timeout on location requests
+        //this is function gets the location every 3 secods so as to not timeout on location requests, it then calls the function that checks
+        //if a user is inside a geofence or not
         function getLocation(){
                 if (navigator.geolocation)
                     {
@@ -149,6 +183,13 @@
                 else{alert("Geolocation is not supported by this browser.");}
             };
 
+        //this is the primary function used to speak to the backend and determine whether a user is inside a geofence.
+        //it passes the latitude and longitude of a users current location to the backend via an AJAX post method.
+        //the visited variable is the tree ID and is used to prevent the same tree being returned repeatedly when a user is inside the geofence
+        //Tree data is returned as Json via a struct created in the golang code. The json is then parsed into a Javascript object that can be
+        //indexed to obtain values. This obejct is passed to the function that displays the data and the speech synth function
+        //If a user is not inside a geofence, or the geofence has already been visited, the string NULL is returned. This keep the connection "alive"
+        //and allowed for easier error handling
         function checkGeofence(position){
             lat=position.coords.latitude;
             lng=position.coords.longitude;
@@ -168,10 +209,8 @@
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
-                                //makes sure the modal is not triggered when no data has been obtained yet
-                                //if ($.isEmptyObject(data) == false){
                                 geofence(data);
-                                //};
+                                speech(data);
                             }
                             i++;
 
@@ -217,7 +256,7 @@
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
 
-          
+            //this function sets the style of the maps markers using the image link outlined by each object in the geojson files
             map.data.setStyle(function(feature) {
                 var tree = {
                 url: feature.getProperty('icon'),
@@ -228,7 +267,7 @@
              return {icon: tree};
             });
 
-                //gets the current position of the user
+                //gets the current position of the user and pans the map to that location
                 getCurrentPosition({
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
@@ -238,8 +277,8 @@
                         alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
                 });
 
-                //tracks the users current location and upda-tes the map to pan to the location, lat and long data is also
-                //sent to backend for testing (where it is added to a database)
+                //tracks the users current location and upda-tes the map to pan to the location on every movement, lat and long data can also
+                // be sent to backend for testing (where it is added to a database)
                 trackLocation({
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
