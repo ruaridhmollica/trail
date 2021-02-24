@@ -35,3 +35,4 @@ To make this web app usable and pretty the following technologies are used:
 * [WriteIT.js](https://khushit-shah.github.io/WriteIt.js/) by khushit-shah - used for the homepage greeting.
 * Google Maps' [Marker Clusterer Library](https://googlemaps.github.io/v3-utility-library/classes/_google_markerclustererplus.markerclusterer.html)
 * [SpeechSynthesis Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - used for text to speech synthesis
+* [User Agent Parser](https://github.com/faisalman/ua-parser-js) by faisalman on GitHub - used to get the users operating system to prevent vibration API functions calling when a user is running web app on an IOS or Mac OS device. (vibration API. is unsupported by IOS)
