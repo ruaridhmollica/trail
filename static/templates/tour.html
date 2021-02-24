@@ -43,7 +43,8 @@
     //this information is then put into javascript variables where it can be placed into html elements in a modal and displayed
     if (qr){
         $('#myModal').modal('hide');
-        window.navigator.vibrate(200);
+        //if the user not on an IOS/Apple device call the vibrate function
+        if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(100); }
         qr = false;
         var id = '{{.id}}';
         var name = '{{.treename}}';
@@ -70,6 +71,9 @@
         let map;
         let time;
         var visited = 0;
+        //User Agent parser (script) used to get the OS of a users device for vibration stuff
+        var parser = new UAParser();
+        var os = parser.getOS();
 
         //defines the variable used to convert text into speech (speech synth api)
         var textToSpeech = window.speechSynthesis;
@@ -81,7 +85,8 @@
     function geofence (json){
         //this if statement makes sure to not run this code before a geofence is entered
         if (visited != 0){
-            window.navigator.vibrate(200);
+            //if the user not on an IOS/Apple device call the vibrate function
+            if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(300); }
             $('#myModal').modal('hide');
             var id = json.id;
             var name = json.name;
@@ -130,7 +135,9 @@
             var height = $('#tree_height').html();
             var description = $('#tree_info').html();
             var origin = $('#tree_origin').html();
-            window.navigator.vibrate(100);
+
+            //if the user not on an IOS/Apple device call the vibrate function
+            if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(100); }
             if('speechSynthesis' in window){
                 var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
                 speech.lang = 'en-GB';
