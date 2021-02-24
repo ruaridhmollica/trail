@@ -81,6 +81,7 @@
     function geofence (json){
         //this if statement makes sure to not run this code before a geofence is entered
         if (visited != 0){
+            window.navigator.vibrate(200);
             $('#myModal').modal('hide');
             var id = json.id;
             var name = json.name;
@@ -226,7 +227,6 @@
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
-                                window.navigator.vibrate(250);
                                 geofence(data);
                                 autoSpeech(data);
                             }
