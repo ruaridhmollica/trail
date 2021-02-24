@@ -1,3 +1,5 @@
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ruaridhmollica/Trail?label=Powered%20by%20Go&logo=Go)
+
 # Trail - 4th Year CompSci Dissertation Project
 A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR, Spatial and Speech Synth technologies.
 * Work In Progress Deployed at: https://www.thetrailapp.com/
