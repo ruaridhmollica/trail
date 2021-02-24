@@ -43,6 +43,7 @@
     //this information is then put into javascript variables where it can be placed into html elements in a modal and displayed
     if (qr){
         $('#myModal').modal('hide');
+        window.navigator.vibrate(200);
         qr = false;
         var id = '{{.id}}';
         var name = '{{.treename}}';
@@ -128,7 +129,7 @@
             var height = $('#tree_height').html();
             var description = $('#tree_info').html();
             var origin = $('#tree_origin').html();
-
+            window.navigator.vibrate(100);
             if('speechSynthesis' in window){
                 var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
                 speech.lang = 'en-GB';
@@ -225,6 +226,7 @@
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
+                                window.navigator.vibrate(250);
                                 geofence(data);
                                 autoSpeech(data);
                             }
