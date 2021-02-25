@@ -3,7 +3,7 @@
 
 {{template "head.html"}}
 
-<body>
+<body style="margin : 0px; overflow: hidden;">
 {{template "nav.html"}}
 
 <div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
@@ -12,10 +12,18 @@
 <div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
     <p class="deskhide">Will be the ar page</p>
 </div>
+<a-scene embedded arjs>
+    <a-marker preset="hiro">
+        <a-entity
+        position="0 -1 0"
+        scale="0.05 0.05 0.05"
+        gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        ></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+    </a-scene>
+
 {{template "mobnav.html"}}
-
-
-
 
 {{template "scripts.html"}}
 <script>
