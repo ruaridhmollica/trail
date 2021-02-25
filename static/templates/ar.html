@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{template "head.html"}}
+
+<body>
+{{template "nav.html"}}
+
+<div class="pl-3 pt-4 textcol justify-content-center wipfooter d-flex align-items-center mobhide">
+    <p class="mobhide">Will be the ar page</p>
+</div>
+<div class="pl-3 pt-2 textcolmob justify-content-center wipfooter d-flex align-items-center deskhide">
+    <p class="deskhide">Will be the ar page</p>
+</div>
+{{template "mobnav.html"}}
+
+
+
+
+{{template "scripts.html"}}
+<script>
+    var navTitle = '{{.navtitle}}';
+    document.getElementById('navtitle').innerHTML = navTitle;
+    document.getElementById('navtitle2').innerHTML = navTitle;
+</script>
+</body>
+{{template "footer.html"}}
