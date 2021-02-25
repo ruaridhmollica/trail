@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <!-- Import AR.js Library Scripts-->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -7,6 +8,7 @@
 
     <body style="margin : 0px; overflow: hidden;">
 
+        <!-- Creates an AR "scene" where objects and text can be added-->
         <a-scene
             vr-mode-ui="enabled: false"
             embedded
@@ -14,6 +16,7 @@
 
         >
 
+        <!--defines some text that is displayed via AR at a specific geolocation-->
             <a-text
             value="Tree 5: Rowan
             Latin Name: Sorbus aucuparia
@@ -41,6 +44,5 @@
 
             <a-camera gps-camera rotation-reader> </a-camera>
         </a-scene>
-        {{template "mobnav.html"}}
     </body>
 </html>
