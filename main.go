@@ -138,6 +138,23 @@ func main() {
 		}
 	})
 
+	//this function is used for testing geolocation updates
+	router.GET("/trigger/:lat/:long", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trigger (tick timestamp, lat real, long real)"); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error creating database table: %q", err))
+			return
+		}
+
+		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),$1, $2)", lat, long); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error incrementing tick: %q", err))
+			return
+		}
+	})
+
 	router.POST("/geofence/:lat/:long/:visited", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")

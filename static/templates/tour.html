@@ -86,6 +86,10 @@
         //this if statement makes sure to not run this code before a geofence is entered
         if (visited != 0){
             //if the user not on an IOS/Apple device call the vibrate function
+            $.ajax({
+                            url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
+            });
+
             if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(300); }
             $('#myModal').modal('hide');
             var id = json.id;
@@ -308,9 +312,9 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        /*$.ajax({
+                        $.ajax({
                             url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
-                        });*/
+                        });
                     },
                     onError: err =>
                         alert(`Error: ${getPositionError(err.code) || err.message}`)
