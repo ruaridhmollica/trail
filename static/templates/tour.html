@@ -86,10 +86,6 @@
         //this if statement makes sure to not run this code before a geofence is entered
         if (visited != 0){
             //if the user not on an IOS/Apple device call the vibrate function
-            $.ajax({
-                            url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
-            });
-
             if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(300); }
             $('#myModal').modal('hide');
             var id = json.id;
@@ -240,6 +236,9 @@
                                 visited = data.id;
                                 geofence(data);
                                 autoSpeech(data);
+                                $.ajax({
+                                    url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
+                                 });
                             }
                             i++;
 
