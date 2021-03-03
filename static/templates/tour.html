@@ -234,11 +234,11 @@
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
-                                geofence(data);
-                                autoSpeech(data);
                                 $.ajax({
                                     url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
                                  });
+                                geofence(data);
+                                autoSpeech(data);
                             }
                             i++;
 
