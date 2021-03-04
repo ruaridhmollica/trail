@@ -266,10 +266,11 @@
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 18,
-                mapTypeId: 'satellite'
+                mapTypeId: 'satellite',
+                setCompassEnabled();
             });
 
-            UiSettings.setCompassEnabled(true);
+
 
             var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
