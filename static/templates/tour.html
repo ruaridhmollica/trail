@@ -219,6 +219,7 @@
             lat=position.coords.latitude;
             lng=position.coords.longitude;
             var i = 0;
+            if (!qr){
             $.ajax({
                             url: "https://www.thetrailapp.com/geofence/" + lat + "/" + lng + "/" + visited,
                             method: "POST",
@@ -247,6 +248,7 @@
                             alert("fail");
                             console.log (jdata);
                         });
+            };
         };
 
 
