@@ -269,6 +269,8 @@
                 mapTypeId: 'satellite'
             });
 
+            UiSettings.setCompassEnabled(true);
+
             var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
             const initial = { lat: 55.909329, lng: -3.319491 };
