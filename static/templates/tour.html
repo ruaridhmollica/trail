@@ -38,6 +38,9 @@
     //the qr variable is assigned a value of TRUE in the backend golang code. This value
     // allows the following modal cration code to be run
     var qr = '{{.qr}}';
+     //User Agent parser (script) used to get the OS of a users device for vibration stuff
+     var parser = new UAParser();
+     var os = parser.getOS();
     
     //if a user has scanne dthe QR code then the page will have loaded with special variables containing tree information pulled from the database
     //this information is then put into javascript variables where it can be placed into html elements in a modal and displayed
@@ -71,9 +74,6 @@
         let map;
         let time;
         var visited = 0;
-        //User Agent parser (script) used to get the OS of a users device for vibration stuff
-        var parser = new UAParser();
-        var os = parser.getOS();
 
         //defines the variable used to convert text into speech (speech synth api)
         var textToSpeech = window.speechSynthesis;
