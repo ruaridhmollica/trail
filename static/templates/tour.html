@@ -267,7 +267,6 @@
                 center: { lat: 55.909329, lng: -3.319491 },
                 zoom: 18,
                 mapTypeId: 'satellite',
-                setCompassEnabled()
             });
 
 
@@ -284,6 +283,8 @@
             });
             map.set('styles',customStyled);
 
+            //map.setCompassEnabled();
+            map.getUiSettings().setCompassEnabled(true);
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
 
