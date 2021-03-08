@@ -74,6 +74,7 @@
         let map;
         let time;
         var visited = 0;
+        let visited_array = [];
 
         //defines the variable used to convert text into speech (speech synth api)
         var textToSpeech = window.speechSynthesis;
@@ -229,17 +230,21 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                           //alert(data);
 
                             if(data == "null"){
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
-                                $.ajax({
-                                    url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
-                                 });
-                                geofence(data);
-                                autoSpeech(data);
+                                if(!visited_array.includes(data.id)){
+                                    $.ajax({
+                                        url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
+                                    });
+                                    visited_array.push(data.id);
+                                    geofence(data);
+                                    autoSpeech(data);
+                                }else{
+                                    console.log("Not in Geofence");
+                                }
                             }
                             i++;
 
