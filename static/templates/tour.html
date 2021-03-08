@@ -235,6 +235,8 @@
                                 console.log("Not in Geofence");
                             }else{
                                 visited = data.id;
+                                //the following code uses an array to make sure multiple trees are never triggered twice - if the id of the pulled tree data
+                                //exists in the array then do not show it, otherwise add it to the array and show the data
                                 if(!visited_array.includes(data.id)){
                                     $.ajax({
                                         url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
