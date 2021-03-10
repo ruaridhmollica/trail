@@ -278,28 +278,35 @@
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
             const initial = { lat: 55.909329, lng: -3.319491 };
 
-            //generates the initial location marker 
-            var marker = new google.maps.Marker({
-                map,
-                position: initial,
-                icon: {
-                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                    strokeColor : '#FF0000',
-                    strokeWeight : 10,
-                    scale: 4.5,
-                    }
-            });
+            //generates the initial location marker, if the user has an android then the marker is an arrow (for orientation), otherwise
+            //the marker is a circle, as ios web app orientation is buggy and unreliable/ not functioning
+            if (os.name != "iOS") {
+                var marker = new google.maps.Marker({
+                    map,
+                    position: initial,
+                    icon: {
+                        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                        strokeColor : '#FF0000',
+                        strokeWeight : 10,
+                        scale: 4.5,
+                        }
+                });
+            }else{
+                var marker = new google.maps.Marker({
+                    map,
+                    position: initial,
+                    icon: {
+                        url: "/static/img/marker.svg",
+                        scale: 4.5,
+                        }
+                });
+            }
 
-            enableOrientationArrow();
+            userOrientation();
             map.set('styles',customStyled);
 
             //this bit of code rotates the icon to the direction the user is facing
-           /*function rotate(compassHeading){
-                var locationIcon = marker.getIcon();
-                locationIcon.rotation = compassHeading;
-                marker.setIcon(locationIcon);
-           }*/
-           function enableOrientationArrow() {
+           function userOrientation() {
 
                 if (window.DeviceOrientationEvent) {
 
@@ -313,7 +320,7 @@
                         else {
                             alpha = event.alpha;
                         }
-                        //alert('here');
+                        //takes the current icon, rotates it and assigns the new rotated one to the marker.
                         var locationIcon = marker.getIcon();;
                         locationIcon.rotation = 360 - alpha;
                         marker.setIcon(locationIcon);
