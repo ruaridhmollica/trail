@@ -282,7 +282,7 @@
             var routeLineOptions = {
                 path: testingRoute,
                 strokeColor: '#35bef0',
-                strokeWeight: 4,
+                strokeWeight: 6,
                 strokeOpacity: 1,
             };
             var routeLine = new google.maps.Polyline(routeLineOptions);
@@ -317,13 +317,15 @@
              route.push( new google.maps.LatLng(55.90973868436378, -3.3227931908191923));
              route.push( new google.maps.LatLng(55.90944560680215, -3.3234974857004302));
 
+             //defines the polyLine attributes
             var routeOptions = {
                 path: route,
                 strokeColor: '#35bef0',
-                strokeWeight: 4,
+                strokeWeight: 6,
                 strokeOpacity: 1,
             };
             var polyLine = new google.maps.Polyline(routeOptions);
+            //draws the line
             polyLine.setMap(map);
 
             var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
