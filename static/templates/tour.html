@@ -263,13 +263,17 @@
         function initMap() {
             
             //defines a data structure for creating the icon that shows a user's location on the map
-            const locationMarker = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                strokeColor : '#FF0000',
-                strokeWeight : 10,
-                scale: 4.5,
-            };
+           /* locationMarker = new google.maps.Marker({
+            clickable : false,
+                icon: {
+                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                    strokeColor : '#FF0000',
+                    strokeWeight : 10,
+                    scale: 4.5,
+                    }
+            });*/
 
+          
 
             //google maps API call that generates a map with specific center and zoom values
             var map = new google.maps.Map(document.getElementById('map2'), {
@@ -285,13 +289,39 @@
             const initial = { lat: 55.909329, lng: -3.319491 };
 
             //generates the initial location marker 
-            var marker = new google.maps.Marker({
+            var locationMarker = new google.maps.Marker({
                 map,
                 position: initial,
-                icon: locationMarker
+                icon: {
+                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                    strokeColor : '#FF0000',
+                    strokeWeight : 10,
+                    scale: 4.5,
+                    }
             });
             map.set('styles',customStyled);
 
+            enableOrientationArrow();
+
+            //this function detects device orientation and rotates the current location icon to match the direction a user is facing
+            function enableOrientationArrow() {
+                if (window.DeviceOrientationEvent) {
+
+                        window.addEventListener('deviceorientation', function(event) {
+                            var alpha = null;
+                            //Check for iOS property
+                            if (event.webkitCompassHeading) {
+                                alpha = event.webkitCompassHeading;
+                            }
+                            //non iOS
+                            else {
+                                alpha = event.alpha;
+                            }
+                            var locationIcon = locationMarker.get('icon');
+                            locationIcon.rotation = 360 - alpha;
+                            locationMarker.set('icon', locationIcon);
+                        }, false);
+            }
            
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
