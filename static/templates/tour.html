@@ -301,7 +301,6 @@
             });
             map.set('styles',customStyled);
 
-            enableOrientationArrow();
 
             //this function detects device orientation and rotates the current location icon to match the direction a user is facing
             function enableOrientationArrow() {
@@ -343,6 +342,7 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
+                        enableOrientationArrow();
                     },
                     onError: err =>
                         alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
