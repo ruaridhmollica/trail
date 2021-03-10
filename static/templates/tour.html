@@ -210,12 +210,6 @@
                 else{alert("Geolocation is not supported by this browser.");}
             };
 
-        /*function getRotate(){
-            if (window.DeviceOrientationEvent) {
-                rotateArrow();
-            }
-            else{alert("Orientation is not supported by this browser.");}
-        }*/
 
         //this is the primary function used to speak to the backend and determine whether a user is inside a geofence.
         //it passes the latitude and longitude of a users current location to the backend via an AJAX post method.
@@ -312,7 +306,7 @@
                     window.addEventListener('deviceorientation', function(event) {
                         var alpha = null;
                         //Check for iOS property
-                        if (event.webkitCompassHeading) {
+                        if (os.name == "iOS") {
                             alpha = event.webkitCompassHeading;
                         }
                         //non iOS
