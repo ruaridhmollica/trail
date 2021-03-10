@@ -932,7 +932,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree46.svg"
+        "icon": "/static/img/tree47.svg"
       },
       "geometry": {
         "type": "Point",
@@ -952,7 +952,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree46.svg"
+        "icon": "/static/img/tree48.svg"
       },
       "geometry": {
         "type": "Point",
@@ -972,7 +972,7 @@
         "Age": "",
         "Description": "",
         "Origin": "",
-        "icon": "/static/img/tree46.svg"
+        "icon": "/static/img/tree49.svg"
       },
       "geometry": {
         "type": "Point",
@@ -992,7 +992,7 @@
         "Age": "",
         "Description": "",
         "Origin": "Morocco",
-        "icon": "/static/img/tree46.svg"
+        "icon": "/static/img/end50.svg"
       },
       "geometry": {
         "type": "Point",
