@@ -289,7 +289,7 @@
             const initial = { lat: 55.909329, lng: -3.319491 };
 
             //generates the initial location marker 
-            var locationMarker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 map,
                 position: initial,
                 icon: {
@@ -317,9 +317,9 @@
                             else {
                                 alpha = event.alpha;
                             }
-                            var locationIcon = locationMarker.get('icon');
+                            var locationIcon = marker.get('icon');
                             locationIcon.rotation = 360 - alpha;
-                            locationMarker.set('icon', locationIcon);
+                            marker.set('icon', locationIcon);
                         }, false);
                      }
             };
