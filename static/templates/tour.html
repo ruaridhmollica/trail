@@ -266,31 +266,6 @@
             };
         };
 
-        // Obtain a new *world-oriented* Full Tilt JS DeviceOrientation Promise
-        var promise = FULLTILT.getDeviceOrientation({ 'type': 'world' });
-
-        // Wait for Promise result
-        promise.then(function(deviceOrientation) { // Device Orientation Events are supported
-
-                // Register a callback to run every time a new 
-                // deviceorientation event is fired by the browser.
-                deviceOrientation.listen(function() {
-
-                    // Get the current *screen-adjusted* device orientation angles
-                    var currentOrientation = deviceOrientation.getScreenAdjustedEuler();
-
-                    // Calculate the current compass heading that the user is 'looking at' (in degrees)
-                    var compassHeading = 360 - currentOrientation.alpha;
-
-                    // Do something with `compassHeading` here...
-                    rotate(compassHeading);
-
-                });
-        }).catch(function(errorMessage) { // Device Orientation Events are not supported
-            console.log(errorMessage);
-            alert(errorMessage);
-        // Implement some fallback controls here...
-        });
             
         //this function handles all map generation stuff
         function initMap() {
@@ -321,14 +296,35 @@
                     }
             });
 
+            enableOrientationArrow();
             map.set('styles',customStyled);
 
             //this bit of code rotates the icon to the direction the user is facing
-           function rotate(compassHeading){
+           /*function rotate(compassHeading){
                 var locationIcon = marker.getIcon();
                 locationIcon.rotation = compassHeading;
                 marker.setIcon(locationIcon);
-           }
+           }*/
+           function enableOrientationArrow() {
+
+                if (window.DeviceOrientationEvent) {
+
+                    window.addEventListener('deviceorientation', function(event) {
+                        var alpha = null;
+                        //Check for iOS property
+                        if (event.webkitCompassHeading) {
+                            alpha = event.webkitCompassHeading;
+                        }
+                        //non iOS
+                        else {
+                            alpha = event.alpha;
+                        }
+                        var locationIcon = marker.getIcon();;
+                        locationIcon.rotation = 360 - alpha;
+                        marker.setIcon(locationIcon);
+                    }, false);
+                }
+            }
            
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
