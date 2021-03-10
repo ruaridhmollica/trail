@@ -272,7 +272,19 @@
                 mapTypeId: 'satellite',
             });
 
+            var testingRoute = new google.maps.MVCArray();
+            testingRoute.push( new google.maps.LatLng(55.9407653174704, -3.2129520728739345));
+            testingRoute.push( new google.maps.LatLng(55.93996915902016, -3.215199763988366));
+            testingRoute.push( new google.maps.LatLng(55.94014341396666, -3.215435798377471));
+            testingRoute.push( new google.maps.LatLng(55.93980091212106, -3.216363842680088));
 
+            var routeLineOptions = {
+                path: testingRoute,
+                strokeColor: '#FFFFFF',
+                strokeOpacity: 0.8,
+            };
+            var routeLine = new google.maps.Polyline(routeLineOptions);
+            routeLine.setMap(map);
 
             var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
