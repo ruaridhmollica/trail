@@ -81,7 +81,7 @@
 
         //kickstarts the obtaining of a users current location
         getLocation();
-        getRotate();
+       
 
     //this piece of code is called when a trees geofence is entered, it displays the corresponding tree information in a modal
     function geofence (json){
@@ -206,6 +206,7 @@
                     {
                     navigator.geolocation.getCurrentPosition(checkGeofence,showError);
                     setTimeout(getLocation, 3000);
+                    getRotate();
                     }
                 else{alert("Geolocation is not supported by this browser.");}
             };
