@@ -35,7 +35,6 @@ self.addEventListener('fetch', event => {
   const CACHE_NAME = 'Trail-cache-v3';
   const cacheurls = [
       './',
-      '/static/TreesEdi.geojson',
       '/static/css/bootstrap.css',
       '/static/css/main.css',
       '/static/css/mdb.css',
