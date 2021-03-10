@@ -321,7 +321,8 @@
                             locationIcon.rotation = 360 - alpha;
                             locationMarker.set('icon', locationIcon);
                         }, false);
-            }
+                     }
+            };
            
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
