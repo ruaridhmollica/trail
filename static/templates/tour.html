@@ -280,7 +280,7 @@
 
             //generates the initial location marker, if the user has an android then the marker is an arrow (for orientation), otherwise
             //the marker is a circle, as ios web app orientation is buggy and unreliable/ not functioning
-            if (os.name != "iOS") {
+            if (os.name != "iOS" || os.name != "Mac OS") {
                 var marker = new google.maps.Marker({
                     map,
                     position: initial,
@@ -313,7 +313,7 @@
                     window.addEventListener('deviceorientation', function(event) {
                         var alpha = null;
                         //Check for iOS property
-                        if (os.name == "iOS") {
+                        if (os.name == "iOS" || os.name != "Mac OS") {
                             alpha = event.webkitCompassHeading;
                         }
                         //non iOS
