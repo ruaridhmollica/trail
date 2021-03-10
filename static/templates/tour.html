@@ -81,6 +81,7 @@
 
         //kickstarts the obtaining of a users current location
         getLocation();
+        getRotate();
 
     //this piece of code is called when a trees geofence is entered, it displays the corresponding tree information in a modal
     function geofence (json){
@@ -209,6 +210,13 @@
                 else{alert("Geolocation is not supported by this browser.");}
             };
 
+        function getRotate(){
+            if (window.DeviceOrientationEvent) {
+                rotateArrow();
+            }
+            else{alert("Orientation is not supported by this browser.");}
+        }
+
         //this is the primary function used to speak to the backend and determine whether a user is inside a geofence.
         //it passes the latitude and longitude of a users current location to the backend via an AJAX post method.
         //the visited variable is the tree ID and is used to prevent the same tree being returned repeatedly when a user is inside the geofence
@@ -303,9 +311,7 @@
 
 
             //this function detects device orientation and rotates the current location icon to match the direction a user is facing
-            function enableOrientationArrow() {
-                if (window.DeviceOrientationEvent) {
-
+            function rotateArrow() {
                         window.addEventListener('deviceorientation', function(event) {
                             var alpha = null;
                             //Check for iOS property
@@ -320,7 +326,6 @@
                             locationIcon.rotation = 360 - alpha;
                             marker.set('icon', locationIcon);
                         }, false);
-                     }
             };
            
             //loads the tree data from a geojson file located in the /static directory
@@ -342,7 +347,7 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        enableOrientationArrow();
+                        //enableOrientationArrow();
                     },
                     onError: err =>
                         alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
