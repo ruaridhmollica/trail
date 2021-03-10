@@ -272,6 +272,7 @@
                 mapTypeId: 'satellite',
             });
 
+            //creates a route on the map for the testing area on the canal
             var testingRoute = new google.maps.MVCArray();
             testingRoute.push( new google.maps.LatLng(55.9407653174704, -3.2129520728739345));
             testingRoute.push( new google.maps.LatLng(55.93996915902016, -3.215199763988366));
@@ -281,10 +282,49 @@
             var routeLineOptions = {
                 path: testingRoute,
                 strokeColor: '#FFFFFF',
+                strokeWeight: 2,
                 strokeOpacity: 0.8,
             };
             var routeLine = new google.maps.Polyline(routeLineOptions);
             routeLine.setMap(map);
+
+             //creates a route on the map for the tree trail on campus
+             var route = new google.maps.MVCArray();
+             route.push( new google.maps.LatLng(55.90934378036286, -3.3200149819795204));
+             route.push( new google.maps.LatLng(55.90931070579712, -3.3196716592317315));
+             route.push( new google.maps.LatLng(55.9098836129535, -3.31838160597292));
+             route.push( new google.maps.LatLng(55.91025165524692, -3.318836591534194));
+             route.push( new google.maps.LatLng(55.91056910722812, -3.3190569477858607));
+             route.push( new google.maps.LatLng(55.910668491360795, -3.318790110129424));
+             route.push( new google.maps.LatLng(55.91058165087567, -3.318569753877696));
+             route.push( new google.maps.LatLng(55.91079199749353, -3.3181307629074563));
+             route.push( new google.maps.LatLng(55.91115479449, -3.3185129432816702));
+             route.push( new google.maps.LatLng(55.91117698674892, -3.318714362668015));
+             route.push( new google.maps.LatLng(55.91058701704161, -3.3195850717041306));
+             route.push( new google.maps.LatLng(55.91011244014375, -3.3205811970731434));
+             route.push( new google.maps.LatLng(55.90954824221835, -3.32181505061713));
+             route.push( new google.maps.LatLng(55.90948593734672, -3.3216774250089998));
+             route.push( new google.maps.LatLng(55.90947703664342, -3.3215636192086158));
+             route.push( new google.maps.LatLng(55.909221882279844, -3.3221538213827024));
+             route.push( new google.maps.LatLng(55.90912842415683, -3.3221855811409484));
+             route.push( new google.maps.LatLng(55.90873678765671, -3.323082794330757));
+             route.push( new google.maps.LatLng(55.908917771677196, -3.3237179894956927));
+             route.push( new google.maps.LatLng(55.908672030887786, -3.326161712301503));
+             route.push( new google.maps.LatLng(55.90884349491923, -3.326229296153743));
+             route.push( new google.maps.LatLng(55.90927414542232, -3.3241128544651755));
+             route.push( new google.maps.LatLng(55.90951139991695, -3.3243867469141146));
+             route.push( new google.maps.LatLng(55.909914131095896, -3.323006613510477));
+             route.push( new google.maps.LatLng(55.90973868436378, -3.3227931908191923));
+             route.push( new google.maps.LatLng(55.90944560680215, -3.3234974857004302));
+
+            var routeOptions = {
+                path: route,
+                strokeColor: '#FFFFFF',
+                strokeWeight: 2,
+                strokeOpacity: 0.8,
+            };
+            var polyLine = new google.maps.Polyline(routeOptions);
+            polyLine.setMap(map);
 
             var customStyled = [{featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }]}];
             //defines an initial lcoation for the location marker to go (i.e. if user location is unattainable)
@@ -299,7 +339,7 @@
                     icon: {
                         path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
                         strokeColor : '#FF0000',
-                        strokeWeight : 10,
+                        strokeWeight : 2,
                         scale: 4.5,
                         }
                 });
