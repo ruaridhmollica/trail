@@ -206,17 +206,16 @@
                     {
                     navigator.geolocation.getCurrentPosition(checkGeofence,showError);
                     setTimeout(getLocation, 3000);
-                    getRotate();
                     }
                 else{alert("Geolocation is not supported by this browser.");}
             };
 
-        function getRotate(){
+        /*function getRotate(){
             if (window.DeviceOrientationEvent) {
                 rotateArrow();
             }
             else{alert("Orientation is not supported by this browser.");}
-        }
+        }*/
 
         //this is the primary function used to speak to the backend and determine whether a user is inside a geofence.
         //it passes the latitude and longitude of a users current location to the backend via an AJAX post method.
@@ -268,22 +267,11 @@
         };
 
 
+            
         //this function handles all map generation stuff
         function initMap() {
             
-            //defines a data structure for creating the icon that shows a user's location on the map
-           /* locationMarker = new google.maps.Marker({
-            clickable : false,
-                icon: {
-                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                    strokeColor : '#FF0000',
-                    strokeWeight : 10,
-                    scale: 4.5,
-                    }
-            });*/
-
-          
-
+        
             //google maps API call that generates a map with specific center and zoom values
             var map = new google.maps.Map(document.getElementById('map2'), {
                 center: { lat: 55.909329, lng: -3.319491 },
@@ -308,26 +296,29 @@
                     scale: 4.5,
                     }
             });
+            enableOrientationArrow();
             map.set('styles',customStyled);
 
-
-            //this function detects device orientation and rotates the current location icon to match the direction a user is facing
-            function rotateArrow() {
-                        window.addEventListener('deviceorientation', function(event) {
-                            var alpha = null;
-                            //Check for iOS property
-                            if (event.webkitCompassHeading) {
-                                alpha = event.webkitCompassHeading;
-                            }
-                            //non iOS
-                            else {
-                                alpha = event.alpha;
-                            }
-                            var locationIcon = marker.get('icon');
-                            locationIcon.rotation = 360 - alpha;
-                            marker.set('icon', locationIcon);
-                        }, false);
+             //this function detects device orientation and rotates the current location icon to match the direction a user is facing
+          function enableOrientationArrow() {
+                if (window.DeviceOrientationEvent) {
+                    window.addEventListener('deviceorientation', function(event) {
+                        var alpha = null;
+                        //Check for iOS property
+                        if (event.webkitCompassHeading) {
+                            alpha = event.webkitCompassHeading;
+                        }
+                        //non iOS
+                        else {
+                            alpha = event.alpha;
+                        }
+                        var locationIcon = marker.get('icon');
+                        locationIcon.rotation = 360 - alpha;
+                        marker.set('icon', locationIcon);
+                    }, false);
+                }
             };
+
            
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
