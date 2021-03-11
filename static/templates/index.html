@@ -55,7 +55,7 @@
         <!--/GREETING AND FACT MOBILE-->
     </div>
 
-    <canvas class="p-4" id="lineChart"></canvas>
+    <canvas class="p-4" id="pie"></canvas>
 
 
 
@@ -115,54 +115,25 @@
     <script>
 
   //line
-  var ctxL = document.getElementById("lineChart").getContext('2d');
-  var myLineChart = new Chart(ctxL, {
-    type: 'pie',
-    data: {
-      labels: ['Number of Trees on campus'],
-      datasets: [{
-        label: "Oak",
-		  data: ['55'],
-        backgroundColor: [
-          'rgb(0, 184, 0, 0.5)'
-        ],
-        borderColor: 'white',
-        borderWidth: 2,
+  var ctxP = document.getElementById("pie").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: ["Oak", "Pine", "Birch", "Rowan"],
+        color:["#000000"],
+        datasets: [{
+          data: [130, 280, 90, 76],
+          backgroundColor: ["#4285F4", "#ffbb33", "#45cafc", "#FF5252"],
+          hoverBackgroundColor: ["#6ea0f2", "#fec451", "#78daffbtn-primaryvisit", "#fa6e6e"],
+        }]
       },
-      {
-        label: "Birch",
-        data: ['128'],
-        backgroundColor: [
-          'white',
-        ],
-        borderColor: 'rgb(0, 184, 0, 0.5)',
-        borderWidth: 2,
-      },
-      {
-        label: "Rowan",
-        data: ['75'],
-        backgroundColor: [
-          'rgb(0, 184, 0, 0.5)',
-        ],
-        borderColor: 'white',
-        borderWidth: 2,
-      },
-      {
-        label: "Pine",
-        data: ['200'],
-        backgroundColor: [
-          'white',
-        ],
-        borderColor: 'rgb(0, 184, 0, 0.5)',
-        borderWidth: 2,
+      options: {
+        responsive: true,
+        legend: {
+          position: 'bottom'
+        }
       }
-      ]
-    },
-
-    options: {
-      responsive: true
-    }
-  });
+    });
 
 // Options
 const optionsChartOptionsExample = {
