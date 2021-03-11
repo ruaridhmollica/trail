@@ -142,24 +142,23 @@
   var myLineChart = new Chart(ctxL, {
     type: 'bar',
     data: {
-      labels: ['label'],
+      labels: ['Number of Trees on campus'],
       datasets: [{
-        label: "Power Usage (kW)",
+        label: "Oak",
 		  data: ['55'],
         backgroundColor: [
-          // 'rgba(55, 102, 255, .5)',
-          'rgb(0, 184, 0)'
+          'rgb(0, 184, 0, 0.5)'
         ],
-        borderColor: 'rgba(127,157,255,1)',
+        borderColor: 'white',
         borderWidth: 2,
       },
       {
-        label: "Power Generation (kW)",
+        label: "Birch",
         data: ['128'],
         backgroundColor: [
-          'rgb(0, 184, 0)',
+          'white',
         ],
-        borderColor: 'rgba(255,165,0, 1)',
+        borderColor: 'rgb(0, 184, 0, 0.5)',
         borderWidth: 2,
       }
       ]
