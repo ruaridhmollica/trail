@@ -116,7 +116,7 @@ func main() {
 	})
 
 	router.GET("/settings/json", func(c *gin.Context) {
-		c.Static(http.StatusOK, "TreesHWU.geojson")
+		c.File("TreesHWU.geojson")
 	})
 
 	router.GET("/ar", func(c *gin.Context) {
