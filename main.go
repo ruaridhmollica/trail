@@ -114,6 +114,11 @@ func main() {
 	router.GET("/settings", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "settings.html", gin.H{"navtitle": "Settings."})
 	})
+
+	router.GET("/settings/json", func(c *gin.Context) {
+		c.Static(http.StatusOK, "TreesHWU.geojson"})
+	})
+
 	router.GET("/ar", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "ar.html", gin.H{"navtitle": "Ar."})
 	})
