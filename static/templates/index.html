@@ -34,7 +34,7 @@
         <hr class="justify-content-center hr" style="width: 65%;">
         <!--/GREETING AND FACT DESKTOP-->
 
-        <canvas id="chart-options-example"></canvas>
+        <canvas id="lineChart"></canvas>
     </div>
 
     <div class="deskhide">
@@ -49,7 +49,7 @@
         <hr class="justify-content-center hr pt-0" style="width: 85%;">
         <!--/GREETING AND FACT MOBILE-->
         <div class="col-16">
-            <canvas id="chart-options-example"></canvas>
+            <canvas id="lineChart"></canvas>
         </div>
     </div>
 
@@ -142,36 +142,48 @@
     });
   });
 
-  // Data
-const dataChartOptionsExample = {
-  type: 'bar',
-  data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Traffic',
-        data: [30, 15, 62, 65, 61, 6],
+  //line
+  var ctxL = document.getElementById("lineChart").getContext('2d');
+  var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: "Power Usage (kW)",
+		  data: [],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
+          // 'rgba(55, 102, 255, .5)',
+          'rgba(127,157,255,0.5)'
         ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
+        borderColor: 'rgba(127,157,255,1)',
+        borderWidth: 2,
+        pointBorderColor: '#fff',
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        pointHitRadius: 15,
+        pointBackgroundColor: 'rgba(127,157,255,1)',
       },
-    ],
-  },
-};
+      {
+        label: "Power Generation (kW)",
+        data: [],
+        backgroundColor: [
+          'rgba(255,165,0, .5)',
+        ],
+        borderColor: 'rgba(255,165,0, 1)',
+        borderWidth: 2,
+        pointBorderColor: '#fff',
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        pointHitRadius: 15,
+        pointBackgroundColor: 'rgba(255,165,0, 1)',
+      }
+      ]
+    },
+
+    options: {
+      responsive: true
+    }
+  });
 
 // Options
 const optionsChartOptionsExample = {
