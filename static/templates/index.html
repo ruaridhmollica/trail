@@ -147,10 +147,10 @@
   var myLineChart = new Chart(ctxL, {
     type: 'line',
     data: {
-      labels: [],
+      labels: ['label'],
       datasets: [{
         label: "Power Usage (kW)",
-		  data: [],
+		  data: ['55'],
         backgroundColor: [
           // 'rgba(55, 102, 255, .5)',
           'rgba(127,157,255,0.5)'
@@ -206,12 +206,6 @@ const optionsChartOptionsExample = {
     },
   },
 };
-
-new mdb.Chart(
-  document.getElementById('chart-options-example'),
-  dataChartOptionsExample,
-  optionsChartOptionsExample
-);
     </script>
 </body>
 {{template "footer.html"}}
