@@ -32,6 +32,7 @@
             <p id="fact" class="mobhide animated fadeIn pl-2"></p>
         </div>
         <hr class="justify-content-center hr" style="width: 65%;">
+        <br>
         <!--/GREETING AND FACT DESKTOP-->
     </div>
 
@@ -139,7 +140,7 @@
   //line
   var ctxL = document.getElementById("lineChart").getContext('2d');
   var myLineChart = new Chart(ctxL, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: ['label'],
       datasets: [{
@@ -147,29 +148,19 @@
 		  data: ['55'],
         backgroundColor: [
           // 'rgba(55, 102, 255, .5)',
-          'rgba(127,157,255,0.5)'
+          'rgb(0, 184, 0)'
         ],
         borderColor: 'rgba(127,157,255,1)',
         borderWidth: 2,
-        pointBorderColor: '#fff',
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHitRadius: 15,
-        pointBackgroundColor: 'rgba(127,157,255,1)',
       },
       {
         label: "Power Generation (kW)",
-        data: [],
+        data: ['128'],
         backgroundColor: [
-          'rgba(255,165,0, .5)',
+          'rgb(0, 184, 0)',
         ],
         borderColor: 'rgba(255,165,0, 1)',
         borderWidth: 2,
-        pointBorderColor: '#fff',
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHitRadius: 15,
-        pointBackgroundColor: 'rgba(255,165,0, 1)',
       }
       ]
     },
