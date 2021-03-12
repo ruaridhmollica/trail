@@ -190,13 +190,12 @@ var ctx = document.getElementById('bar').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ['Age (yrs)', 'Height (ft)',],
+        labels: ['Age (yrs)', 'Height (ft)'],
         datasets: [{
-            label: 'Average Age & Height of Trees on Campus',
             data: [84, 50],
             backgroundColor: [
                 'rgba(0, 184, 0, 1)',
-                'rgba(1, 1, 1, 1)',
+                'rgba(0, 184, 0, 1)',
             ],
             borderColor: [
                 'rgba(0, 0, 0, 1)',
