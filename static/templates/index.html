@@ -33,14 +33,16 @@
         <hr class="justify-content-center hr" style="width: 65%;">
         <br>
         <!--/GREETING AND FACT DESKTOP-->
-        <div class="containter w-50 justify-content-center text-center">
-        <h4 class="p-4 factmob">Tree Species on Campus:</h4>
-        <canvas class="p-4 w-90 h-100" id="pie"></canvas>
-        </div>
-        <div class="containter w-50 justify-content-center text-center d-flex">
-            <h4 class="p-4 factmob">Average Age & Height:</h4>
-            <canvas class="p-4 w-90 h-100" id="bar"></canvas>
+        <div class="col-18">
+            <div class="containter w-50 justify-content-center text-center">
+            <h4 class="p-4 factmob">Tree Species on Campus:</h4>
+            <canvas class="p-4 w-90 h-100" id="pie"></canvas>
             </div>
+            <div class="containter w-50 justify-content-center text-center">
+                <h4 class="p-4 factmob">Average Age & Height:</h4>
+                <canvas class="p-4 w-90 h-100" id="bar"></canvas>
+            </div>
+        </div>
     </div>
 
     <div class="deskhide">
@@ -186,7 +188,7 @@ const optionsChartOptionsExample = {
 //creates bar chart
 var ctx = document.getElementById('bar').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
         labels: ['Age (yrs)', 'Height (ft)',],
         datasets: [{
