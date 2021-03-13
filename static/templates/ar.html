@@ -43,18 +43,33 @@
         ></a-entity>
 
         <a-marker preset="hiro" id="anchor">
-            <a-entity
-            gltf-model="/static/ar/tree5.glb"
-            scale="0.2 0.2 0.2"
-            position="0 0 0"
-        ></a-entity>
+            <a-image
+            src="/static/img/tree.png"
+            width="1"
+            height="1"
+        ></a-image>
         </a-marker>
 
             <a-camera gps-camera rotation-reader> </a-camera>
         </a-scene>
    
    <script>
-    anchorRef.addEventListener("markerFound", (e)=>{ alert("marker found");});
+    AFRAME.registerComponent('markerhandler', {
+	init: function() {
+		// Set up the tick throttling. Will check if marker is active every 500ms
+		this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+	},
+	tick: function(t, dt) {
+		
+		if (document.querySelector("anchor").object3D.visible == true) {
+			// MARKER IS PRESENT
+			alert(marker);
+		} else {
+			// MARKER IS HIDDEN, do nothing (up to you)
+		}
+
+	}
+});
     </script>
     </body>
 </html>
