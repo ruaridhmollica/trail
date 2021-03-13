@@ -45,8 +45,9 @@
         <a-marker preset="hiro" id="anchor">
             <a-image
             src="/static/img/tree.png"
-            width="1"
-            height="1"
+            width="100"
+            height="100"
+            look-at="[gps-camera]"
         ></a-image>
         </a-marker>
 
@@ -54,22 +55,6 @@
         </a-scene>
    
    <script>
-    AFRAME.registerComponent('markerhandler', {
-	init: function() {
-		// Set up the tick throttling. Will check if marker is active every 500ms
-		this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
-	},
-	tick: function(t, dt) {
-		
-		if (document.querySelector("anchor").object3D.visible == true) {
-			// MARKER IS PRESENT
-			alert(marker);
-		} else {
-			// MARKER IS HIDDEN, do nothing (up to you)
-		}
-
-	}
-});
     </script>
     </body>
 </html>
