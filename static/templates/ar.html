@@ -42,10 +42,10 @@
             gps-entity-place="latitude: 55.9406; longitude: -3.2138;"
         ></a-entity>
 
-        <a-marker preset="hiro">
+        <a-marker preset="hiro" id="anchor">
             <a-entity
             gltf-model="/static/ar/tree5.glb"
-            scale="0.1 0.1 0.1"
+            scale="0.2 0.2 0.2"
             position="0 0 0"
         ></a-entity>
         </a-marker>
@@ -54,8 +54,7 @@
         </a-scene>
    
    <script>
-    
-
+    anchorRef.addEventListener("markerFound", (e)=>{ alert("marker found");}
     </script>
     </body>
 </html>
