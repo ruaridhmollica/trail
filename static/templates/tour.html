@@ -427,7 +427,9 @@
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
                            var data = $.parseJSON(jdata);
-                           alert(data);
+                           if(data == false){
+                               alert("Lost? \nYou are not in the vicinity of a Route.\n Please make your way to Heriot-Watt Campus or the Test Area");
+                           }
                         }). fail (function (jdata) {
                             var d = $.parseJSON(jdata);
                             alert("fail");
