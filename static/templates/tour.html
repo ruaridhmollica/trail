@@ -38,6 +38,7 @@
     //the qr variable is assigned a value of TRUE in the backend golang code. This value
     // allows the following modal cration code to be run
     var qr = '{{.qr}}';
+    var counter = 0;
      //User Agent parser (script) used to get the OS of a users device for vibration stuff
      var parser = new UAParser();
      var os = parser.getOS();
@@ -426,8 +427,9 @@
                             cache: false,
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
+                            counter++;
                            var data = $.parseJSON(jdata);
-                           if(data == false){
+                           if(data == false && counter%4 == 0){
                                alert("Lost? \nYou are not in the vicinity of a Route.\n Please make your way to Heriot-Watt Campus or the Test Area");
                            }
                         }). fail (function (jdata) {
