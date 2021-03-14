@@ -145,7 +145,7 @@ func main() {
 	})
 
 	//this function checks whether a user is within the geofence of a route - if not it tells them they are not near a route
-	router.GET("/route/:lat/:long", func(c *gin.Context) {
+	router.POST("/route/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		result := false
