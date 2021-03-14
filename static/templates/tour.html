@@ -240,9 +240,9 @@
                                 //the following code uses an array to make sure multiple trees are never triggered twice - if the id of the pulled tree data
                                 //exists in the array then do not show it, otherwise add it to the array and show the data
                                 if(!visited_array.includes(data.id)){
-                                    $.ajax({
-                                        url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
-                                    });
+                                   // $.ajax({
+                                        //url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
+                                   // });
                                     visited_array.push(data.id);
                                     geofence(data);
                                     autoSpeech(data);
@@ -415,8 +415,23 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        $.ajax({
-                            url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
+                        //$.ajax({
+                         //   url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
+                       // });
+                       $.ajax({
+                            url: "https://www.thetrailapp.com/route/" + lat + "/" + lng,
+                            method: "POST",
+                            contentType:'application/json&apos',
+                            dataType: 'json',
+                            cache: false,
+                            scriptCharset: 'utf-8',
+                        }). done (function (jdata) {
+                           var data = $.parseJSON(jdata);
+                           alert(data);
+                        }). fail (function (jdata) {
+                            var d = $.parseJSON(jdata);
+                            alert("fail");
+                            console.log (jdata);
                         });
                     },
                     onError: err =>

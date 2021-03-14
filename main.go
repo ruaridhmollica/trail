@@ -144,6 +144,32 @@ func main() {
 		}
 	})
 
+	//this function checks whether a user is within the geofence of a route - if not it tells them they are not near a route
+	router.GET("/route/:lat/:long", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
+		result := false
+		var id int
+		rows, err := db.Query("SELECT id FROM boundary WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 280)", long, lat)
+		if err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error reading trees: %q", err))
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			if err := rows.Scan(&id); err != nil {
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error scanning trees: %q", err))
+				return
+			}
+			result = true
+		}
+
+		c.JSON(200, result)
+
+	})
+
 	//this function is used for testing geolocation updates
 	router.GET("/trigger/:lat/:long", func(c *gin.Context) {
 		lat := c.Param("lat")
