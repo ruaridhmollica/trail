@@ -93,20 +93,20 @@
 
     {{template "mobnav.html"}}
     <script>
-        var myDate = new Date();
-        var hrs = myDate.getHours();
-
+        //CODE TO GENERATE DYNAMIC GREETING
+        var myDate = new Date();//gets current date
+        var hrs = myDate.getHours();//gets the current time
         var greet;
 
         if (hrs < 12)
-            greet = 'Good Morning';
-        else if (hrs >= 12 && hrs <= 16)
+            greet = 'Good Morning'; //if it is before 12PM then it is morning
+        else if (hrs >= 12 && hrs <= 16)//if it is between 12PM and 4PM it is afternoon
             greet = 'Good Afternoon';
-        else if (hrs >= 16 && hrs <= 24)
+        else if (hrs >= 16 && hrs <= 24)//if it is after 4PM and before 12am is is evening
             greet = 'Good Evening';
 
-        document.getElementById('greeting').innerHTML = greet;
-        document.getElementById('greeting2').innerHTML = greet;
+        document.getElementById('greeting').innerHTML = greet; //display the result (desktop)
+        document.getElementById('greeting2').innerHTML = greet; //display the result (mobile)
     </script>
     {{template "scripts.html"}}
 
