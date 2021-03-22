@@ -7,6 +7,7 @@
     <!-- Imports the desktop navbar template -->
     {{template "nav.html"}}
 
+    <!--DESKTOP PAGE-->
     <div class="pt-4 textcol justify-content-center wipfooter d-flex align-items-center text-center mobhide">
         <div class="h-20 w-20 container mobhide">
             <img src="/static/img/tour_mobile.png" style="height: 50%; width: 50%;" class="h-20 w-20 mobhide">
@@ -20,6 +21,7 @@
         </div>
     </div>
 
+    <!--MOBILE PAGE-->
     <!--The div for the map to be-->
     <div class="deskhide">
     <div class="justify-content-center pt-0" id="map2"></div>
@@ -194,6 +196,7 @@
             if ('geolocation' in navigator === false) {
                 return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
             }
+            //if the api is supported then call the method to get the location
             return navigator.geolocation.getCurrentPosition(onSuccess, onError);
         };
 
@@ -413,9 +416,8 @@
                 //gets the current position of the user and pans the map to that location
                 getCurrentPosition({
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
-                        marker.setPosition({ lat, lng });
-                        map.panTo({ lat, lng });
-                        //enableOrientationArrow();
+                        marker.setPosition({ lat, lng });//creates marker at user's location
+                        map.panTo({ lat, lng });//pans to the marker
                     },
                     onError: err =>
                         alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
@@ -427,9 +429,9 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        //$.ajax({
-                         //   url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
-                       // });
+                        $.ajax({
+                            url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
+                        });
                        $.ajax({
                             url: "https://www.thetrailapp.com/route/" + lat + "/" + lng,
                             method: "POST",

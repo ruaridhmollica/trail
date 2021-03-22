@@ -136,7 +136,7 @@ func main() {
 				fmt.Sprintf("Error creating database table: %q", err))
 			return
 		}
-
+		//this line adds the current timestamp and the latitude and longitude into the database
 		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),$1, $2)", lat, long); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error incrementing tick: %q", err))

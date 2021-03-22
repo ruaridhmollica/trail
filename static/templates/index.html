@@ -6,8 +6,8 @@
 <body writeit-autostart>
 
    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js', {scope: '/'})
+    if ('serviceWorker' in navigator) { //if service workers are suported in the browser then do the following
+        navigator.serviceWorker.register('sw.js', {scope: '/'})//registers the service worker file called sw.js and assigns scope over the root directory
         .then(function(registration) {
             console.log('Registration successful, scope is:', registration.scope);
         })
@@ -118,26 +118,30 @@
     </script>
 
     <script>
+        //HANDLES OBTAINING AND DISPLAYING A RANDOM FACT (every 20 seconds)
         function fact() {
+            //open a new ajax request and return the resultant data
             var json = (function () {
                 var json = null;
                 $.ajax({
                     'async': false,
                     'global': false,
-                    'url': "/static/facts.json",
+                    'url': "/static/facts.json", //URL to the local json file containing the facts
                     'dataType': "json",
-                    'success': function (data) {
+                    'success': function (data) {//if the data is retrieved then run this function and store the data
                         json = data;
                     }
                 });
                 return json;
             })();
-            let randomIndex = Math.floor(Math.random() * 25)
-            document.getElementById('fact').innerHTML = json[randomIndex];
-            document.getElementById('fact2').innerHTML = json[randomIndex];
+            let randomIndex = Math.floor(Math.random() * 25) //generate a random number between 0 and the number of facts (25)
+            document.getElementById('fact').innerHTML = json[randomIndex]; //get the fact at that random index and display it (mobile)
+            document.getElementById('fact2').innerHTML = json[randomIndex];//get the fact at that random index and display it (desktop)
         }
 
-        fact();
+        fact();//initial function call
+
+        //call the function every 20 seconds (update fact every 20 seconds)
         setInterval(function () {
             fact()
         }, 20000)

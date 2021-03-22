@@ -1,7 +1,7 @@
 console.log("Service Worker Waking UP :)");
 
-self.addEventListener('install', function(event) {
-    event.waitUntil(
+self.addEventListener('install', function(event) { //when the SW is registered this install function is executed
+    event.waitUntil(//opens the cache with the name defined on line 34 and caches the list of static files
         caches.open(CACHE_NAME)
         .then(cache => {
             return cache.addAll(cacheurls);
@@ -9,31 +9,30 @@ self.addEventListener('install', function(event) {
     );
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function(event) { //handles the activation of the sw (after registering)
     console.log("NEW Service Worker Activated :)");
   });
 
 
-self.addEventListener('fetch', event => {
+  //cache first fetch function
+self.addEventListener('fetch', event => {//waits till a file is requested
     console.log('[Trail - ServiceWorker] Fetch event fired.', event.request.url);
     event.respondWith(
-        caches.match(event.request).then(function(response) {
+        caches.match(event.request).then(function(response) {//if the file is in the cache then it retrieves it
             if (response) {
                 console.log('[Trail - ServiceWorker] Retrieving from cache...');
                 return response;
             }
-            console.log('[Trail - ServiceWorker] Retrieving from URL...');
+            console.log('[Trail - ServiceWorker] Retrieving from URL...');//if it is not in the cache then it uses the network
             return fetch(event.request).catch(function (e) {
-               //you might want to do more error checking here too,
-               //eg, check what e is returning..
                alert('You appear to be offline, please try again when back online');
             });
         })
     );
 });
 
-  const CACHE_NAME = 'Trail-cache-v3';
-  const cacheurls = [
+  const CACHE_NAME = 'Trail-cache-v3'; //defines the name of the cache
+  const cacheurls = [ //an array consistic of the static files to be cached
       './',
       '/static/edi.geojson',
       '/static/css/bootstrap.css',
