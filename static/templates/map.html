@@ -119,6 +119,21 @@
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             });
 
+            //loads the tree data from a geojson file located in the /static directory
+            map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {
+
+            //this function sets the style of the maps markers using the image link outlined by each object in the geojson files
+            map.data.setStyle(function(feature) {
+                var tree = {
+                url: feature.getProperty('icon'),
+                scaledSize: new google.maps.Size(74, 74),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 74),
+                };
+            return {icon: tree};
+            });
+            });
+
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
