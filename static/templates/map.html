@@ -134,6 +134,26 @@
             });
             });
 
+              // Handles click event on a tree marker, pulls matching tree data from json and renders it in a pop-up modal on screen
+              map.data.addListener('click', function (event) {
+                var tree_id = event.feature.getProperty('Id');
+                var tree_name = event.feature.getProperty('CommonName');
+                var latin_name = event.feature.getProperty('LatinName');
+                var tree_age = event.feature.getProperty('Age');
+                var tree_height = event.feature.getProperty('Height');
+                var tree_description = event.feature.getProperty('Description');
+                var tree_origin = event.feature.getProperty('Origin');
+                var tree_img = event.feature.getProperty('Src');
+                $('#tree_title').html(tree_id + ": " + tree_name);
+                $('#tree_img').attr("src", tree_img);
+                $('#tree_age').html(tree_age);
+                $('#latin_name').html(latin_name);
+                $('#tree_height').html(tree_height);
+                $('#tree_info').html(tree_description);
+                $('#tree_origin').html(tree_origin);
+                $('#myModal').modal('show');
+            });
+
             map.data.setStyle(function (feature) {
             return { icon: tree, visible: false };
             });
