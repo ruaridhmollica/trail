@@ -190,13 +190,16 @@ func main() {
 		lat := c.Param("lat")
 		long := c.Param("long")
 		visited := c.Param("visited")
+
+		//check if the lat and long is inside the goefence
 		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 20) AND id != $3 limit 1", long, lat, visited)
-		if err != nil {
+		if err != nil { //throws error if unsuccessful
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error reading trees: %q", err))
 			return
 		}
-		defer rows.Close()
+		defer rows.Close() //keeps query result open
+		//define variables for query result to go
 		var name string
 		var latinname string
 		var height int
@@ -207,6 +210,7 @@ func main() {
 		var id string
 		var success bool = false
 
+		//loop through the results putting the values into the variables defined above
 		for rows.Next() {
 			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
 				c.String(http.StatusInternalServerError,
@@ -215,7 +219,7 @@ func main() {
 			}
 			success = true
 		}
-
+		//stores variable values in a json object
 		treeJson := TreeJson{
 			Id:          id,
 			Name:        name,
@@ -226,9 +230,9 @@ func main() {
 			Img:         img,
 		}
 
-		js, err := json.Marshal(treeJson)
+		js, err := json.Marshal(treeJson) //encodes the json
 
-		if success == true && id != visited {
+		if success == true && id != visited { //returns the json to the front end
 			c.JSON(200, string(js))
 		} else {
 			c.JSON(200, "null")

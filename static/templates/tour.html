@@ -124,6 +124,8 @@
         }
     };
 
+    navigator.vibrate(100);//
+
     //this function is called once a geofence is entered and uses the speech synth api to tell a user about the tree they are approaching.
     function autoSpeech(json){
         if (visited != 0){
@@ -255,9 +257,6 @@
                                 //the following code uses an array to make sure multiple trees are never triggered twice - if the id of the pulled tree data
                                 //exists in the array then do not show it, otherwise add it to the array and show the data
                                 if(!visited_array.includes(data.id)){
-                                   // $.ajax({
-                                        //url: "https://www.thetrailapp.com/trigger/" + lat + "/" + lng
-                                   // });
                                     visited_array.push(data.id);
                                     geofence(data);
                                     autoSpeech(data);
@@ -429,9 +428,9 @@
                     onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
                         marker.setPosition({ lat, lng });
                         map.panTo({ lat, lng });
-                        $.ajax({
-                            url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
-                        });
+                       // $.ajax({
+                           // url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
+                        //});
                        $.ajax({
                             url: "https://www.thetrailapp.com/route/" + lat + "/" + lng,
                             method: "POST",
