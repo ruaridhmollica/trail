@@ -135,30 +135,29 @@
             var age = json.age;
             var description = json.description;
             var origin = json.origin;
-
-            if('speechSynthesis' in window){
+            if('speechSynthesis' in window){//if speech synth is supported then create a new Utterance string
                 var speech = new SpeechSynthesisUtterance('You are approaching tree number' + id + '. This ' + latinname + '. commonly known as the' + name + '. is ' + height + ' feet tall. ' + age + 'years old. and originates from ' + origin + '.' + description);
-                speech.lang = 'en-GB';
-                window.speechSynthesis.speak(speech);
+                speech.lang = 'en-GB';//set the speech voice/language
+                window.speechSynthesis.speak(speech);//speak the string defined above at default pace
             }
         }
     }
 
-    //on IOS you cannot autmatically play audio, it must be triggered by a button push, hence, this code allows for any modal to be spoken aloud via a press of a button
+    //on IOS you cannot autmatically play audio, it must be triggered by a button push, hence, this code allows 
+    //for any tree information to be spoken aloud via a press of a button
     function read(){
-            var idName = $('#tree_title').html();
+            var idName = $('#tree_title').html(); //add the contents of the data box to variables
             var age = $('#tree_age').html();
             var latinname = $('#latin_name').html();
             var height = $('#tree_height').html();
             var description = $('#tree_info').html();
             var origin = $('#tree_origin').html();
-
             //if the user not on an IOS/Apple device call the vibrate function
             if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(100); }
-            if('speechSynthesis' in window){
+            if('speechSynthesis' in window){//if speech synth is supported then create a new Utterance string
                 var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
-                speech.lang = 'en-GB';
-                textToSpeech.speak(speech);
+                speech.lang = 'en-GB';//set the speech voice/language
+                textToSpeech.speak(speech);//speak the string defined above at default pace
             }
     }
         //returns to the user an error messaged based on a received error code
@@ -207,7 +206,6 @@
             if ('geolocation' in navigator === false) {
                 return onError(new Error('Sorry, Geolocation is not supported by your browser.'));
             }
-
             return navigator.geolocation.watchPosition(onSuccess, onError, {
                 enableHighAccuracy: true,
                 timeout: 10000,

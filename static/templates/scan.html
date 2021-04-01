@@ -51,34 +51,34 @@
         }
 
         function validURL(str) {
-        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // the protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // the domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip address
             '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query 
             '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
         return !!pattern.test(str);
         }
-
         function startScanning() {
             console.log("Scan beginning")
-            var results = document.getElementById('scanned-result');
+            var results = document.getElementById('scanned-result');//define QR variables
             var lastMessage;
             var codesFound = 0;
-
-            function onScanSuccess(qrCodeMessage) {
+            function onScanSuccess(qrCodeMessage) {//if a QR code is found
                 var button = document.getElementById('start');
-                if (lastMessage !== qrCodeMessage) {
-                    lastMessage = qrCodeMessage;
-                    if (validURL(qrCodeMessage)) {
-                        stopScanning();
+                if (lastMessage !== qrCodeMessage) {//checks if the last scanned item is not the same as the current one
+                    lastMessage = qrCodeMessage;//updates the last scanned message with the current one
+                    if (validURL(qrCodeMessage)) {//checks the QR code content using the REGEX function to make
+                    //sure it is a URL
+                        stopScanning();//stop scanning if it is valid
                         scanning = false;
                         button.disabled = false;
                         button.innerHTML = "Start Scanning";
                         button.setAttribute('class','btn btn-success');
-                        //alert('This code is taking you to another page');
+                        //This code makes sure that users cannot scan malicious URLS
+                        //i.e. the QR code can only be for the trail app domain
                         if (qrCodeMessage.includes("thetrailapp")){
-                        window.location.href = qrCodeMessage;
+                        window.location.href = qrCodeMessage;//redirects the user to that page
                         }else{
                             alert("Sorry, you can only scan QR codes designed for the Trail application");
                         }
