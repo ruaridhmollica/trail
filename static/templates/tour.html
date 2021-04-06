@@ -454,7 +454,7 @@
 
             // Handles click event on a tree marker, pulls matching tree data from json and renders it in a pop-up modal on screen
             map.data.addListener('click', function (event) {
-                var tree_id = event.feature.getProperty('Id');
+                var tree_id = event.feature.getProperty('Id');//pulls data from geojson
                 var tree_name = event.feature.getProperty('CommonName');
                 var latin_name = event.feature.getProperty('LatinName');
                 var tree_age = event.feature.getProperty('Age');
