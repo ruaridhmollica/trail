@@ -40,15 +40,13 @@
             var height = $('#tree_height').html();
             var description = $('#tree_info').html();
             var origin = $('#tree_origin').html();
-            //if the user not on an IOS/Apple device call the vibrate function
-            if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(100); }
             if('speechSynthesis' in window){//if speech synth is supported then create a new Utterance string
                 var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
                 speech.lang = 'en-GB';//set the speech voice/language
                 textToSpeech.speak(speech);//speak the string defined above at default pace
             }
     }
-    
+
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 55.942567, lng: -3.216411 },
