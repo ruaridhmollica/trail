@@ -30,7 +30,9 @@
     <!--Generate the map for the page using the Google My Maps JavaScript API-->
     <script>
         let map;
-
+        //defines the variable used to convert text into speech (speech synth api)
+        var textToSpeech = window.speechSynthesis;
+        
           //on IOS you cannot autmatically play audio, it must be triggered by a button push, hence, this code allows 
     //for any tree information to be spoken aloud via a press of a button
     function read(){
