@@ -381,7 +381,7 @@
                         if (os.name == "iOS" || os.name == "Mac OS") {
                             alpha = event.webkitCompassHeading;
                         }
-                        //non iOS
+                        //android etc
                         else {
                             alpha = event.alpha;
                         }
@@ -428,7 +428,7 @@
                        // $.ajax({
                            // url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         //});
-                       $.ajax({
+                       $.ajax({//send location to backend
                             url: "https://www.thetrailapp.com/route/" + lat + "/" + lng,
                             method: "POST",
                             contentType:'application/json&apos',
@@ -436,9 +436,9 @@
                             cache: false,
                             scriptCharset: 'utf-8',
                         }). done (function (jdata) {
-                            counter++;
+                            counter++;//use a counter to display the data every 5 seconds
                            var data = $.parseJSON(jdata);
-                           if(data == false && counter%4 == 0){
+                           if(data == false && counter%5 == 0){//if the user is not inside the geofence alert them
                                alert("Lost? \nYou are not in the vicinity of a Route.\n Please make your way to Heriot-Watt Campus or the Test Area");
                            }
                         }). fail (function (jdata) {
