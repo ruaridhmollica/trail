@@ -63,7 +63,7 @@
              }
 
            
-            map.data.loadGeoJson('/static/edi.geojson', null, function (features) {
+            map.data.loadGeoJson('/static/small-edi.geojson', null, function (features) {
             var markers = features.map(function (feature) {
                 var g = feature.getGeometry();
                 marker = new google.maps.Marker({ 
