@@ -94,7 +94,7 @@
         var textToSpeech = window.speechSynthesis;
 
         //kickstarts the obtaining of a users current location
-        getCurrentPosition();
+        getLocation();
        
 
 
@@ -186,6 +186,16 @@
             });
         };
 
+        //this is function gets the location every 3 secods so as to not timeout on location requests, it then calls the function that checks
+        //if a user is inside a geofence or not
+        function getLocation(){
+                if (navigator.geolocation)
+                    {
+                    navigator.geolocation.getCurrentPosition(showError);
+                    setTimeout(getLocation, 3000);
+                    }
+                else{alert("Geolocation is not supported by this browser.");}
+            };
 
 
             
