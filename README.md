@@ -1,9 +1,9 @@
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ruaridhmollica/Trail?label=Powered%20by%20Go&logo=Go)
 
-# Trail - 4th Year CompSci Dissertation Project
+# Trail - An Innovative Way To Learn About Trees on the HWU Campus
 A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR, Spatial and Speech Synth technologies.
-Augmented Reality is also experimented with.
 * Work In Progress Deployed at: https://www.thetrailapp.com/
+This application is created by Ruaridh Mollica, the creative direction of this application idea is by Ruaridh Mollica.
 
 ## Stack
 
@@ -39,4 +39,3 @@ To make this web app usable and pretty the following technologies are used:
 * Google Maps' [Marker Clusterer Library](https://googlemaps.github.io/v3-utility-library/classes/_google_markerclustererplus.markerclusterer.html)
 * [SpeechSynthesis Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - used for text to speech synthesis
 * [User Agent Parser](https://github.com/faisalman/ua-parser-js) by faisalman on GitHub - used to get the users operating system to prevent vibration API functions calling when a user is running web app on an IOS or Mac OS device. (vibration API. is unsupported by IOS)
-* [AR.js](https://github.com/AR-js-org/AR.js) - Augmetented Reality Web Framework
