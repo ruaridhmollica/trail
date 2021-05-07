@@ -66,7 +66,7 @@
         var id = '{{.id}}';
         var name = '{{.treename}}';
         var latinname = '{{.latinname}}';
-        var height = '{{.height}}';
+        var height = '{{.height}}' + " ft";
         var age = '{{.age}}';
         var description = '{{.description}}';
         var origin = '{{.origin}}';
@@ -97,25 +97,6 @@
         getLocation();
        
 
-
-    //this function is called once a geofence is entered and uses the speech synth api to tell a user about the tree they are approaching.
-    function autoSpeech(json){
-        if (visited != 0){
-            var id = json.id;
-            var name = json.name;
-            var latinname = json.latinname;
-            var height = json.height;
-            var age = json.age;
-            var description = json.description;
-            var origin = json.origin;
-            if('speechSynthesis' in window){//if speech synth is supported then create a new Utterance string
-                var speech = new SpeechSynthesisUtterance('You are approaching tree number' + id + '. This ' + latinname + '. commonly known as the' + name + '. is ' + height + ' feet tall. ' + age + 'years old. and originates from ' + origin + '.' + description);
-                speech.lang = 'en-GB';//set the speech voice/language
-                window.speechSynthesis.speak(speech);//speak the string defined above at default pace
-            }
-        }
-    }
-
     //on IOS you cannot autmatically play audio, it must be triggered by a button push, hence, this code allows 
     //for any tree information to be spoken aloud via a press of a button
     function read(){
@@ -128,7 +109,7 @@
             //if the user not on an IOS/Apple device call the vibrate function
             if(os.name != "iOS" && os.name != "Mac OS") { navigator.vibrate(100); }
             if('speechSynthesis' in window){//if speech synth is supported then create a new Utterance string
-                var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. ' + age + 'years old, and originates from ' + origin + ',' + description);
+                var speech = new SpeechSynthesisUtterance('Tree ' + idName + ', This ' + latinname + ', is ' + height + ' tall. And' + age + 'years old, and originates from ' + origin + ',' + description);
                 speech.lang = 'en-GB';//set the speech voice/language
                 textToSpeech.speak(speech);//speak the string defined above at default pace
             }
@@ -192,7 +173,7 @@
                 if (navigator.geolocation)
                     {
                     navigator.geolocation.getCurrentPosition(showError);
-                    setTimeout(getLocation, 3000);
+                    setTimeout(getLocation, 2000);
                     }
                 else{alert("Geolocation is not supported by this browser.");}
             };

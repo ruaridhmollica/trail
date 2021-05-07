@@ -1001,66 +1001,6 @@
           55.90954020560495
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Id": "005",
-        "CommonName": "Rowan",
-        "LatinName": "Sorbus aucuparia",
-        "Height": "10",
-        "Age": "3",
-        "Description": "Mature trees can grow to 15m in height and can live for up to 200 years. The bark is smooth and silvery grey, and leaf buds are purple and hairy.",
-        "Origin": "Native",
-        "icon": "/static/img/tree5.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.2138,
-          55.9406
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Id": "006",
-        "CommonName": "Ash",
-        "LatinName": "Fraxinus excelsior",
-        "Height": "12",
-        "Age": "3",
-        "Description": "When fully grown, ash trees can reach a height of 35m. Tall and graceful, they often grow together, forming a domed canopy. The bark is pale brown to grey and fissures as the tree ages. The tree is easily identified in winter by its smooth twigs that have distinctive black, velvety leaf buds arranged opposite each other.",
-        "Origin": "Native",
-        "icon": "/static/img/tree6.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.2140,
-          55.9405
-        ]
-      }
-    },
-      {
-      "type": "Feature",
-      "properties": {
-        "Id": "007",
-        "CommonName": "Baby Ash",
-        "LatinName": "Fraxinus excelsior",
-        "Height": "11",
-        "Age": "3",
-        "Description": "TEST The tree is easily identified in winter by its smooth twigs that have distinctive black, velvety leaf buds arranged opposite each other.",
-        "Origin": "Native",
-        "icon": "/static/img/tree7.svg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.2144,
-          55.9403
-        ]
-      }
     }
   ]
 }

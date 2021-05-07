@@ -119,9 +119,10 @@ func main() {
 		c.File("static/TreesHWU.geojson")
 	})
 
-	router.GET("/ar", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "ar.html", gin.H{"navtitle": "Ar."})
-	})
+	//router.GET("/ar", func(c *gin.Context) {
+	//	c.HTML(http.StatusOK, "ar.html", gin.H{"navtitle": "Ar."})
+	//})
+
 	router.GET("/scan", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
 	})
