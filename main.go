@@ -1,12 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
+	heroku "github.com/jonahgeorge/force-ssl-heroku"
 	_ "github.com/lib/pq"
 
 	"database/sql"
@@ -167,4 +169,77 @@ func main() {
 
 	})
 
+	//this function is used for testing geolocation updates
+	router.GET("/trigger/:lat/:long", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
+		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trigger (tick timestamp, lat real, long real)"); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error creating database table: %q", err))
+			return
+		}
+
+		if _, err := db.Exec("INSERT INTO trigger VALUES (now(),$1, $2)", lat, long); err != nil {
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error incrementing tick: %q", err))
+			return
+		}
+	})
+
+	router.POST("/geofence/:lat/:long/:visited", func(c *gin.Context) {
+		lat := c.Param("lat")
+		long := c.Param("long")
+		visited := c.Param("visited")
+
+		//check if the lat and long is inside the goefence
+		rows, err := db.Query("SELECT id, treename, latinname, height, age, description, origin, img FROM trees WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 20) AND id != $3 limit 1", long, lat, visited)
+		if err != nil { //throws error if unsuccessful
+			c.String(http.StatusInternalServerError,
+				fmt.Sprintf("Error reading trees: %q", err))
+			return
+		}
+		defer rows.Close() //keeps query result open
+		//define variables for query result to go
+		var name string
+		var latinname string
+		var height int
+		var age int
+		var description string
+		var origin string
+		var img string
+		var id string
+		var success bool = false
+
+		//loop through the results putting the values into the variables defined above
+		for rows.Next() {
+			if err := rows.Scan(&id, &name, &latinname, &height, &age, &description, &origin, &img); err != nil {
+				c.String(http.StatusInternalServerError,
+					fmt.Sprintf("Error scanning trees: %q", err))
+				return
+			}
+			success = true
+		}
+		//stores variable values in a json object
+		treeJson := TreeJson{
+			Id:          id,
+			Name:        name,
+			Latinname:   latinname,
+			Height:      height,
+			Age:         age,
+			Description: description,
+			Img:         img,
+		}
+
+		js, err := json.Marshal(treeJson) //encodes the json
+
+		if success == true && id != visited { //returns the json to the front end
+			c.JSON(200, string(js))
+		} else {
+			c.JSON(200, "null")
+		}
+
+	})
+
+	router.Run(":" + port)
+	heroku.ForceSsl(router)
 }

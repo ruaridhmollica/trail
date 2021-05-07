@@ -17,6 +17,8 @@ github.com/go-playground/validator/v10
 github.com/go-sql-driver/mysql
 # github.com/golang/protobuf v1.3.3
 github.com/golang/protobuf/proto
+# github.com/jonahgeorge/force-ssl-heroku v1.0.1
+github.com/jonahgeorge/force-ssl-heroku
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
 # github.com/leodido/go-urn v1.2.0
