@@ -3,7 +3,13 @@
 # Trail - An Innovative Way To Learn About Trees on the HWU Campus
 A Progressive Web App (PWA) that allows a user to get information about the trees on the Heriot-Watt using QR, Spatial and Speech Synth technologies.
 * Work In Progress Deployed at: https://www.thetrailapp.com/
-This application is created by Ruaridh Mollica, the creative direction of this application idea is by Ruaridh Mollica.
+- This application is created by Ruaridh Mollica, the creative direction of this application idea is owned by Ruaridh Mollica. As per section 2 of Heriot-Watts Intelectual Property Policy which states: 
+> Any Intellectual Property created by a Student during the course of his/her study shall
+remain the property of the Student except where the provisions of Clause Three
+herein apply. In particular first ownership of any copyright created rests with the
+Student in accordance with the Copyright, Designs and Patents Act 1988 except
+where the provisions of Clause Three herein apply.
+
 
 ## Stack
 
