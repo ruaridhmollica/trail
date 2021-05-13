@@ -336,7 +336,7 @@
                        // $.ajax({
                            // url: "https://www.thetrailapp.com/location/" + lat + "/" + lng
                         //});
-                       $.ajax({//send location to backend
+                      /* $.ajax({//send location to backend
                             url: "https://www.thetrailapp.com/route/" + lat + "/" + lng,
                             method: "POST",
                             contentType:'application/json&apos',
@@ -353,7 +353,7 @@
                             var d = $.parseJSON(jdata);
                             alert("fail");
                             console.log (jdata);
-                        });
+                        });*/
                     },
                     onError: err =>
                         alert(`Error: ${getPositionError(err.code) || err.message}`)
