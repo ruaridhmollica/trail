@@ -51,7 +51,7 @@
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 55.942567, lng: -3.216411 },
+                center: { lat: 55.909769499991654, lng: -3.3205147727103452 },
                 zoom: 12,
             });
 
@@ -62,80 +62,6 @@
             anchor: new google.maps.Point(0, 74),
              }
 
-           
-            map.data.loadGeoJson('/static/small-edi.geojson', null, function (features) {
-            var markers = features.map(function (feature) {
-                var g = feature.getGeometry();
-                marker = new google.maps.Marker({ 
-                    'position': g.get(0),
-                    'icon': tree
-                });
-                google.maps.event.addListener(marker, 'click', () => {
-                
-                //Try and catch statements as some data in the Edin Trees dataset is null and hence would throw undefined errors,
-                //these statements handle any errors if the clicked on tree has any undefined elements
-                try {
-                    if (event.feature.getProperty('CommonName')){
-                        var tree_name = event.feature.getProperty('CommonName');
-                    }
-                }
-                catch(e){
-                    var tree_name = "Insufficient Data";
-                };
-
-                try {
-                    if (event.feature.getProperty('LatinName')){
-                        var latin_name = event.feature.getProperty('LatinName');
-                    }
-                }
-                catch(e){
-                    var latin_name = "Insufficient Data";
-                };
-
-                try {
-                    if (event.feature.getProperty('AgeGroup')){
-                        var tree_age = event.feature.getProperty('AgeGroup');
-                    }
-                }
-                catch(e){
-                    var tree_age = "Insufficient Data";
-                };
-
-                try {
-                    if (event.feature.getProperty('Height')){
-                        var tree_height = event.feature.getProperty('Height');
-                    }
-                }
-                catch(e){
-                    var tree_height = "Insufficient Data";
-                };
-                //try and catch 
-                try {
-                    if (event.feature.getProperty('Site')){
-                        var tree_description = event.feature.getProperty('Site');
-                    }
-                }
-                catch(e){
-                    var tree_description = "Insufficient Data";
-                };
-                var tree_origin = "Insufficient Data";
-                var tree_img = "";
-                $('#tree_title').html(tree_name);
-                $('#tree_img').attr("src", tree_img);
-                $('#tree_age').html(tree_age);
-                $('#latin_name').html(latin_name);
-                $('#tree_height').html(tree_height);
-                $('#tree_info').html('Located at ' + tree_description);
-                $('#tree_origin').html(tree_origin);
-                $('#myModal').modal('show');
-                })
-                return marker;
-            });
-
-         
-            var markerCluster = new MarkerClusterer(map, markers,{ 
-                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-            });
 
             //loads the tree data from a geojson file located in the /static directory
             map.data.loadGeoJson('/static/TreesHWU.geojson', null, function (features) {

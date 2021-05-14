@@ -119,71 +119,8 @@ func main() {
 		c.File("static/TreesHWU.geojson")
 	})
 
-	//router.GET("/ar", func(c *gin.Context) {
-	//	c.HTML(http.StatusOK, "ar.html", gin.H{"navtitle": "Ar."})
-	//})
-
 	router.GET("/scan", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "scan.html", gin.H{"navtitle": "Scan."})
-	})
-
-	//this function is used for testing geolocation updates
-	router.GET("/location/:lat/:long", func(c *gin.Context) {
-		lat := c.Param("lat")
-		long := c.Param("long")
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp, lat real, long real)"); err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error creating database table: %q", err))
-			return
-		}
-		//this line adds the current timestamp and the latitude and longitude into the database
-		if _, err := db.Exec("INSERT INTO ticks VALUES (now(),$1, $2)", lat, long); err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error incrementing tick: %q", err))
-			return
-		}
-	})
-
-	//this function checks whether a user is within the geofence of a route - if not it tells them they are not near a route
-	router.POST("/route/:lat/:long", func(c *gin.Context) {
-		lat := c.Param("lat")
-		long := c.Param("long")
-		result := false
-		var id int
-		rows, err := db.Query("SELECT id FROM boundary WHERE ST_DWithin ( geography (ST_Point(longitude,latitude)), geography (ST_Point($1, $2)), 280)", long, lat)
-		if err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error reading trees: %q", err))
-			return
-		}
-		defer rows.Close()
-		for rows.Next() {
-			if err := rows.Scan(&id); err != nil {
-				c.String(http.StatusInternalServerError,
-					fmt.Sprintf("Error scanning trees: %q", err))
-				return
-			}
-			result = true
-		}
-		c.JSON(200, result)
-
-	})
-
-	//this function is used for testing geolocation updates
-	router.GET("/trigger/:lat/:long", func(c *gin.Context) {
-		lat := c.Param("lat")
-		long := c.Param("long")
-		if _, err := db.Exec("CREATE TABLE IF NOT EXISTS trigger (tick timestamp, lat real, long real)"); err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error creating database table: %q", err))
-			return
-		}
-
-		if _, err := db.Exec("INSERT INTO trigger VALUES (now(),$1, $2)", lat, long); err != nil {
-			c.String(http.StatusInternalServerError,
-				fmt.Sprintf("Error incrementing tick: %q", err))
-			return
-		}
 	})
 
 	router.Run(":" + port)
